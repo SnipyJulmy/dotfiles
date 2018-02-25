@@ -1,1 +1,1 @@
-ln -s .spacemacs ~/.spacemacs
+ln -s ./spacemacs ~/.spacemacs
