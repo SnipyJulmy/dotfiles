@@ -15,8 +15,6 @@ set tabstop=4
 set history=1000
 set undofile
 
-colorscheme archery
-
 filetype plugin indent on
 
 call plug#begin()
@@ -40,3 +38,5 @@ let g:lightline = {
 
 set mouse=a                 " Automatically enable mouse usage
 set mousehide               " Hide the mouse cursor while typing
+
+colorscheme archery
