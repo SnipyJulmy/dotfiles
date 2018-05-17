@@ -324,6 +324,8 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (setq-default git-magit-status-fullscreen t)
+  (autoload 'prolog-mode "prolog" "Major mode for editing Prolog programs." t)
+  (add-to-list 'auto-mode-alist '("\\.pl\\'" . prolog-mode))
   )
 
 (defun dotspacemacs/user-config ()
