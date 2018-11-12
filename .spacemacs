@@ -31,7 +31,6 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     python
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -324,6 +323,7 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (setq-default git-magit-status-fullscreen t)
+  ;; for prolog-mode
   (autoload 'prolog-mode "prolog" "Major mode for editing Prolog programs." t)
   (add-to-list 'auto-mode-alist '("\\.pl\\'" . prolog-mode))
   )
