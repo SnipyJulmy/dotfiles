@@ -28,8 +28,13 @@ Plug 'tpope/vim-markdown'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-startify'
 Plug 'Badacadabra/vim-archery'
+" Plug 'zxqfl/tabnine-vim'
+" Plug 'ycm-core/YouCompleteMe'
 
 call plug#end()
+
+" NERDTree config
+map <C-n> :NERDTreeToggle<CR>
 
 " Lightlineconfig
 let g:lightline = {
