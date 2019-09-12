@@ -34,6 +34,7 @@ Plug 'tpope/vim-markdown'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-startify'
 Plug 'Badacadabra/vim-archery'
+Plug 'sickill/vim-monokai'
 " Plug 'zxqfl/tabnine-vim'
 " Plug 'ycm-core/YouCompleteMe'
 
@@ -44,10 +45,10 @@ map <C-n> :NERDTreeToggle<CR>
 
 " Lightlineconfig
 let g:lightline = {
-      \ 'colorscheme': 'archery',
+      \ 'colorscheme': 'monokai',
       \ }
 
 set mouse=a                 " Automatically enable mouse usage
 set mousehide               " Hide the mouse cursor while typing
 
-colorscheme archery
+colorscheme monokai
