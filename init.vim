@@ -25,7 +25,6 @@ filetype plugin indent on
 
 call plug#begin()
 
-Plug 'vim-scripts/jr.vim'
 Plug 'godlygeek/tabular'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
@@ -48,6 +47,3 @@ colorscheme monokai
 
 set mouse=a                 " Automatically enable mouse usage
 set mousehide               " Hide the mouse cursor while typing
-
-" JR
-au BufNewFile,BufRead *.jr setf jr

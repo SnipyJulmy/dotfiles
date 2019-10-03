@@ -1,18 +1,52 @@
 #!/usr/bin/env bash
 
-# script to "install" some dotfiles into the system, only symbolic link are created
-# so one can just modify the files from the .dotfiles directory
+#===============================================================================
+#         NAME:  install
+#  DESCRIPTION:  The purpose of this script is to install various configuration
+#                files like vimrc or spacemacs, automatically and with backup
+#                information.
+#===============================================================================    
+
+__ScriptVersion="1.0"
 
 DO_BACKUP=false
 OVERWRITE=false
 
-LOCAL_VIMRC=".vimrc"
-DEST_VIMRC="$HOME/.vimrc"
+#===  FUNCTION  ================================================================
+#         NAME:  usage
+#  DESCRIPTION:  Display usage information.
+#===============================================================================
+function usage ()
+{
+    echo "Usage :  $0 [options] [--]
 
-SPACEMACS="$HOME/.spacemacs"
-NVIMRC="$HOME/.config/nvim/init.vim"
-TMUX="$HOME/.tmux.conf"
-CTAGS="$HOME/.ctags"
+    Options:
+    -o|overwrite  Force the overwrite of the existing configuration files
+    -b|backup     Create backup file of existing configuration files if they are overwriten
+    -d|verbose    Enable verbose mode
+    -h|help       Display this message
+    -v|version    Display script version"
+
+}    # ----------  end of function usage  ----------
+
+#-----------------------------------------------------------------------
+#  Handle command line arguments
+#-----------------------------------------------------------------------
+
+while getopts ":hvobd" opt
+do
+    case $opt in
+
+        o|overwrite ) OVERWRITE=true                                                              ;;
+        b|backup    ) DO_BACKUP=true                                                              ;;
+        d|verbose   ) set -x                                                                      ;;
+        h|help      ) usage; exit 0                                                               ;;
+        v|version   ) echo "$0 -- Version $__ScriptVersion"; exit 0                               ;;
+        *           ) echo -e "\n  Option does not exist : $OPTARG\n" ;             usage; exit 1 ;;
+
+    esac    # --- end of case ---
+done
+shift $(($OPTIND-1))
 
 # install a file into the specified path, the installation is done by creating symbolic link
 # so one can modify standard file and modify only the one present in the git repository
@@ -25,52 +59,20 @@ function install() {
     if [[ -e $DESTINATION_PATH ]]; then
         if [[ $OVERWRITE == true ]]; then
             if [[ $DO_BACKUP == true ]]; then
-                echo "mv $DESTINATION_PATH $DESTINATION_PATH.bak"
+                mv $DESTINATION_PATH $DESTINATION_PATH.bak
             fi
-            echo "rm $DESTINATION_PATH"
+            rm $DESTINATION_PATH
+            ln -s $SOURCE_PATH $DESTINATION_PATH
+        else
+            echo "$DESTINATION_PATH already exists, do nothing"
         fi
+    else
+        ln -s $SOURCE_PATH $DESTINATION_PATH
     fi
-    echo "ln -s $SOURCE_PATH $DESTINATION_PATH"
 }
 
-install $LOCAL_VIMRC $DEST_VIMRC
-
-#
-#if [[ -e $VIMRC ]] && [[ $OVERWRITE ]] ; then
-#	if [[ $DO_BACKUP ]]; then
-#		mv $VIMRC "$VIMRC.bak"
-#	else
-#		rm $VIMRC
-#	fi
-#fi
-#
-#if [[ -e $SPACEMACS ]] && [[ $OVERWRITE ]] ; then
-#	if [[ $DO_BACKUP ]]; then
-#		mv $SPACEMACS "$SPACEMACS.bak"
-#	else
-#		rm $SPACEMACS
-#	fi
-#	rm $SPACEMACS
-#fi
-#
-#if [[ -e $NVIMRC ]] && [[ $OVERWRITE ]] ; then
-#	if [[ $DO_BACKUP ]]; then
-#		mv $NVIMRC "$NVIMRC.bak"
-#	else
-#		rm $NVIMRC
-#	fi
-#fi
-#
-#if [[ -e $TMUX ]] && [[ $OVERWRITE ]] ; then
-#	if [[ $DO_BACKUP ]]; then
-#		mv $TMUX "$TMUX.bak"
-#	else
-#		rm $TMUX
-#	fi
-#fi
-#
-#ln -s ~/.dotfiles/.vimrc $VIMRC
-#ln -s ~/.dotfiles/.tmux.conf $TMUX
-#ln -s ~/.dotfiles/init.vim $NVIMRC
-#ln -s ~/.dotfiles/.spacemacs $SPACEMACS
-#ln -s ~/.dotfiles/.ctags $CTAGS
+install "vimrc" "$HOME/.vimrc"
+install "spacemacs" "$HOME/.spacemacs"
+install "tmux.conf" "$HOME/.tmux.conf"
+install "init.vim" "$HOME/.config/nvim/init.vim"
+install "ctags.d" "$HOME/.ctags.d"

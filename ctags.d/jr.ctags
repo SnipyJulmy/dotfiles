@@ -1,0 +1,24 @@
+--langdef=jr
+--langmap=jr:.jr
+--kinddef-jr=p,package,packages
+--kinddef-jr=f,field,fields
+--kinddef-jr=g,enumT,enumTs
+--kinddef-jr=e,enumV,enumVs
+--kinddef-jr=i,interface,interface
+--kinddef-jr=c,class,classes
+--kinddef-jr=m,method,methods
+--kinddef-jr=P,process,processes
+--kinddef-jr=O,op,operations
+--kinddef-jr=C,cap,capabilities
+
+--_fielddef-jr=protection,access scope
+--_fielddef-jr=modifier,modifiers
+
+# class detection
+--regex-jr=/^[ \t]*public class[ \t]+([a-zA-Z0-9_]+)/\1/c,class,classes/{access=public}
+--regex-jr=/^[ \t]*private class[ \t]+([a-zA-Z0-9_]+)/\1/c,class,classes/{access=private}
+--regex-jr=/^[ \t]*protected class[ \t]+([a-zA-Z0-9_]+)/\1/c,class,classes/{access=protected}
+--regex-jr=/^[ \t]*class[ \t]+([a-zA-Z0-9_]+)/\1/c,class,classes/
+
+# constructor
+--regex-jr=/^[ \t]*public([a-zA-Z0-9_]+)/\1/o,constructor,constructors/{access=public}{signature=() -> Magrathea}

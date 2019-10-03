@@ -1,0 +1,17 @@
+snippet def "generate comment for script documentation"
+#===============================================================================
+#         NAME:  ${1:`!p snip.rv = snip.basename`}
+#  DESCRIPTION:  ${2:description}
+#===============================================================================
+endsnippet
+
+snippet fun "function definition"
+#===  FUNCTION  ================================================================
+#         NAME:  $1
+#  DESCRIPTION:  ${2:description}
+#===============================================================================
+function ${1:functionName} ()
+{
+	${3:# Code}
+}
+endsnippet

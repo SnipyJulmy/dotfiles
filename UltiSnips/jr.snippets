@@ -1,0 +1,34 @@
+snippet psi "public static int" i
+public static int 
+endsnippet
+
+snippet prsi "private static int" i
+private static int 
+endsnippet
+
+snippet try "try/catch" b
+try {
+	$1${VISUAL}
+} catch(${2:Exception} ${3:e}){
+	${4:e.printStackTrace();}
+}
+endsnippet
+
+snippet for "for-loop" b
+for (${1:int} ${2:i}=${3:0}; $2 < ${4:N}; ${5:$2++}) {
+	${6:// Code} 
+}
+endsnippet
+
+snippet sout "System.out.println" i
+System.out.println($1);
+endsnippet
+
+snippet souf "System.out.printf"
+System.out.printf("${1:formated str}",${2:vars});
+endsnippet
+
+snippet pii "private int" i
+private int ${1:identifier}
+endsnippet
+	
