@@ -1,0 +1,20 @@
+[edit]
+    command = "nvim"
+
+[merge]
+    command = "nvim"
+    args = ["-d", "{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
+
+[diff]
+    exclude = ["scripts"]
+
+encryption = "age"
+[age]
+    identity = "~/.agekey.txt"
+    recipients = [
+        "age1fj55jsq3g8pck8fhevxglzzymqnzdqm6sluvadmk6es48cayy33smmwcz4",
+        "age1tduwep92y009u8dg0ewvu25ez5ajkupu840kudsy5c0v76w7m5cqqhxl9r"
+    ]
+
+[git]
+    autoPush = false

@@ -1,0 +1,14 @@
+hotKey:
+  f1:
+    shortCut: F1
+    description : Viewving pods
+    command: pods
+  f2:
+    shortCut: F2
+    description : Viewving deployment
+    command: deploy
+  f3:
+    shortCut: F2
+    description : Viewving configs
+    command: configmap
+

@@ -1,0 +1,65 @@
+.idea/
+*.iml
+target/
+
+# Created by https://www.gitignore.io/api/vim
+# Edit at https://www.gitignore.io/?templates=vim
+
+### Vim ###
+# Swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Session
+Session.vim
+Sessionx.vim
+
+# Temporary
+.netrwhist
+*~
+
+# Auto-generated tag files
+tags
+
+# Persistent undo
+[._]*.un~
+
+# Coc configuration directory
+.vim
+
+# VS Code
+.vscode
+
+# Metals
+.metals/
+.bloop/
+.ammonite/
+.bsp/
+metals.sbt
+.bazelbsp
+
+# End of https://www.gitignore.io/api/vim
+.DS_Store
+
+# Jython
+.jython_cache
+
+# BAZEL
+bazel-*
+
+### Neovim config
+.config/nvim/after
+
+### Python venv
+.venv
+venv
+
+### personal
+touille*
+
+### JS/TS
+jsconfig.json
+tsconfig.json

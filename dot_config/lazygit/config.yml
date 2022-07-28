@@ -1,0 +1,10 @@
+git:
+  pull:
+    mode: 'rebase'
+  disableForcePushing: false
+disableStartupPopups: true
+gui:
+  showFileTree: false
+os:
+  editCommand: 'nvim'
+  editCommandTemplate: '{{editor}} +{{line}} -- {{filename}}'

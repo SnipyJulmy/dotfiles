@@ -1,0 +1,25 @@
+[user]
+	email = sylvain.julmy@gmail.com
+	name = Sylvain (Snipy) Julmy
+[core]
+	excludesfile = /Users/sij/.gitignore
+[merge]
+	conflictstyle = diff3
+[init]
+	defaultBranch = master
+[fetch]
+	prune = true
+[pull]
+	rebase = true
+	ff = only
+[push]
+	followTags = true
+	autoSetupRemote = true
+	default = current
+[alias]
+	wip = commit -a -m "WIP"
+	oops = reset HEAD~1
+	sub = submodule update --init --recursive
+	fix = commit --ammend --no-edit
+[url "git@github.com:"]
+        insteadOf = https://github.com/
