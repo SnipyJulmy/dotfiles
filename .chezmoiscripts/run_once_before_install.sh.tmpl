@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+{{ if eq .chezmoi.osid "pop" -}}
+# update pop_os
+sudo apt update
+sudo apt upgrade
+
+sudo apt install zsh ondir gnome-tweaks kitty
+
+# setup default terminal
+sudo update-alternatives --set x-terminal-emulator /usr/bin/kitty
+
+# setup keybase
+curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb
+sudo apt install ./keybase_amd64.deb
+run_keybase -g
+rm keybase_amd64.deb
+
+# install nix
+sh <(curl -L https://nixos.org/nix/install) --daemon
+
+nix-env -iA nixpkgs.exa nixpkgs.tmux nixpkgs.fzf \
+  nixpkgs.lazygit nixpkgs.ninja nixpkgs.chezmoi nixpkgs.direnv \
+  nixpkgs.ripgrep nixpkgs.rnix-lsp nixpkgs.jdk nixpkgs.age
+
+{{ else if eq .chezmoi.os "darwin" -}}
+sh <(curl -L https://nixos.org/nix/install)
+{{ end -}}
