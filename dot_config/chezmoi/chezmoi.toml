@@ -6,6 +6,8 @@
     args = ["-d", "{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
 
 [diff]
+    command = "nvim"
+    args = ["-d", "{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
     exclude = ["scripts"]
 
 encryption = "age"
@@ -17,4 +19,5 @@ encryption = "age"
     ]
 
 [git]
-    autoPush = false
+    autoCommit = true
+    autoPush = false # be careful with secret when this is enable
