@@ -73,8 +73,10 @@ export EDITOR=nvim
 export MYVIMRC="$HOME/.config/nvim/init.lua"
 export MYZSHRC="$HOME/.zshrc"
 export MYTMUXCONF="$HOME/.tmux.conf"
+
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .class'
 export LC_CTYPE=UTF-8
+
 export BROWSER="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 export CONFIG_DIR="$HOME/.config/lazygit"
 
@@ -82,18 +84,27 @@ export LANGUAGE=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 export LC_ALL=en_GB.UTF-8
 
+# MacOS have a shit location by default...
+# Application\ Support, srly, with a fu**ing space
+export COURSIER_BIN_DIR=$HOME/.local/share/coursier/bin
 
-# coursier bin
-export PATH="$PATH:/Users/sij/Library/Application Support/Coursier/bin"
+# add the given directory to PATH if it exists
+function updatePath() {
+  [ -d $1 ] && export PATH="$PATH:$1"
+}
 
-# cargo bin
-export PATH="$PATH:$HOME/.cargo/bin"
+# source the given file if it exists
+function sourceIfExists() {
+  [ -f $1 ] && source $1
+}
 
-# local bin
-export PATH="$PATH:$HOME/bin"
-
-# sshuttle bin
-export PATH="$PATH:/usr/local/opt/python@3.9/Frameworks/Python.framework/Versions/3.9/bin"
+updatePath "/Users/sij/Library/Application Support/Coursier/bin"
+updatePath "$HOME/.cargo/bin"
+updatePath "$HOME/bin"
+updatePath "/usr/local/opt/python@3.9/Frameworks/Python.framework/Versions/3.9/bin" # sshuttle
+updatePath "/usr/local/go/bin"
+updatePath "$HOME/go/bin"
+updatePath ""
 
 # 10ms for key sequences
 KEYTIMEOUT=1
@@ -157,9 +168,6 @@ function gi() { curl -sLw n https://www.gitignore.io/api/$@ ;}
 
 # golang
 
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/go/bin
-
 function GoUpdate() {
   if read -q "CONTINUE?Update go with $1... press enter to stop or any key to continue"
   then
@@ -174,9 +182,8 @@ function GoUpdate() {
   fi
 }
 
-# k8s aliases
-
-# if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
+# kubectl completion if available
+[ -e /usr/local/bin/kubectl ] && source <(kubectl completion zsh)
 
 ### Setup pyenv
 # export PYENV_ROOT="$HOME/.pyenv"
@@ -190,11 +197,10 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # some secret sourcing
-[ -f "$HOME/.zsh/metis.zshrc" ] && source "$HOME/.zsh/metis.zshrc"
-[ -f "$HOME/.zsh/insel.zshrc" ] && source "$HOME/.zsh/insel.zshrc"
-
-### MacOS have a shit location by default...
-export COURSIER_BIN_DIR=$HOME/.local/share/coursier/bin
+sourceIfExists "$HOME/.zsh/metis.zshrc"
+sourceIfExists "$HOME/.zsh/insel.zshrc"
+sourceIfExists "$HOME/.ghcup/env" 
+sourceIfExists "/usr/share/doc/fzf/examples/key-bindings.zsh" 
 
 # ondir start
 eval_ondir() {
