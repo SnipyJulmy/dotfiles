@@ -57,6 +57,7 @@ plugins=(
   vi-mode
   golang
   nix-zsh-completions
+  pass
 )
 
 source $ZSH/oh-my-zsh.sh
