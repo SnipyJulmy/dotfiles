@@ -138,6 +138,7 @@ alias conf="chezmoi edit $XDG_CONFIG_HOME"
 # dotfiles management aliases
 alias c="chezmoi"
 alias ccd="cd $HOME/.local/share/chezmoi"
+alias cconf="chezmoi edit $XDG_CONFIG_HOME/chezmoi/chezmoi.toml"
 
 # lua
 alias luamake=/home/snipy/.cache/nvim/lspconfig/lua-language-server/3rd/luamake/luamake
