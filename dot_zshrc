@@ -75,9 +75,11 @@ export MYZSHRC="$HOME/.zshrc"
 export MYTMUXCONF="$HOME/.tmux.conf"
 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .class'
+
 export LC_CTYPE=UTF-8
 
 export BROWSER="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+
 export CONFIG_DIR="$HOME/.config/lazygit"
 
 export LANGUAGE=en_GB.UTF-8
@@ -208,5 +210,3 @@ eval_ondir() {
 }
 chpwd_functions=( eval_ondir $chpwd_functions )
 
-[ -f "/Users/sij/.ghcup/env" ] && source "/Users/sij/.ghcup/env"
-[ -f "/usr/share/doc/fzf/examples/key-bindings.zsh" ] && source "/usr/share/doc/fzf/examples/key-bindings.zsh"
