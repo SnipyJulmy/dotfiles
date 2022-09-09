@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-{{ if eq .chezmoi.osid "pop" -}}
+echo runned !
+return
+
+{{ if eq .chezmoi.osRelease.id "pop" -}}
 # update pop_os
 sudo apt update
 sudo apt upgrade
