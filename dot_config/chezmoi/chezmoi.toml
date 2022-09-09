@@ -1,14 +1,14 @@
 [edit]
     command = "nvim"
 
-[merge]
-    command = "nvim"
-    args = ["-d", "{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
-
 [diff]
     command = "nvim"
     args = ["-d", "{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
     exclude = ["scripts"]
+
+[merge]
+    command = "nvim"
+    args = ["-d", "{{ .Destination }}", "{{ .Target }}"]
 
 encryption = "age"
 [age]
