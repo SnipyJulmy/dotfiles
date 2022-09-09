@@ -1,7 +1,7 @@
 {{ if eq .chezmoi.os "linux" -}}
-default-cache-ttl 3153600000
-pinentry-program /usr/local/bin/pinentry-tty
-# allow-loopback-pinentry
+## default-cache-ttl 3153600000
+## pinentry-program /usr/local/bin/pinentry-tty
+## allow-loopback-pinentry
 {{ else if eq .chezmoi.os "darwin" -}}
 default-cache-ttl 3153600000
 pinentry-program /usr/local/bin/pinentry-mac
