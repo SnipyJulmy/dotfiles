@@ -1,0 +1,205 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+
+fpath=(
+  $HOME/.zfunc
+  $fpath
+)
+
+# Path to your oh-my-zsh installation.
+export ZSH="/home/snipy/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="half-life" # set by `omz`
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
+# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
+COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+  git
+  macos
+  docker
+  docker-compose
+  mvn
+  kubectl
+  rust
+  sbt
+  scala
+  sdk
+  tmux
+  tmux-cssh
+  bazel
+  brew
+  npm
+  nvm
+  vi-mode
+  golang
+  nix-zsh-completions
+)
+
+source $ZSH/oh-my-zsh.sh
+
+### User configuration
+
+eval "$(direnv hook zsh)"
+
+### XDG
+export XDG_CONFIG_HOME=$HOME/.config
+
+### Exports
+export EDITOR=nvim
+export MYVIMRC="$HOME/.config/nvim/init.lua"
+export MYZSHRC="$HOME/.zshrc"
+export MYTMUXCONF="$HOME/.tmux.conf"
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .class'
+export LC_CTYPE=UTF-8
+export BROWSER="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+export CONFIG_DIR="$HOME/.config/lazygit"
+
+export LANGUAGE=en_GB.UTF-8
+export LANG=en_GB.UTF-8
+export LC_ALL=en_GB.UTF-8
+
+
+# coursier bin
+export PATH="$PATH:/Users/sij/Library/Application Support/Coursier/bin"
+
+# cargo bin
+export PATH="$PATH:$HOME/.cargo/bin"
+
+# local bin
+export PATH="$PATH:$HOME/bin"
+
+# sshuttle bin
+export PATH="$PATH:/usr/local/opt/python@3.9/Frameworks/Python.framework/Versions/3.9/bin"
+
+# 10ms for key sequences
+KEYTIMEOUT=1
+
+# Emable ctrl-x-e to edit command
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
+#### Aliases
+alias v="nvim"
+alias nvi="nvim"
+alias vim="nvim"
+alias vi="nvim"
+alias nv="nvim"
+alias emacs="nvim"
+alias vscode="nvim"
+alias code="nvim"
+alias vs="nvim"
+
+alias f=fzf
+alias rr="source $HOME/.zshrc"
+alias lg="lazygit"
+alias cl="clear"
+
+
+# ls aliases, exa is cool
+alias l="exa --long --icons"
+alias ls="exa --long --icons"
+alias la="exa -a --long --icons"
+
+alias b="bazel"
+alias bb="bazel build"
+alias bq="bazel query"
+alias bt="bazel test"
+
+alias vimrc="chezmoi edit $MYVIMRC"
+alias zshrc="chezmoi edit $MYZSHRC"
+alias tmuxconf="chezmoi edit $MYTMUXCONF"
+alias conf="chezmoi edit $XDG_CONFIG_HOME"
+
+# dotfiles management aliases
+alias c="chezmoi"
+alias ccd="cd $HOME/.local/share/chezmoi"
+
+# lua
+alias luamake=/home/snipy/.cache/nvim/lspconfig/lua-language-server/3rd/luamake/luamake
+
+# git aliases and function
+alias gfix="git commit -a --amend --no-edit"
+alias "gc-"="git checkout -"
+alias gwl="git worktree list"
+alias gsp="git stash push"
+alias gsP="git stash pop"
+function gitFeatureBranch() { git checkout -b feature/$1 ;}
+function gitFixBranch() { git checkout -b fix/$1 ;}
+function gitRemoveMergedBranch() { git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D ;}
+function gitCreateEmptyCommit() { git commit --allow-empty ;}
+function gi() { curl -sLw n https://www.gitignore.io/api/$@ ;}
+
+# golang
+
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/go/bin
+
+function GoUpdate() {
+  if read -q "CONTINUE?Update go with $1... press enter to stop or any key to continue"
+  then
+    echo $CONTINUE
+    echo "Update installation with $1"
+    echo "Remove /usr/local/go"
+    sudo rm -rf /usr/local/go
+    sudo tar -C /usr/local -xzf $1
+    echo "Installed version"
+    go version
+    echo "Done"
+  fi
+}
+
+# k8s aliases
+
+# if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
+
+### Setup pyenv
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init --path)"
+# eval "$(pyenv init -)"
+
+### Pyenv (for neovim)
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# some secret sourcing
+[ -f "$HOME/.zsh/metis.zshrc" ] && source "$HOME/.zsh/metis.zshrc"
+[ -f "$HOME/.zsh/insel.zshrc" ] && source "$HOME/.zsh/insel.zshrc"
+
+### MacOS have a shit location by default...
+export COURSIER_BIN_DIR=$HOME/.local/share/coursier/bin
+
+# ondir start
+eval_ondir() {
+  eval "`ondir \"$OLDPWD\" \"$PWD\"`"
+}
+chpwd_functions=( eval_ondir $chpwd_functions )
+
+[ -f "/Users/sij/.ghcup/env" ] && source "/Users/sij/.ghcup/env"
+[ -f "/usr/share/doc/fzf/examples/key-bindings.zsh" ] && source "/usr/share/doc/fzf/examples/key-bindings.zsh"
