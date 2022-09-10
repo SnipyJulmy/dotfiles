@@ -38,8 +38,12 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
+  {{ if eq .chezmoi.os "darwin" }}
   macos
+  brew
+  {{ else if eq .chezmoi.os "linix" }}
+  {{ end }}
+  git
   docker
   docker-compose
   mvn
@@ -51,7 +55,6 @@ plugins=(
   tmux
   tmux-cssh
   bazel
-  brew
   npm
   nvm
   vi-mode
@@ -70,7 +73,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 
 ### Exports
 export EDITOR=nvim
-export MYVIMRC="$HOME/.config/nvim/init.lua"
+export MYVIMRC="$XDG_CONFIG_HOME/nvim/init.lua"
 export MYZSHRC="$HOME/.zshrc"
 export MYTMUXCONF="$HOME/.tmux.conf"
 
@@ -78,17 +81,21 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .class'
 
 export LC_CTYPE=UTF-8
 
+{{ if eq .chezmoi.os "darwin" }}
 export BROWSER="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
-
-export CONFIG_DIR="$HOME/.config/lazygit"
-
-export LANGUAGE=en_GB.UTF-8
-export LANG=en_GB.UTF-8
-export LC_ALL=en_GB.UTF-8
 
 # MacOS have a shit location by default...
 # Application\ Support, srly, with a fu**ing space
 export COURSIER_BIN_DIR=$HOME/.local/share/coursier/bin
+{{ end }}
+
+export CONFIG_DIR="$HOME/.config/lazygit"
+
+{{ if eq .chezmoi.os "linux" }}
+export LANGUAGE=en_GB.UTF-8
+export LANG=en_GB.UTF-8
+export LC_ALL=en_GB.UTF-8
+{{ end }}
 
 # add the given directory to PATH if it exists
 function updatePath() {
@@ -100,18 +107,19 @@ function sourceIfExists() {
   [ -f $1 ] && source $1
 }
 
+{{ if eq .chezmoi.os "darwin" }}
 updatePath "/Users/sij/Library/Application Support/Coursier/bin"
+updatePath "/usr/local/opt/python@3.9/Frameworks/Python.framework/Versions/3.9/bin" # sshuttle
+{{ end }}
+
 updatePath "$HOME/.cargo/bin"
 updatePath "$HOME/bin"
-updatePath "/usr/local/opt/python@3.9/Frameworks/Python.framework/Versions/3.9/bin" # sshuttle
 updatePath "/usr/local/go/bin"
 updatePath "$HOME/go/bin"
-updatePath ""
 
 # 10ms for key sequences
 KEYTIMEOUT=1
 
-# Emable ctrl-x-e to edit command
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
