@@ -244,7 +244,4 @@ return require("packer").startup(function()
 
   -- quickfix
   use({ "itchyny/vim-qfedit" })
-
-  -- local plugins dev
-  use({ "~/projects/oss/bazel.nvim" })
 end)
