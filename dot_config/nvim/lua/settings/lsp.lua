@@ -155,8 +155,8 @@ require("lspconfig").yamlls.setup({
 
 -- rust
 require("lspconfig").rust_analyzer.setup({
-  -- cmd = { "rustup", "run", "nightly", "rust-analyzer" },
   capabilities = capabilities,
+  -- cmd = { "rustup", "run", "nightly", "rust-analyzer" },
 })
 
 -- docker
