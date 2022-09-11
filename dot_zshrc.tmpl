@@ -194,6 +194,17 @@ function GoUpdate() {
 # kubectl completion if available
 [ -e /usr/local/bin/kubectl ] && source <(kubectl completion zsh)
 
+# neovim
+
+export NEOVIM_HOME="$HOME/projects/neovim"
+
+function NeovimUpdate() {
+  pushd $NEOVIM_HOME
+  make CMAKE_BUILD_TYPE=Release
+  sudo make install
+  popd
+}
+
 ### Setup pyenv
 # export PYENV_ROOT="$HOME/.pyenv"
 # export PATH="$PYENV_ROOT/bin:$PATH"
