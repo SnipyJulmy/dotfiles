@@ -1,3 +1,6 @@
 . "$HOME/.cargo/env"
 
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
+
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
