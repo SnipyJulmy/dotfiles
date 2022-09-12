@@ -3,6 +3,10 @@
 echo runned !
 exit
 
+{{ if .chezmoi.osRelease }}
+
+{{ if }}
+
 {{ if eq .chezmoi.osRelease.id "pop" -}}
 # update pop_os
 sudo apt update

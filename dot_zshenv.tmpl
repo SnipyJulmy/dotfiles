@@ -3,9 +3,9 @@
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 
 {{- if eq .chezmoi.os "darwin" }}
-export GOPATH="$HOME/go"
+export GOPATH="$HOME/projects/go"
 export GOBIN="$GOPATH/bin"
 {{ else if eq .chezmoi.os "linux" }}
-export GOPATH="$HOME/projects/go"
+export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
 {{ end }}
