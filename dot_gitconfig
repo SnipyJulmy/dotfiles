@@ -23,3 +23,9 @@
 	fix = commit --ammend --no-edit
 [url "git@github.com:"]
         insteadOf = https://github.com/
+[difftool]
+        prompt = true
+[diff]
+	tool = nvimdiff
+[difftool "nvimdiff"]
+        cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
