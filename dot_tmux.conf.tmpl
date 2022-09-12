@@ -15,7 +15,12 @@ unbind C-Right
 unbind C-g
 
 # set zsh as default command
+{{- if eq .chezmoi.os "darwin" }}
+set -g default-command /run/current-system/sw/bin/zsh
+{{ else }}
 set -g default-command /usr/bin/zsh
+{{ end }}
+
 
 # mouse
 setw -g mouse on
