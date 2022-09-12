@@ -4,6 +4,7 @@
 ## allow-loopback-pinentry
 {{ else if eq .chezmoi.os "darwin" -}}
 default-cache-ttl 3153600000
+# PRE: brew install pinentry pinentry-mac
 pinentry-program /usr/local/bin/pinentry-mac
 allow-loopback-pinentry
 {{ end -}}
