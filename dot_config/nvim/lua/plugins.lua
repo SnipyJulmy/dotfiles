@@ -9,8 +9,11 @@ return require("packer").startup(function()
       require("colorizer").setup()
     end,
   })
-  use({ "morhetz/gruvbox" })
   use({ "kyazdani42/nvim-web-devicons" })
+
+  -- colorscheme
+  use({ "catppuccin/nvim", as = "catppuccin" })
+  use({ "morhetz/gruvbox" })
 
   -- neovim lua development
   use({
