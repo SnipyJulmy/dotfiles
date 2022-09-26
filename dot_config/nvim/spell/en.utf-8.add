@@ -21,3 +21,5 @@ master
 usr
 kubectl
 kube
+pcap
+rabbitmq

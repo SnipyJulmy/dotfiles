@@ -273,5 +273,5 @@ require("lspconfig").rnix.setup({
   cmd = { "rnix-lsp" },
   filetypes = { "nix" },
   init_options = {},
-  settings = {}
+  settings = {},
 })
