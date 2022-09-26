@@ -134,6 +134,7 @@ alias emacs="nvim"
 alias vscode="nvim"
 alias code="nvim"
 alias vs="nvim"
+alias vg="nvim -o $(git status --porcelain | awk '{print $2}')"
 
 alias f=fzf
 alias rr="source $HOME/.zshrc"
@@ -170,6 +171,7 @@ alias "gc-"="git checkout -"
 alias gwl="git worktree list"
 alias gsp="git stash push"
 alias gsP="git stash pop"
+
 function gitFeatureBranch() { git checkout -b feature/$1 ;}
 function gitFixBranch() { git checkout -b fix/$1 ;}
 function gitRemoveMergedBranch() { git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D ;}
