@@ -134,7 +134,10 @@ alias emacs="nvim"
 alias vscode="nvim"
 alias code="nvim"
 alias vs="nvim"
-alias vg="nvim -o $(git status --porcelain | awk '{print $2}')"
+
+function vg() {
+  nvim -o $(git status --porcelain | awk '{print $2}')
+}
 
 alias f=fzf
 alias rr="source $HOME/.zshrc"
