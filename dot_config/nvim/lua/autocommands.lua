@@ -5,7 +5,7 @@ local scala = vim.api.nvim_create_augroup("Metals", { clear = true })
 local packer = vim.api.nvim_create_augroup("Packer", { clear = true })
 local telescope = vim.api.nvim_create_augroup("Telescope", { clear = true })
 
-vim.api.nvim_create_autocmd({ "BufWritePre" }, { group = fmt, pattern = { "*.go", "*.lua", "*.rs", "*.py" }, command = "Neoformat" })
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, { group = fmt, pattern = { "*.go", "*.lua", "*.rs", "*.py" }, command = "Neoformat" })
 
 vim.api.nvim_create_autocmd(
   { "FileType" },

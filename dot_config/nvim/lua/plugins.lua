@@ -152,7 +152,7 @@ return require("packer").startup(function()
   use({ "L3MON4D3/LuaSnip" })
 
   -- formatting
-  use({ "sbdchd/neoformat", config = function() end })
+  use({ "mhartington/formatter.nvim" })
 
   -- lsp + completion and dap
   use({ "neovim/nvim-lspconfig" })

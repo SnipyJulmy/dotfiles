@@ -51,8 +51,9 @@ vim.keymap.set({ "n" }, "<space>gp", [[<cmd>Git push --force-with-lease<CR>]])
 vim.keymap.set({ "n" }, "<space>gb", [[<cmd>Git blame<CR>]])
 
 -- formatting
+vim.keymap.set({ "n" }, "<Space>F", [[<cmd>Format<CR>]])
 -- utils.map("n", "<Space>F", [[<cmd><CR>]])
-vim.keymap.set({ "n" }, "<Space>F", [[<cmd>Neoformat<CR>]])
+-- vim.keymap.set({ "n" }, "<Space>F", [[<cmd>Neoformat<CR>]])
 
 -- neo-tree
 vim.keymap.set({ "n" }, "<C-n>", [[<cmd>Neotree filesystem reveal left toggle<CR>]])
