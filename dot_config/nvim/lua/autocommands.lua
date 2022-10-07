@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   group = scala,
   pattern = { "*.scala", "*.sbt" },
   callback = function()
-    vim.lsp.buf.formatting()
+    vim.lsp.buf.format()
   end,
 })
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {

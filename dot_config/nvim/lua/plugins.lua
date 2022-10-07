@@ -152,7 +152,8 @@ return require("packer").startup(function()
   use({ "L3MON4D3/LuaSnip" })
 
   -- formatting
-  use({ "mhartington/formatter.nvim" })
+  -- use({ "mhartington/formatter.nvim" })
+  use({ "$HOME/projects/oss/formatter.nvim"})
 
   -- lsp + completion and dap
   use({ "neovim/nvim-lspconfig" })
@@ -247,4 +248,7 @@ return require("packer").startup(function()
 
   -- quickfix
   use({ "itchyny/vim-qfedit" })
+
+  -- other
+  use({ "dstein64/vim-startuptime" })
 end)

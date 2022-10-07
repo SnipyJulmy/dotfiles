@@ -23,3 +23,10 @@ kubectl
 kube
 pcap
 rabbitmq
+metadefender
+frontend
+api
+config
+pastebin
+janus
+MetadefenderJanusProc
