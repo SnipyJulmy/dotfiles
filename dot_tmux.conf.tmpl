@@ -1,13 +1,7 @@
 # tmux conf
 
-# 0 is too far
-set -g base-index 1
-
-# use C-a as a prefix
-unbind C-b
-set-option -g prefix C-a
-bind-key C-a send-prefix
-
+# unbinding
+unbind C-a
 unbind (
 unbind )
 unbind C-Up   
@@ -16,6 +10,17 @@ unbind C-Left
 unbind C-Right
 unbind C-g
 
+# use C-a as a prefix
+set-option -g prefix C-a
+bind-key C-a send-prefix
+
+# Setting options
+# server options         (set-option -s)
+# global session options (set-option -g)
+# session options        (set-option)
+# global window options  (set-window-option -g)
+# window options         (set-window-option)
+
 # set zsh as default command
 {{- if eq .chezmoi.os "darwin" }}
 set -g default-command /run/current-system/sw/bin/zsh
@@ -23,29 +28,30 @@ set -g default-command /run/current-system/sw/bin/zsh
 set -g default-command /usr/bin/zsh
 {{ end }}
 
-# mouse
-setw -g mouse off
+# server options
+set-option -s escape-time 0 # fix timeout hell
+set-option -sa terminal-overrides ',screen-257color:RGB' # -a append to string options
+set-option -s set-clipboard off
 
-# fix timeout hell
-set -s escape-time 0
-
-# windows title
-set-window-option -g automatic-rename on
+# session options
+set-option -g base-index 1 # 0 is too far
+set-option -g status-keys vi
+set-option -g history-limit 10000
 set-option -g set-titles on
+set-option -g default-terminal screen-256color
 
-set -g default-terminal screen-256color
-set-option -sa terminal-overrides ',screen-256color:RGB'
-
-set -g status-keys vi
-set -g history-limit 10000
-
-setw -g monitor-activity on
+# window options
+set-window-option -g mouse off
+set-window-option -g automatic-rename off
+set-window-option -g monitor-activity on
+set-window-option -g mode-keys vi
 
 ## use vim keybinding in copy mode
-setw -g mode-keys vi
-set-option -s set-clipboard off
+unbind -T copy-mode-vi Enter
 bind P paste-buffer
-
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi y send-keys -X rectangle-toggle
+bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel 'pbcopy'
 
 bind r source-file ~/.tmux.conf
 
