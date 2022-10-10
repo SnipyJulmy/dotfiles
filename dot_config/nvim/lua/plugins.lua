@@ -153,7 +153,7 @@ return require("packer").startup(function()
 
   -- formatting
   -- use({ "mhartington/formatter.nvim" })
-  use({ "$HOME/projects/oss/formatter.nvim"})
+  use({ "$HOME/projects/oss/formatter.nvim" })
 
   -- lsp + completion and dap
   use({ "neovim/nvim-lspconfig" })
@@ -251,4 +251,12 @@ return require("packer").startup(function()
 
   -- other
   use({ "dstein64/vim-startuptime" })
+  use({
+    "phaazon/mind.nvim",
+    branch = "v2.2",
+    requires = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("mind").setup()
+    end,
+  })
 end)
