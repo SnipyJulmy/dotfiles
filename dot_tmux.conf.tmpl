@@ -1,3 +1,5 @@
+# tmux conf
+
 # 0 is too far
 set -g base-index 1
 
@@ -22,7 +24,7 @@ set -g default-command /usr/bin/zsh
 {{ end }}
 
 # mouse
-setw -g mouse on
+setw -g mouse off
 
 # fix timeout hell
 set -s escape-time 0
@@ -37,8 +39,13 @@ set-option -sa terminal-overrides ',screen-256color:RGB'
 set -g status-keys vi
 set -g history-limit 10000
 
-setw -g mode-keys vi
 setw -g monitor-activity on
+
+## use vim keybinding in copy mode
+setw -g mode-keys vi
+set-option -s set-clipboard off
+bind P paste-buffer
+
 
 bind r source-file ~/.tmux.conf
 
