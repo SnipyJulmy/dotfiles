@@ -5,7 +5,7 @@ local scala = vim.api.nvim_create_augroup("Metals", { clear = true })
 local packer = vim.api.nvim_create_augroup("Packer", { clear = true })
 local telescope = vim.api.nvim_create_augroup("Telescope", { clear = true })
 
-vim.api.nvim_create_autocmd({ "BufWritePre" }, { group = fmt, pattern = { "*.go", "*.lua", "*.rs", "*.py" }, command = "Format" })
+vim.api.nvim_create_autocmd({ "BufWritePost" }, { group = fmt, pattern = { "*.go", "*.lua", "*.rs", "*.py" }, command = "FormatWrite" })
 
 vim.api.nvim_create_autocmd(
   { "FileType" },
@@ -45,3 +45,11 @@ vim.api.nvim_create_autocmd({ "FileType" }, { group = telescope, pattern = "Tele
 -- vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, { group = base_group, pattern = "*.conf", command = "set filetype=hocon" })
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, { group = base_group, pattern = { "BUILD", "WORKSPACE" }, command = "set filetype=bzl" })
 vim.api.nvim_create_autocmd({ "BufWritePost" }, { group = base_group, pattern = "~/.local/share/chezmoi/*", command = "! chezmoi apply --source-path %" })
+
+-- yaml
+vim.api.nvim_create_autocmd(
+  { "BufNewFile", "BufReadPost" },
+  { group = base_group, pattern = { "*.yaml, *.yml" }, command = "setlocal filetype=yaml foldmethod=indent" }
+)
+
+vim.api.nvim_create_autocmd({ "FileType" }, { group = base_group, pattern = { "yaml" }, command = "setlocal ts=2 sts=2 sw=2 expandtab" })
