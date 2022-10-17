@@ -1,3 +1,5 @@
+vim.g.catppuccin_flavour = "macchiato"
+require("catppuccin").setup()
 vim.api.nvim_command([[colorscheme gruvbox]])
 vim.cmd([[highlight Normal guibg=None]])
 vim.cmd([[highlight WinSeparator guibg=None]])
