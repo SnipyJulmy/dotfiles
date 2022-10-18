@@ -139,16 +139,6 @@ format = '\[[$symbol($version)]($style)\]'
 
 [scala]
 format = '\[[$symbol($version)]($style)\]'
-disabled = true
-
-[custom.scala]
-command = "rg --no-filename --no-line-number '^SCALA_VERSION=' | awk -F '=' '{print $NF}' | sed 's/\"//g' || true"
-when = "true"
-detect_files = ["WORKSPACE"]
-symbol = "[ ](red)"
-style = "red"
-disabled = true
-format = '\[[$symbol($output)]($style)\]'
 
 [spack]
 format = '\[[$symbol$environment]($style)\]'

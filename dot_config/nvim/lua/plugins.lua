@@ -2,14 +2,19 @@ return require("packer").startup(function()
   -- automanage packaer
   use("wbthomason/packer.nvim")
 
-  -- apperence
+  -- apparence, colors
+  use({ "kyazdani42/nvim-web-devicons" })
   use({
     "norcalli/nvim-colorizer.lua",
     config = function()
-      require("colorizer").setup()
+      require("ccc").setup({
+        highlighter = {
+          auto_enable = true,
+          lsp = true,
+        },
+      })
     end,
   })
-  use({ "kyazdani42/nvim-web-devicons" })
 
   -- colorscheme
   use({ "catppuccin/nvim", as = "catppuccin" })
