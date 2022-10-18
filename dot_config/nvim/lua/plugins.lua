@@ -5,7 +5,7 @@ return require("packer").startup(function()
   -- apparence, colors
   use({ "kyazdani42/nvim-web-devicons" })
   use({
-    "norcalli/nvim-colorizer.lua",
+    "uga-rosa/ccc.nvim",
     config = function()
       require("ccc").setup({
         highlighter = {
