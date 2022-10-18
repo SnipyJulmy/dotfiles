@@ -47,9 +47,6 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, { group = base_group, p
 vim.api.nvim_create_autocmd({ "BufWritePost" }, { group = base_group, pattern = "~/.local/share/chezmoi/*", command = "! chezmoi apply --source-path %" })
 
 -- yaml
-vim.api.nvim_create_autocmd(
-  { "BufNewFile", "BufReadPost" },
-  { group = base_group, pattern = { "*.yaml, *.yml" }, command = "setlocal filetype=yaml foldmethod=indent" }
-)
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufReadPost" }, { group = base_group, pattern = { "*.yaml, *.yml" }, command = "setlocal filetype=yaml" })
 
 vim.api.nvim_create_autocmd({ "FileType" }, { group = base_group, pattern = { "yaml" }, command = "setlocal ts=2 sts=2 sw=2 expandtab" })

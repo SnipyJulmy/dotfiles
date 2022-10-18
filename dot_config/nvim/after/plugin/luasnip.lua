@@ -7,7 +7,10 @@ local i = ls.insert_node
 local c = ls.choice_node
 local t = ls.text_node
 local r = ls.restore_node
+local sn = ls.snippet_node
 local rep = require("luasnip.extras").rep
+
+ls.cleanup()
 
 ls.config.set_config({
   history = true,
@@ -25,12 +28,10 @@ ls.config.set_config({
 -- require("luasnip.loaders.from_vscode").lazy_load()
 -- require("luasnip.loaders.from_snipmate").load()
 
--- stylua: ignore start
-ls.add_snippets("all", {
-  s("todo", fmt([[-- {} {}]], { c(1, { t("TODO"), t("FIXME") }), i(2) })),
-})
+ls.add_snippets("all", {})
 
 ls.add_snippets("lua", {
+  s("todo", fmt([[-- {} {}]], { c(1, { t("TODO"), t("FIXME") }), i(2) })),
   s("req", fmt([[local {} = require("{}")]], { i(1, "default"), rep(1) })),
   s("f", fmt([[function() {} end]], { i(1) })),
   s("r", fmt([[require("{}"){}{}]], { i(1), i(2, ".setup()"), i(0) })),
@@ -41,58 +42,108 @@ ls.add_snippets("lua", {
     i(2),
     t("})"),
     i(0),
-  })
+  }),
+  s(
+    "key",
+    fmt([[vim.keymap.set({{ {} }}, "{}", {})]], {
+      c(1, {
+        t([["n"]]),
+        t([["i"]]),
+        t([["v"]]),
+        sn(nil, { i(1, [["n","i"]]) }),
+      }, { restore_cursor = false }),
+      c(2, {
+        sn(nil, { t("<Space>"), r(1, "lhs") }),
+        sn(nil, { t("<leader>"), r(1, "lhs") }),
+        sn(nil, { t(""), r(1, "lhs") }),
+      }),
+      c(3, {
+        sn(nil, { t([["<cmd>]]), r(1, "rhs"), t([[<CR>"]]) }),
+        sn(nil, { t("function() "), r(1, "rhs"), t("end") }),
+        sn(nil, { r(1, "rhs") }),
+      }),
+    })
+  ),
 })
 
 ls.add_snippets("go", {
-  s("log", c(1, {
-    fmt([[log.Printf("{}", {}){}]], {r(1, "msg", i(nil, "msg")), r(2, "args", i(nil, "args...")), i(0)}),
-    fmt([[log.Panicf("{}", {}){}]], {r(1, "msg", i(nil, "msg")), r(2, "args", i(nil, "args...")), i(0)}),
-    fmt([[log.Fatalf("{}", {}){}]], {r(1, "msg", i(nil, "msg")), r(2, "args", i(nil, "args...")), i(0)}),
-  }, {restore_cursor = true})),
-  s("pr", c(1, {
-    fmt([[fmt.Println("{}")]],    {r(1, "msg", i(nil, "msg"))}),
-    fmt([[fmt.Printf("{}", {})]], {r(1, "msg", i(nil, "msg")), i(2, "args")}),
-    fmt([[fmt.Print("{}")]],      {r(1, "msg", i(nil, "msg"))}),
-  }, {restore_cursor = true})),
-  s("ier", c(1, {
-    fmt([[
+  s(
+    "log",
+    c(1, {
+      fmt([[log.Printf("{}", {}){}]], { r(1, "msg", i(nil, "msg")), r(2, "args", i(nil, "args...")), i(0) }),
+      fmt([[log.Panicf("{}", {}){}]], { r(1, "msg", i(nil, "msg")), r(2, "args", i(nil, "args...")), i(0) }),
+      fmt([[log.Fatalf("{}", {}){}]], { r(1, "msg", i(nil, "msg")), r(2, "args", i(nil, "args...")), i(0) }),
+    }, { restore_cursor = true })
+  ),
+  s(
+    "pr",
+    c(1, {
+      fmt([[fmt.Println("{}")]], { r(1, "msg", i(nil, "msg")) }),
+      fmt([[fmt.Printf("{}", {})]], { r(1, "msg", i(nil, "msg")), i(2, "args") }),
+      fmt([[fmt.Print("{}")]], { r(1, "msg", i(nil, "msg")) }),
+    }, { restore_cursor = true })
+  ),
+  s(
+    "ier",
+    c(1, {
+      fmt(
+        [[
     {}, err := {}
     if err != nil {{
             log.Fatalf("{}", {})
     }}
-    ]], {
-      r(1, "var",  i(nil, "var")),
-      r(2, "fErr", i(nil)),
-      r(3, "msg",  i(nil, "msg")),
-      r(4, "args", i(nil, "args...")),
-    }),
-    t("Hello")
-  }, {restore_cursor = true})),
-  s("er", c(1, {
-    fmt([[{}, err := {}{}]], {i(1, "var"), i(2), i(0)}),
-    fmt([[var {}, err = {}{}]], {i(1, "var"), i(2), i(0)}),
-  })),
-  s("ie", c(1, {
-    fmt([[
+    ]],
+        {
+          r(1, "var", i(nil, "var")),
+          r(2, "fErr", i(nil)),
+          r(3, "msg", i(nil, "msg")),
+          r(4, "args", i(nil, "args...")),
+        }
+      ),
+      t("Hello"),
+    }, { restore_cursor = true })
+  ),
+  s(
+    "er",
+    c(1, {
+      fmt([[{}, err := {}{}]], { i(1, "var"), i(2), i(0) }),
+      fmt([[var {}, err = {}{}]], { i(1, "var"), i(2), i(0) }),
+    })
+  ),
+  s(
+    "ie",
+    c(1, {
+      fmt(
+        [[
       if err != nil {{
               {}
       }}
-    ]], {i(1)})
-  }))
+    ]],
+        { i(1) }
+      ),
+    })
+  ),
 })
 
 ls.add_snippets("scala", {
-  s("main", fmt([[
+  s(
+    "main",
+    fmt(
+      [[
       def main(args : Array[String]) = {{
         {}
       }}
-    ]], { i(1) }
-  )),
+    ]],
+      { i(1) }
+    )
+  ),
 })
 
 ls.add_snippets("xml", {
-  s("logback", fmt([[
+  s(
+    "logback",
+    fmt(
+      [[
   <configuration>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
       <!-- encoders are assigned the type
@@ -105,20 +156,27 @@ ls.add_snippets("xml", {
       <appender-ref ref="STDOUT" />
     </root>
   </configuration>
-  ]], {
-      c(1, {
-        t("debug"),
-        t("error"),
-        t("warn"),
-      })
-    }
-  )),
-  s("logback_off", fmt([[
+  ]],
+      {
+        c(1, {
+          t("debug"),
+          t("error"),
+          t("warn"),
+        }),
+      }
+    )
+  ),
+  s(
+    "logback_off",
+    fmt(
+      [[
     <!-- Logger OFF for tests -->
     <configuration/>
-  ]], {})),
+  ]],
+      {}
+    )
+  ),
 })
--- stylua: ignore end
 
 vim.keymap.set({ "i", "s" }, "<c-k>", function()
   if ls.expand_or_locally_jumpable() then
@@ -138,5 +196,8 @@ vim.keymap.set({ "i", "s" }, "<c-l>", function()
   end
 end)
 
-vim.keymap.set("i", "<c-u>", require("luasnip.extras.select_choice"))
-vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>")
+vim.keymap.set("i", "<c-u>", function()
+  require("luasnip.extras.select_choice")
+end)
+
+vim.keymap.set("n", "<leader><leader>l", "<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>")
