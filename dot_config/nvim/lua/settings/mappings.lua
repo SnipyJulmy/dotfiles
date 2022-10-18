@@ -1,5 +1,3 @@
-local utils = require("utils")
-
 -- clear some mapping
 vim.keymap.set({ "n" }, "J", "", {})
 
