@@ -72,7 +72,7 @@ return require("packer").startup(function()
                 buftype = { "terminal" },
               },
             },
-            other_win_hl_color = "#f44e3f",
+            other_win_hl_color = "#f4293f",
           })
         end,
       },
