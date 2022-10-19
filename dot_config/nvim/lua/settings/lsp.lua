@@ -214,7 +214,7 @@ require("lspconfig").pyright.setup({
   },
   single_file_support = true,
   capabilities = capabilities,
-  single_file_support = true,
+  on_attach = on_attach,
 })
 
 -- haskell
