@@ -158,7 +158,21 @@ return require("packer").startup(function()
 
   -- formatting
   -- use({ "mhartington/formatter.nvim" })
-  use({ "$HOME/projects/oss/formatter.nvim" })
+  use({
+    "$HOME/projects/oss/formatter.nvim",
+    config = function()
+      require("formatter").setup({
+        logging = true,
+        log_level = vim.log.levels.WARN,
+        filetype = {
+          lua = { require("formatter.filetypes.lua").stylua },
+          go = { require("formatter.filetypes.go").goimports },
+          bzl = { require("formatter.filetypes.bzl").buildifier },
+          scala = { require("formatter.filetypes.scala").scalafmt },
+        },
+      })
+    end,
+  })
 
   -- lsp + completion and dap
   use({ "neovim/nvim-lspconfig" })
@@ -184,8 +198,38 @@ return require("packer").startup(function()
     },
   })
 
-  use({ "windwp/nvim-autopairs" })
-  use({ "rmagatti/goto-preview" })
+  use({
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup({
+        disable_filetype = { "TelescopePrompt" },
+        map_cr = true,
+        map_complete = true,
+      })
+    end,
+  })
+  use({
+    "rmagatti/goto-preview",
+    config = function()
+      require("goto-preview").setup({
+        width = 120,
+        height = 15,
+        border = { "↖", "─", "┐", "│", "┘", "─", "└", "│" },
+        default_mappings = false,
+        debug = false,
+        opacity = nil,
+        resizing_mappings = false,
+        post_open_hook = nil,
+        references = {
+          telescope = require("telescope.themes").get_dropdown({ hide_preview = false }),
+        },
+        focus_on_open = true,
+        dismiss_on_move = false,
+        force_close = true,
+        bufhidden = "wipe",
+      })
+    end,
+  })
   use({
     "j-hui/fidget.nvim",
     config = function()

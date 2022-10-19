@@ -40,34 +40,6 @@ function utils.fmap(table, lambda)
   return r
 end
 
-function utils.mkdir()
-  local dirname = vim.fn.input("Directory name : ")
-  local cwd = ""
-  print(dirname)
-end
-
-local function mkdir(directory_path)
-  vim.api.nvim_command("!mkdir " .. directory_path)
-end
-
-function _G.dump(...)
-  local objects = vim.tbl_map(vim.inspect, { ... })
-  print(unpack(objects))
-end
-
-function _G.number_open_buffer()
-  return vim.fn.len(vim.fn.filter(vim.fn.range(1, vim.fn.bufnr("$")), "buflisted(v:val)"))
-end
-
-function _G.close_buffer()
-  local nob = number_open_buffer()
-  if nob > 1 then
-    vim.api.nvim_exec("bn|bd#", false)
-  else
-    vim.api.nvim_exec("bd", false)
-  end
-end
-
 function utils.has_words_before()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil

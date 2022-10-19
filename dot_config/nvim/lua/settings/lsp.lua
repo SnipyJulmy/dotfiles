@@ -8,23 +8,51 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lsp_group = vim.api.nvim_create_augroup("lsp", { clear = true })
 
-require("goto-preview").setup({
-  width = 120,
-  height = 15,
-  border = { "↖", "─", "┐", "│", "┘", "─", "└", "│" },
-  default_mappings = false,
-  debug = false,
-  opacity = nil,
-  resizing_mappings = false,
-  post_open_hook = nil,
-  references = {
-    telescope = require("telescope.themes").get_dropdown({ hide_preview = false }),
-  },
-  focus_on_open = true,
-  dismiss_on_move = false,
-  force_close = true,
-  bufhidden = "wipe",
-})
+-- Mappings
+
+local opts = { noremap = true, silent = true }
+vim.keymap.set({ "n" }, "<Space>de", vim.diagnostic.open_float, opts)
+vim.keymap.set({ "n" }, "<Space>dq", vim.diagnostic.setloclist, opts)
+vim.keymap.set({ "n" }, "]d", vim.diagnostic.goto_next, opts)
+vim.keymap.set({ "n" }, "[d", vim.diagnostic.goto_prev, opts)
+
+local on_attach = function(lsp_client, bufnr)
+  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
+
+  -- lsp
+  vim.keymap.set({ "n" }, "gD", vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set({ "n" }, "gd", vim.lsp.buf.definition, bufopts)
+  vim.keymap.set({ "n" }, "gi", vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set({ "n" }, "gr", vim.lsp.buf.references, bufopts)
+  vim.keymap.set({ "n" }, "gsd", vim.lsp.buf.document_symbol, bufopts)
+  vim.keymap.set({ "n" }, "gsw", vim.lsp.buf.workspace_symbol, bufopts)
+  vim.keymap.set({ "n" }, "gk", vim.lsp.buf.signature_help, bufopts)
+
+  vim.keymap.set({ "n" }, "K", vim.lsp.buf.hover, bufopts)
+
+  vim.keymap.set({ "n" }, "<Space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
+  vim.keymap.set({ "n" }, "<Space>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
+  vim.keymap.set({ "n" }, "<Space>wl", function()
+    print(vim.inspect(vim.lsp.buf.list_workspace_folders))
+  end, bufopts)
+
+  vim.keymap.set({ "n" }, "<Space>D", vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set({ "n" }, "<Space>rn", vim.lsp.buf.rename, bufopts)
+  vim.keymap.set({ "n" }, "<Space>ca", vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set({ "n" }, "<space>cf", function()
+    vim.lsp.buf.format({ async = true })
+  end, bufopts)
+
+  vim.keymap.set({ "n" }, "<leader>clr", vim.lsp.codelens.refresh, bufopts)
+  vim.keymap.set({ "n" }, "<leader>clu", vim.lsp.codelens.run, bufopts)
+
+  vim.keymap.set({ "n" }, "gpd", require("goto-preview").goto_preview_definition, bufopts)
+  vim.keymap.set({ "n" }, "gpi", require("goto-preview").goto_preview_implementation, bufopts)
+  vim.keymap.set({ "n" }, "gpr", require("goto-preview").goto_preview_references, bufopts)
+  vim.keymap.set({ "n" }, "gP", require("goto-preview").close_all_win, bufopts)
+end
 
 local shared_diagnostic_settings = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
   virtual_text = true,
@@ -74,6 +102,7 @@ metals_config.handlers["textDocument/publishDiagnostics"] = shared_diagnostic_se
 metals_config.capabilities = capabilities
 
 metals_config.on_attach = function(client, bufnr)
+  on_attach(client, bufnr)
   local dap = require("dap")
   vim.api.nvim_create_autocmd("FileType", {
     pattern = { "dap-repl" },
@@ -82,7 +111,7 @@ metals_config.on_attach = function(client, bufnr)
     end,
     group = lsp_group,
   })
-  dap.listeners.after["event_terminated"]["nvim-metals"] = function(session, body)
+  dap.listeners.after["event_terminated"]["nvim-metals"] = function(_, _)
     vim.notify("Tests have finished!")
     dap.repl.open()
   end
@@ -133,16 +162,17 @@ require("lspconfig").sumneko_lua.setup({
     },
   },
   capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 -- json, html and css
 require("lspconfig").jsonls.setup({
   capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 -- yaml
 require("lspconfig").yamlls.setup({
-  capabilities = capabilities,
   settings = {
     yaml = {
       schemas = {
@@ -150,12 +180,14 @@ require("lspconfig").yamlls.setup({
       },
     },
   },
+  capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 -- rust
 require("lspconfig").rust_analyzer.setup({
   capabilities = capabilities,
-  -- cmd = { "rustup", "run", "nightly", "rust-analyzer" },
+  on_attach = on_attach,
 })
 
 -- docker
@@ -164,6 +196,7 @@ require("lspconfig").dockerls.setup({
   filetypes = { "Dockerfile", "dockerfile" },
   root_dir = vim.loop.cwd,
   capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 -- python
@@ -179,6 +212,7 @@ require("lspconfig").pyright.setup({
       },
     },
   },
+  single_file_support = true,
   capabilities = capabilities,
   single_file_support = true,
 })
@@ -187,10 +221,12 @@ require("lspconfig").pyright.setup({
 
 require("lspconfig").html.setup({
   capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 require("lspconfig").cssls.setup({
   capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 require("lspconfig").tsserver.setup({
@@ -200,6 +236,8 @@ require("lspconfig").tsserver.setup({
     hostInfo = "neovim",
   },
   root_dir = lspUtil.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git"),
+  capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 -- golang
@@ -223,9 +261,10 @@ require("lspconfig").gopls.setup({
     },
   },
   commands = {},
-  capabilities = capabilities,
   filetypes = { "go", "gomod" },
   root_dir = lspUtil.root_pattern("go.mod", ".git"),
+  capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 -- vimls
@@ -233,6 +272,8 @@ require("lspconfig").vimls.setup({
   diagnostic = {
     enable = true,
   },
+  capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 -- ansible
@@ -257,6 +298,8 @@ require("lspconfig").ansiblels.setup({
     },
   },
   single_file_support = true,
+  capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 -- latex
@@ -265,6 +308,8 @@ require("lspconfig").texlab.setup({
     auxDirectory = ".",
     bibtexFormatter = "texlab",
   },
+  capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 -- nix
@@ -273,4 +318,6 @@ require("lspconfig").rnix.setup({
   filetypes = { "nix" },
   init_options = {},
   settings = {},
+  capabilities = capabilities,
+  on_attach = on_attach,
 })

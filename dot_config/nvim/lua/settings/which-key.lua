@@ -58,7 +58,7 @@ wk.register({
   ["<Space>"] = {
     name = "Space",
     d = {
-      name = "Dap",
+      name = "Diagnostics / Debug",
       b = { name = "Toggle breakpoints" },
       l = { name = "Last run" },
       o = { name = "Open REPL" },
@@ -68,6 +68,8 @@ wk.register({
         c = { name = "Close" },
         t = { name = "Toggle" },
       },
+      e = "Diagnostics line",
+      q = "Diagnostics Loclist",
     },
     m = {},
     -- l = { name = "Lsp" },
@@ -89,6 +91,9 @@ wk.register({
     },
     q = {
       name = "Close current buffer",
+    },
+    e = {
+      name = "Show diagnostics",
     },
   },
 })

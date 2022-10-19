@@ -11,6 +11,7 @@ if fn.empty(fn.glob(packer_install_path)) > 0 then
   execute("!git clone https://github.com/wbthomason/packer.nvim " .. packer_install_path)
 end
 
+require("global")
 require("plugins")
 require("options")
 require("theme")
@@ -20,9 +21,7 @@ require("settings.lualine")
 require("settings.lsp")
 require("settings.nvim-cmp")
 require("settings.treesitter")
-require("settings.autopairs")
 require("settings.telescope")
-require("settings.formatter")
 require("settings.dap")
 require("settings.neo-tree")
 require("settings.mappings")
