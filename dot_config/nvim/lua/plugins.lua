@@ -169,6 +169,7 @@ return require("packer").startup(function()
           go = { require("formatter.filetypes.go").goimports },
           bzl = { require("formatter.filetypes.bzl").buildifier },
           scala = { require("formatter.filetypes.scala").scalafmt },
+          rust = { require("formatter.filetypes.rust").rustfmt },
         },
       })
     end,
