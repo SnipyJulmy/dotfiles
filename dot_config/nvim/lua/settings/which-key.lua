@@ -55,8 +55,57 @@ wk.setup({
 })
 
 wk.register({
-  ["<Space>"] = {
+  m = {
+    name = "Harpoon",
+    a = "Add file",
+    m = "Menu",
+    [","] = "Next",
+    k = "Prev",
+    ["1"] = "Nav file 1",
+    ["2"] = "Nav file 2",
+    ["3"] = "Nav file 3",
+    ["4"] = "Nav file 4",
+  },
+  g = {
+    name = "Lsp",
+    D = { "Declaration" },
+    d = { "Definition" },
+    i = { "Implementation" },
+    r = { "Regerences" },
+    k = { "Signature help" },
+    s = {
+      name = "Lsp symbols",
+      d = { "Document symbols" },
+      w = { "Workspace symbols" },
+    },
+    p = {
+      name = "Preview",
+      d = { "Preview definition" },
+      t = { "Preview type definition" },
+      i = { "Preview implementation" },
+      r = { "Preview references" },
+      p = { "Close all preview" },
+    },
+  },
+  K = { "Hover" },
+  ["<space>"] = {
     name = "Space",
+    W = {
+      name = "Workspace",
+      a = { "Add workspace folder" },
+      r = { "Remove workspace folder" },
+      l = { "List workspace folders" },
+    },
+    D = { "Type definition" },
+    r = {
+      name = "Refactor",
+      n = "rename",
+    },
+    c = {
+      name = "Action",
+      a = "Code action",
+      f = "Lsp format",
+    },
     d = {
       name = "Diagnostics / Debug",
       b = { name = "Toggle breakpoints" },
@@ -75,16 +124,43 @@ wk.register({
     -- l = { name = "Lsp" },
     w = {
       name = "Hop",
+      w = { name = "Word" },
+      c = { name = "Char 1" },
+      l = { name = "Lines" },
     },
     g = {
       name = "Git",
-      g = {},
+      g = { "Git" },
+      p = {
+        name = "Push",
+        p = "Git push",
+        f = "Git push --force-with-lease",
+      },
+      b = {
+        name = "Git blame",
+      },
+    },
+    ["]"] = {
+      name = "Next",
+      h = "Git Hunk",
+      d = "Diagnostic",
+    },
+    ["["] = {
+      name = "Previous",
+      h = "Git Hunk",
+      d = "Diagnostic",
     },
     f = {
       name = "Finder",
       f = { "Find file" },
       F = { "Find hidden file " },
-      g = {},
+      g = { "Grep" },
+      l = { "Find work undur cursor" },
+      b = { "Buffers" },
+      h = { "Help tags" },
+      s = { "LSP symbols" },
+      m = { "Harpoon" },
+      a = { "Man page" },
     },
     F = {
       name = "Format",
@@ -94,6 +170,31 @@ wk.register({
     },
     e = {
       name = "Show diagnostics",
+    },
+  },
+  ["<leader>"] = {
+    c = {
+      l = {
+        name = "Codelens",
+        r = "Refresh",
+        u = "Run",
+      },
+    },
+    g = {
+      name = "Git",
+      p = { "Preview hunk" },
+      t = { "Toggle Gitgutter" },
+    },
+    h = {
+      name = "Gitgutter",
+      p = "Preview",
+      s = "Stage",
+      u = "Unstage",
+    },
+    ["leader"] = {
+      r = { "Reload init.lua" },
+      s = { "Reload current file" },
+      l = { "Reload luasnip snippets" },
     },
   },
 })

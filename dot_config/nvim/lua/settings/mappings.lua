@@ -10,18 +10,20 @@ vim.keymap.set({ "n" }, "<space>fb", [[<cmd>Telescope buffers<CR>]])
 vim.keymap.set({ "n" }, "<space>fh", [[<cmd>Telescope help_tags<CR>]])
 vim.keymap.set({ "n" }, "<space>fs", [[<cmd>Telescope lsp_document_symbols<CR>]])
 vim.keymap.set({ "n" }, "<space>fm", [[<cmd>Telescope harpoon marks<CR>]])
+vim.keymap.set({ "n" }, "<space>fa", [[<cmd>Telescope man_pages<CR>]])
 
 -- git
 vim.keymap.set({ "n" }, "[h", [[<cmd>GitGutterPrevHunk<CR>]])
 vim.keymap.set({ "n" }, "]h", [[<cmd>GitGutterNextHunk<CR>]])
-vim.keymap.set({ "n" }, "<leader>hp", [[<cmd>GitGutterPreviewHunk<CR>]])
-vim.keymap.set({ "n" }, "<leader>ht", [[<cmd>GitGutterToggle<CR>]])
+vim.keymap.set({ "n" }, "<leader>gp", [[<cmd>GitGutterPreviewHunk<CR>]])
+vim.keymap.set({ "n" }, "<leader>gt", [[<cmd>GitGutterToggle<CR>]])
 vim.keymap.set({ "n" }, "<space>gg", [[<cmd>Git<CR>]])
-vim.keymap.set({ "n" }, "<space>gp", [[<cmd>Git push --force-with-lease<CR>]])
+vim.keymap.set({ "n" }, "<space>gpp", [[<cmd>Git push<CR>]])
+vim.keymap.set({ "n" }, "<space>gpf", [[<cmd>Git push --force-with-lease<CR>]])
 vim.keymap.set({ "n" }, "<space>gb", [[<cmd>Git blame<CR>]])
 
 -- formatting
-vim.keymap.set({ "n" }, "<Space>F", [[<cmd>Format<CR>]])
+vim.keymap.set({ "n" }, "<space>F", [[<cmd>Format<CR>]])
 
 -- neo-tree
 vim.keymap.set({ "n" }, "<C-n>", [[<cmd>Neotree filesystem reveal left toggle<CR>]])
@@ -39,9 +41,9 @@ vim.keymap.set({ "t" }, "<C-w>l", [[<C-\><C-n><C-W>l]])
 vim.keymap.set({ "n" }, "<C-w><C-w>", "<C-w><C-p>")
 
 -- hop.nvim
-vim.keymap.set({ "n" }, "<Space>ww", [[<cmd>lua require("hop").hint_words({})<CR>]])
-vim.keymap.set({ "n" }, "<Space>wc", [[<cmd>lua require("hop").hint_char1({})<CR>]])
-vim.keymap.set({ "n" }, "<Space>wl", [[<cmd>lua require("hop").hint_lines({})<CR>]])
+vim.keymap.set({ "n" }, "<space>ww", [[<cmd>lua require("hop").hint_words({})<CR>]])
+vim.keymap.set({ "n" }, "<space>wc", [[<cmd>lua require("hop").hint_char1({})<CR>]])
+vim.keymap.set({ "n" }, "<space>wl", [[<cmd>lua require("hop").hint_lines({})<CR>]])
 
 -- others
 vim.keymap.set({ "n" }, "<space>q", [[<cmd>lua close_buffer()<CR>]])

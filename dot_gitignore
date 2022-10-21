@@ -63,3 +63,6 @@ touille*
 ### JS/TS
 jsconfig.json
 tsconfig.json
+
+### Direnv
+.envrc

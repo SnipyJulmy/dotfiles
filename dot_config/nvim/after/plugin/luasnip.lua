@@ -10,6 +10,7 @@ local r = ls.restore_node
 local sn = ls.snippet_node
 local rep = require("luasnip.extras").rep
 
+-- clean all snippets so we don't have duplicates when reloading the file
 ls.cleanup()
 
 ls.config.set_config({
