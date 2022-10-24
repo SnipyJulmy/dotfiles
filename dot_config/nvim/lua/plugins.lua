@@ -88,7 +88,12 @@ return require("packer").startup(function()
   use({ "godlygeek/tabular" })
   use({ "ellisonleao/glow.nvim" })
   use({ "benmills/vimux" })
-  use({ "nathom/filetype.nvim" })
+  -- use({
+  --   "nathom/filetype.nvim",
+  --   config = function()
+  --     require("filetype").setup()
+  --   end,
+  -- })
   use({
     "lewis6991/impatient.nvim",
     config = function()
