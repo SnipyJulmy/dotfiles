@@ -7,16 +7,8 @@ local telescope = vim.api.nvim_create_augroup("Telescope", { clear = true })
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, { group = fmt, pattern = { "*.go", "*.lua", "*.rs", "*.py" }, command = "FormatWrite" })
 
-vim.api.nvim_create_autocmd(
-  { "FileType" },
-  { group = go, pattern = "go", command = "setlocal shiftwidth=8 softtabstop=8 expandtab omnifunc=v:lua.vim.lsp.omnifunc" }
-)
-
-vim.api.nvim_create_autocmd({ "FileType" }, { group = fmt, pattern = "bzl", command = "setlocal shiftwidth=4 softtabstop=4 expandtab" })
-vim.api.nvim_create_autocmd({ "FileType" }, { group = fmt, pattern = "xml", command = "setlocal shiftwidth=4 softtabstop=4 expandtab" })
-vim.api.nvim_create_autocmd({ "FileType" }, { group = fmt, pattern = "toml", command = "setlocal shiftwidth=4 softtabstop=4 expandtab" })
-
 vim.api.nvim_create_autocmd({ "FileType" }, { group = scala, pattern = "scala", command = "setlocal omnifunc=v:lua.vim.lsp.omnifunc" })
+
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   group = scala,
   pattern = { "*.scala", "*.sbt" },
@@ -32,8 +24,6 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, { group = packer, pattern = "plugins.lua", command = "PackerCompile" })
 
-vim.api.nvim_create_autocmd({ "FileType" }, { group = base_group, pattern = "harpoon", command = "setlocal wrap" })
-vim.api.nvim_create_autocmd({ "FileType" }, { group = base_group, pattern = "markdown", command = "setlocal textwidth=120" })
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
   pattern = { "*.md", "*.txt", "COMMIT_EDITMSG" },
   command = "set wrap linebreak nolist spell spelllang=en_us complete+=kspell",
@@ -48,5 +38,3 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, { group = base_group, pattern = 
 
 -- yaml
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufReadPost" }, { group = base_group, pattern = { "*.yaml, *.yml" }, command = "setlocal filetype=yaml" })
-
-vim.api.nvim_create_autocmd({ "FileType" }, { group = base_group, pattern = { "yaml" }, command = "setlocal ts=2 sts=2 sw=2 expandtab" })
