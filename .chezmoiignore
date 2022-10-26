@@ -1,3 +1,5 @@
 *.md
 */**/nvim/plugin
+*/**/nvim/plugin/*
 */**/nvim/spell
+*/**/nvim/spell/*
