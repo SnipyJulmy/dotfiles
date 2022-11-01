@@ -1,2 +1,2 @@
-au BufReadPost *.zshrc.tmpl,*.zshrc setfiletype zsh
-au BufReadPost *.tmux.conf.tmpl setfiletype tmux
+au BufReadPost *.zshrc.tmpl,*.zshrc set filetype=zsh
+au BufReadPost *.tmux.conf.tmpl set filetype=tmux

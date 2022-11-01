@@ -119,13 +119,13 @@ metals_config.on_attach = function(client, bufnr)
   require("metals").setup_dap()
 end
 
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  group = lsp_group,
-  pattern = { "scala", "sbt" },
-  callback = function()
-    require("metals").initialize_or_attach(metals_config)
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+--   group = lsp_group,
+--   pattern = { "scala", "sbt" },
+--   callback = function()
+--     require("metals").initialize_or_attach(metals_config)
+--   end,
+-- })
 
 -- sumneko lua
 local sumneko_root_path = vim.fn.stdpath("cache") .. "/lspconfig/lua-language-server"
