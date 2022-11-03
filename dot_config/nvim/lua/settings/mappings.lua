@@ -27,8 +27,8 @@ vim.keymap.set({ "n" }, "<space>F", [[<cmd>Format<CR>]])
 
 -- neo-tree
 vim.keymap.set({ "n" }, "<C-n>", [[<cmd>Neotree filesystem reveal left toggle<CR>]])
-vim.keymap.set({ "n" }, "<leader>b", [[<cmd>Neotree buffers float toggle=true<CR>]])
-vim.keymap.set({ "n" }, "<leader>g", [[<cmd>Neotree git_status float toggle=true<CR>]])
+vim.keymap.set({ "n" }, "<leader>bb", [[<cmd>Neotree buffers float toggle=true<CR>]])
+vim.keymap.set({ "n" }, "<leader>gg", [[<cmd>Neotree git_status float toggle=true<CR>]])
 
 -- terminal mappings
 vim.keymap.set({ "t" }, "<ESC>", [[<C-\><C-n>]])
@@ -57,3 +57,16 @@ vim.keymap.set({ "n" }, "<leader><leader>s", [[<cmd> source %<CR>]])
 -- diffs
 vim.keymap.set({ "n" }, "<leader>dp", "<cmd>%diffput2<CR>")
 vim.keymap.set({ "n" }, "<leader>dg", "<cmd>%diffget1<CR>")
+
+-- quickfix list
+vim.keymap.set({ "n" }, "<Space>no", "<cmd>copen<CR>")
+vim.keymap.set({ "n" }, "<Space>nq", "<cmd>cclose<CR>")
+vim.keymap.set({ "n" }, "<Space>nn", "<cmd>cnext<CR>")
+vim.keymap.set({ "n" }, "<F8>", "<cmd>cnext<CR>")
+vim.keymap.set({ "n" }, "<Space>np", "<cmd>cprev<CR>")
+vim.keymap.set({ "n" }, "<F7>", "<cmd>cprev<CR>")
+vim.keymap.set({ "n" }, "<Space>nf", "<cmd>cfirst<CR>")
+vim.keymap.set({ "n" }, "<Space>nl", "<cmd>clast<CR>")
+for i = 1, 10, 1 do
+  vim.keymap.set({ "n" }, "<Space>n" .. i, "<cmd>:cc" .. i .. "<CR>")
+end

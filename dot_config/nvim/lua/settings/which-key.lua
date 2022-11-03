@@ -55,6 +55,8 @@ wk.setup({
 })
 
 wk.register({
+  ["F7"] = "Quickfix prev item",
+  ["F8"] = "Quickfix next item",
   m = {
     name = "Harpoon",
     a = "Add file",
@@ -90,6 +92,16 @@ wk.register({
   K = { "Hover" },
   ["<space>"] = {
     name = "Space",
+    n = {
+      name = "Quickfix list shortcut",
+      o = { "Open quickfix" },
+      q = { "Close quickfix" },
+      n = { "Next item" },
+      p = { "Previous item" },
+      f = { "Goto first" },
+      l = { "Goto last" },
+      ["0-9"] = { "Goto nth item" },
+    },
     W = {
       name = "Workspace",
       a = { "Add workspace folder" },
