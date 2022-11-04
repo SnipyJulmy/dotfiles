@@ -66,3 +66,6 @@ tsconfig.json
 
 ### Direnv
 .envrc
+
+### mind.nvim
+.mind
