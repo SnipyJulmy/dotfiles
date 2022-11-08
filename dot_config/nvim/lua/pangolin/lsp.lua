@@ -127,13 +127,31 @@ end
 --   end,
 -- })
 
--- sumneko lua
-local sumneko_root_path = vim.fn.stdpath("cache") .. "/lspconfig/lua-language-server"
-local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
+-- lsp setup and install
+require("mason").setup()
+require("mason-lspconfig").setup({
+  ensure_installed = {
+    "sumneko_lua",
+    "rust_analyzer",
+    "rnix",
+    "yamlls",
+    "jsonls",
+    "dockerls",
+    "pyright",
+    "gopls",
+    "tsserver",
+    "vimls",
+    "ansiblels",
+    "texlab",
+    "html",
+    "cssls",
+    "kotlin_language_server",
+  },
+})
 
+-- lua
 require("lspconfig").sumneko_lua.setup({
-  cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
-  commands = {},
+  -- cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
   settings = {
     Lua = {
       runtime = {
@@ -217,8 +235,6 @@ require("lspconfig").pyright.setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
-
--- haskell
 
 require("lspconfig").html.setup({
   capabilities = capabilities,
@@ -321,4 +337,11 @@ require("lspconfig").rnix.setup({
   settings = {},
   capabilities = capabilities,
   on_attach = on_attach,
+})
+
+-- kotlin
+require("lspconfig").kotlin_language_server.setup({
+  cmd = { "kotlin-language-server" },
+  filetypes = { "kotlin" },
+  root_dir = lspUtil.root_pattern("settings.gradle", "settings.gradle.kts", "build.xml", "pom.xml", "build.gradle", "build.gradle.kts"),
 })

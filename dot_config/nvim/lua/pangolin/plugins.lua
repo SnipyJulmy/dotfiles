@@ -185,6 +185,13 @@ return require("packer").startup(function()
   use({ "mfussenegger/nvim-dap" })
   use({ "onsails/lspkind-nvim" })
   use({ "simrat39/symbols-outline.nvim" })
+  use({
+    "williamboman/mason.nvim",
+    requires = {
+      "williamboman/mason-lspconfig.nvim",
+      "neovim/nvim-lspconfig",
+    },
+  })
 
   use({
     "hrsh7th/nvim-cmp",
