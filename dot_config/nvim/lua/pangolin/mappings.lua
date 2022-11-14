@@ -53,6 +53,7 @@ vim.keymap.set({ "n" }, "<space>wl", [[<cmd>lua require("hop").hint_lines({})<CR
 vim.keymap.set({ "n" }, "<space>q", [[<cmd>lua close_buffer()<CR>]])
 vim.keymap.set({ "n" }, "<leader><leader>r", [[<cmd> source $HOME/.config/nvim/init.lua<CR>]])
 vim.keymap.set({ "n" }, "<leader><leader>s", [[<cmd> source %<CR>]])
+vim.keymap.set({ "n" }, "E", [[<cmd>Explore<CR>]], {})
 
 -- diffs
 vim.keymap.set({ "n" }, "<leader>dp", "<cmd>%diffput2<CR>")

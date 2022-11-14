@@ -1,2 +1,3 @@
 cs: ci status --live
-
+cr: mr create -w
+vi: mr view -w

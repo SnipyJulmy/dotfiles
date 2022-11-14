@@ -31,6 +31,18 @@ ls.config.set_config({
 
 ls.add_snippets("all", {})
 
+ls.add_snippets("bzl", {
+  s(
+    "mod",
+    fmt(
+      [[
+    
+  ]],
+      {}
+    )
+  ),
+})
+
 ls.add_snippets("lua", {
   s("todo", fmt([[-- {} {}]], { c(1, { t("TODO"), t("FIXME") }), i(2) })),
   s("req", fmt([[local {} = require("{}")]], { i(1, "default"), rep(1) })),

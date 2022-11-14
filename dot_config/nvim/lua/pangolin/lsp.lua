@@ -141,7 +141,6 @@ require("mason-lspconfig").setup({
     "gopls",
     "tsserver",
     "vimls",
-    "ansiblels",
     "texlab",
     "html",
     "cssls",
@@ -289,32 +288,6 @@ require("lspconfig").vimls.setup({
   diagnostic = {
     enable = true,
   },
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
-
--- ansible
-require("lspconfig").ansiblels.setup({
-  cmd = { "ansible-language-server", "--stdio" },
-  filetypes = { "yml", "yaml", "yaml.ansible" },
-  settings = {
-    ansible = {
-      ansible = {
-        path = "ansible",
-      },
-      ansibleLint = {
-        enabled = true,
-        path = "ansible-lint",
-      },
-      executionEnvironment = {
-        enabled = false,
-      },
-      python = {
-        interpreterPath = "python",
-      },
-    },
-  },
-  single_file_support = true,
   capabilities = capabilities,
   on_attach = on_attach,
 })
