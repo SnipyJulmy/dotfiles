@@ -96,6 +96,9 @@ metals_config.tvp = {
   node_command_mapping = "r",
   collapsed_sign = ">",
   expanded_sign = "v",
+  icons = {
+    enabled = true,
+  },
 }
 
 metals_config.handlers["textDocument/publishDiagnostics"] = shared_diagnostic_settings
@@ -113,19 +116,23 @@ metals_config.on_attach = function(client, bufnr)
     group = lsp_group,
   })
   dap.listeners.after["event_terminated"]["nvim-metals"] = function(_, _)
-    vim.notify("Tests have finished!")
+    require("notify")("Tests have finished!")
     dap.repl.open()
   end
+
+  -- metals specific mappings
+  vim.keymap.set({ "v" }, "K", require("metals").type_of_range)
+
   require("metals").setup_dap()
 end
 
--- vim.api.nvim_create_autocmd({ "FileType" }, {
---   group = lsp_group,
---   pattern = { "scala", "sbt" },
---   callback = function()
---     require("metals").initialize_or_attach(metals_config)
---   end,
--- })
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group = lsp_group,
+  pattern = { "scala", "sbt" },
+  callback = function()
+    require("metals").initialize_or_attach(metals_config)
+  end,
+})
 
 -- lsp setup and install
 require("mason").setup()
@@ -278,7 +285,7 @@ require("lspconfig").gopls.setup({
   },
   commands = {},
   filetypes = { "go", "gomod" },
-  root_dir = lspUtil.root_pattern("go.mod", ".git"),
+  root_dir = lspUtil.root_pattern("go.mod", "go.work", ".git"),
   capabilities = capabilities,
   on_attach = on_attach,
 })

@@ -59,11 +59,10 @@ require("neo-tree").setup({
       nowait = true,
     },
     mappings = {
-      ["<cr>"] = "open",
+      ["<cr>"] = "open_with_window_picker",
       ["S"] = "split_with_window_picker",
       ["s"] = "vsplit_with_window_picker",
       ["t"] = "open_tabnew",
-      ["w"] = "open_with_window_picker",
       ["C"] = "close_node",
       ["a"] = {
         "add",
@@ -108,10 +107,11 @@ require("neo-tree").setup({
     use_libuv_file_watcher = false,
     window = {
       mappings = {
-        ["<bs>"] = "navigate_up",
+        ["-"] = "navigate_up",
         ["."] = "set_root",
         ["H"] = "toggle_hidden",
-        ["/"] = "fuzzy_finder",
+        ["F"] = "fuzzy_finder",
+        ["D"] = "fuzzy_finder_directory",
         ["f"] = "filter_on_submit",
         ["<c-x>"] = "clear_filter",
         ["[g"] = "prev_git_modified",
@@ -129,7 +129,7 @@ require("neo-tree").setup({
         ["d"] = nil,
         ["."] = "set_root",
         ["bd"] = "buffer_delete",
-        ["<bs>"] = "navigate_up",
+        ["-"] = "navigate_up",
       },
     },
   },

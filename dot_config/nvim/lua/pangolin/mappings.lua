@@ -11,6 +11,7 @@ vim.keymap.set({ "n" }, "<space>fh", [[<cmd>Telescope help_tags<CR>]])
 vim.keymap.set({ "n" }, "<space>fs", [[<cmd>Telescope lsp_document_symbols<CR>]])
 vim.keymap.set({ "n" }, "<space>fm", [[<cmd>Telescope harpoon marks<CR>]])
 vim.keymap.set({ "n" }, "<space>fa", [[<cmd>Telescope man_pages<CR>]])
+vim.keymap.set({ "n" }, "<space>fcc", [[<cmd>Telescope git_commits<CR>]])
 
 -- git
 vim.keymap.set({ "n" }, "[h", [[<cmd>GitGutterPrevHunk<CR>]])

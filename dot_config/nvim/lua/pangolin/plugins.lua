@@ -1,6 +1,13 @@
 return require("packer").startup(function()
-  -- automanage packaer
+  -- automanage packer
   use("wbthomason/packer.nvim")
+
+  use({
+    "lewis6991/impatient.nvim",
+    config = function()
+      require("impatient").enable_profile()
+    end,
+  })
 
   -- apparence, colors
   use({ "kyazdani42/nvim-web-devicons" })
@@ -19,6 +26,16 @@ return require("packer").startup(function()
   -- colorscheme
   use({ "catppuccin/nvim", as = "catppuccin" })
   use({ "morhetz/gruvbox" })
+  use({
+    "rose-pine/neovim",
+    as = "rose-pine",
+    config = function()
+      require("rose-pine").setup({
+        dark_variant = "moon",
+      })
+    end,
+  })
+  use("folke/tokyonight.nvim")
 
   -- neovim lua development
   use({
@@ -30,7 +47,9 @@ return require("packer").startup(function()
   use({
     "rcarriga/nvim-notify",
     config = function()
-      require("notify").setup()
+      require("notify").setup({
+        background_colour = "#000000",
+      })
     end,
   })
 
@@ -88,18 +107,6 @@ return require("packer").startup(function()
   use({ "godlygeek/tabular" })
   use({ "ellisonleao/glow.nvim" })
   use({ "benmills/vimux" })
-  -- use({
-  --   "nathom/filetype.nvim",
-  --   config = function()
-  --     require("filetype").setup()
-  --   end,
-  -- })
-  use({
-    "lewis6991/impatient.nvim",
-    config = function()
-      require("impatient").enable_profile()
-    end,
-  })
 
   use({
     "ThePrimeagen/harpoon",
@@ -182,15 +189,34 @@ return require("packer").startup(function()
 
   -- lsp + completion and dap
   use({ "neovim/nvim-lspconfig" })
-  use({ "mfussenegger/nvim-dap" })
   use({ "onsails/lspkind-nvim" })
-  use({ "simrat39/symbols-outline.nvim" })
+  use({
+    "simrat39/symbols-outline.nvim",
+    config = function()
+      require("symbols-outline").setup()
+    end,
+  })
   use({
     "williamboman/mason.nvim",
     requires = {
       "williamboman/mason-lspconfig.nvim",
       "neovim/nvim-lspconfig",
     },
+  })
+
+  use({
+    "jose-elias-alvarez/null-ls.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      local null_ls = require("null-ls")
+      null_ls.setup({
+        null_ls.builtins.formatting.stylua,
+        null_ls.builtins.diagnostics.eslint,
+        null_ls.builtins.completion.spell,
+      })
+    end,
   })
 
   use({
@@ -243,6 +269,7 @@ return require("packer").startup(function()
       })
     end,
   })
+
   use({
     "j-hui/fidget.nvim",
     config = function()
@@ -250,10 +277,9 @@ return require("packer").startup(function()
     end,
   })
 
-  use({
-    "rcarriga/nvim-dap-ui",
-    requires = { "mfussenegger/nvim-dap" },
-  })
+  use({ "mfussenegger/nvim-dap" })
+
+  use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 
   use({
     "theHamsta/nvim-dap-virtual-text",
@@ -268,7 +294,10 @@ return require("packer").startup(function()
 
   use({
     "ericpubu/lsp_codelens_extensions.nvim",
-    requires = { { "nvim-lua/plenary.nvim", "mfussenegger/nvim-dap" } },
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "mfussenegger/nvim-dap",
+    },
     config = function()
       require("codelens_extensions").setup()
     end,
