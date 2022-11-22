@@ -121,6 +121,15 @@ return require("packer").startup(function()
       })
     end,
   })
+
+  use({
+    "j-morano/buffer_manager.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      vim.keymap.set({ "n" }, "mb", require("buffer_manager.ui").toggle_quick_menu)
+    end,
+  })
+
   use({ "folke/which-key.nvim" })
 
   -- comment
@@ -336,6 +345,7 @@ return require("packer").startup(function()
   -- git
   use({ "airblade/vim-gitgutter" })
   use({ "tpope/vim-fugitive" })
+  use({ "kdheepak/lazygit.nvim" })
 
   -- quickfix
   use({ "itchyny/vim-qfedit" })
