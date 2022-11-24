@@ -48,6 +48,11 @@ color14  #8ec07b
 color7   #a89983
 color15  #ebdbb2
 
+{{ if eq .chezmoi.os "darwin" }}
+shell /run/current-system/sw/bin/zsh
+{{ else }}
 shell /usr/bin/zsh
+{{ end }}
+
 editor vim
 term xterm-kitty
