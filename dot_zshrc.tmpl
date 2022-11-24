@@ -118,6 +118,8 @@ updatePath "/usr/local/opt/python@3.9/Frameworks/Python.framework/Versions/3.9/b
 # updatePath "$HOME/go/bin"
 # updatePath "/usr/local/go/bin"
 
+updatePath "${HOME}/.local/bin"
+
 # 10ms for key sequences
 KEYTIMEOUT=1
 
@@ -201,6 +203,16 @@ function GoUpdate() {
     echo "Done"
   fi
 }
+
+{{- if eq .chezmoi.os "darwin" }}
+export GOPATH="$HOME/projects/go"
+export GOBIN="$GOPATH/bin"
+{{ else if eq .chezmoi.os "linux" }}
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+{{ end }}
+
+updatePath "${GOBIN}"
 
 # kubectl completion if available
 [ -e /usr/local/bin/kubectl ] && source <(kubectl completion zsh)
