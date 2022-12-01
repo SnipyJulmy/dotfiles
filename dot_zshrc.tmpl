@@ -228,6 +228,25 @@ function NeovimUpdate() {
   popd
 }
 
+# Example use : aoc day02 scala3
+# Available lang :
+# - rust
+# - scala3
+function aoc() {
+  DAY=$1
+  LANG=$2
+
+  case "${LANG}" in
+    rust)
+      echo "rust"
+      ;;
+    scala3)
+      echo "scala3"
+      ;;
+    *)
+      echo "Usage : aoc \$day\$ (rust|scala3)"
+}
+
 ### Pyenv (for neovim)
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
