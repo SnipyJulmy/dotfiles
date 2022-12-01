@@ -238,14 +238,16 @@ function aoc() {
     rust)
       if [[ -d "rust/${DAY}" ]] ; then echo "${DAY} already exists..." && return 1 ; fi
       mkdir -p "rust/${DAY}"
-      cd "rust/${DAY}"
+      pushd "rust/${DAY}"
       cargo init --name "${DAY}" --bin --vcs=none --color=always
+      popd
       ;;
     scala3)
       if [[ -d "scala3/${DAY}" ]] ; then echo "${DAY} already exists..." && return 1 ; fi
       mkdir -p "scala3/${DAY}"
-      cd "scala3/${DAY}"
+      pushd "scala3"
       g8 scala/scala3.g8 -o "${DAY}" --name="${DAY}"
+      popd
       ;;
     *)
       echo "Usage : aoc \$day\$ (rust|scala3)"
