@@ -1,8 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-echo "zshrc sourced"
-
 fpath=(
   $HOME/.zfunc
   $fpath
@@ -238,10 +236,10 @@ function aoc() {
 
   case "${LANG}" in
     rust)
-      echo "rust"
+      if [[ -d "rust/${DAY}" ]] ; then echo "${DAY} already exists..." && return 1 ; fi
       ;;
     scala3)
-      echo "scala3"
+      if [[ -d "scala3/${DAY}" ]] ; then echo "${DAY} already exists..." && return 1 ; fi
       ;;
     *)
       echo "Usage : aoc \$day\$ (rust|scala3)"
