@@ -281,3 +281,7 @@ eval_ondir() {
 }
 chpwd_functions=( eval_ondir $chpwd_functions )
 
+
+# fnm
+export PATH="/home/snipy/.local/share/fnm:$PATH"
+eval "`fnm env`"
