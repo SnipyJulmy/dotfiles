@@ -103,7 +103,11 @@ set -g @resurrect-strategy-nvim 'session'
 # Continuum
 set -g @continuum-restore 'on'
 set -g @continuum-boot 'on'
-set -g @continuum-boot-options 'fullscreen,iterm'
+{{- if eq .chezmoi.os "darwin" }}
+set -g @continuum-boot-options 'fullscreen,wezterm'
+{{- else }}
+set -g @continuum-boot-options 'fullscreen,kitty'
+{{- end }}
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run -b '~/.tmux/plugins/tpm/tpm'
