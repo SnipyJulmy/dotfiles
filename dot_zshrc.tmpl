@@ -40,6 +40,8 @@ plugins=(
   {{- if eq .chezmoi.os "darwin" }}
   macos
   brew
+  {{- else }}
+  fnm
   {{- end }}
   git
   docker
