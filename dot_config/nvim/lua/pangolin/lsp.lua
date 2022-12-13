@@ -324,4 +324,6 @@ require("lspconfig").kotlin_language_server.setup({
   cmd = { "kotlin-language-server" },
   filetypes = { "kotlin" },
   root_dir = lspUtil.root_pattern("settings.gradle", "settings.gradle.kts", "build.xml", "pom.xml", "build.gradle", "build.gradle.kts"),
+  capabilities = capabilities,
+  on_attach = on_attach,
 })
