@@ -4,7 +4,7 @@ local fmt = vim.api.nvim_create_augroup("Fmt", { clear = true })
 local packer = vim.api.nvim_create_augroup("Packer", { clear = true })
 local telescope = vim.api.nvim_create_augroup("Telescope", { clear = true })
 
-vim.api.nvim_create_autocmd({ "BufWritePost" }, { group = fmt, pattern = { "*.go", "*.lua", "*.rs", "*.py" }, command = "FormatWrite" })
+-- vim.api.nvim_create_autocmd({ "BufWritePost" }, { group = fmt, pattern = { "*.go", "*.lua", "*.rs", "*.py" }, command = "FormatWrite" })
 
 -- vim.api.nvim_create_autocmd({ "FileType" }, { group = scala, pattern = "scala", command = "setlocal omnifunc=v:lua.vim.lsp.omnifunc" })
 -- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
