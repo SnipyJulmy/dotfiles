@@ -35,7 +35,7 @@ return require("packer").startup(function()
       })
     end,
   })
-  use("folke/tokyonight.nvim")
+  use({ "folke/tokyonight.nvim" })
 
   -- neovim lua development
   use({
@@ -70,7 +70,7 @@ return require("packer").startup(function()
   use({ "nvim-treesitter/playground" })
   use({ "p00f/nvim-ts-rainbow" })
 
-  -- neo-tree
+  -- file management
   use({
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
@@ -96,6 +96,18 @@ return require("packer").startup(function()
         end,
       },
     },
+  })
+
+  use({
+    "stevearc/oil.nvim",
+    config = function()
+      require("oil").setup({
+        vim_options = {
+          show_hidden = false,
+        }
+      })
+      vim.keymap.set({ "n" }, "-", require("oil").open, { desc = "Open parent directory" })
+    end
   })
 
   -- language support
@@ -179,22 +191,22 @@ return require("packer").startup(function()
 
   -- formatting
   -- use({ "mhartington/formatter.nvim" })
-  use({
-    "$HOME/projects/oss/formatter.nvim",
-    config = function()
-      require("formatter").setup({
-        logging = true,
-        log_level = vim.log.levels.WARN,
-        filetype = {
-          lua = { require("formatter.filetypes.lua").stylua },
-          go = { require("formatter.filetypes.go").goimports },
-          bzl = { require("formatter.filetypes.bzl").buildifier },
-          scala = { require("formatter.filetypes.scala").scalafmt },
-          rust = { require("formatter.filetypes.rust").rustfmt },
-        },
-      })
-    end,
-  })
+  -- use({
+  --   "$HOME/projects/oss/formatter.nvim",
+  --   config = function()
+  --     require("formatter").setup({
+  --       logging = true,
+  --       log_level = vim.log.levels.WARN,
+  --       filetype = {
+  --         lua = { require("formatter.filetypes.lua").stylua },
+  --         go = { require("formatter.filetypes.go").goimports },
+  --         bzl = { require("formatter.filetypes.bzl").buildifier },
+  --         scala = { require("formatter.filetypes.scala").scalafmt },
+  --         rust = { require("formatter.filetypes.rust").rustfmt },
+  --       },
+  --     })
+  --   end,
+  -- })
 
   -- lsp + completion and dap
   use({ "neovim/nvim-lspconfig" })

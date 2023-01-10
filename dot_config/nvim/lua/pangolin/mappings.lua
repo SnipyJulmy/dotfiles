@@ -1,5 +1,6 @@
 -- clear some mapping
 vim.keymap.set({ "n" }, "J", "", {})
+vim.keymap.set({ "n" }, "O", "", {})
 
 -- telescope
 vim.keymap.set({ "n" }, "<space>ff", [[<cmd>Telescope find_files<CR>]])
