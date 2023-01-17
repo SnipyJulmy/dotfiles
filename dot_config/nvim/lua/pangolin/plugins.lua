@@ -36,6 +36,8 @@ return require("packer").startup(function()
     end,
   })
   use({ "folke/tokyonight.nvim" })
+  use({ "EdenEast/nightfox.nvim" })
+  use({ "rebelot/kanagawa.nvim" })
 
   -- neovim lua development
   use({

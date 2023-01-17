@@ -1,5 +1,5 @@
 local base_group = vim.api.nvim_create_augroup("BaseGroup", { clear = true })
-local fmt = vim.api.nvim_create_augroup("Fmt", { clear = true })
+-- local fmt = vim.api.nvim_create_augroup("Fmt", { clear = true })
 -- local scala = vim.api.nvim_create_augroup("Metals", { clear = true })
 local packer = vim.api.nvim_create_augroup("Packer", { clear = true })
 local telescope = vim.api.nvim_create_augroup("Telescope", { clear = true })
