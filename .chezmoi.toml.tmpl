@@ -1,0 +1,14 @@
+# {{- $personal := true -}}
+# {{- $opAccount := "" -}}
+# {{- "" -}}
+#
+# {{- if $personal -}}
+# {{-   $email := "sylvain.julmy@gmail.com" -}}
+# {{- else -}}
+# {{-   $email := promptString -}}
+# {{- end -}}
+#
+# [data]
+#     email = {{ $email | quote }}
+#     personal = {{ $personal }}
+#     opAccount = {{ $opAccount | quote }}
