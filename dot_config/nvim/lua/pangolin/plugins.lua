@@ -105,7 +105,7 @@ return require("packer").startup(function()
     config = function()
       require("oil").setup({
         vim_options = {
-          show_hidden = false,
+          show_hidden = true,
         }
       })
       vim.keymap.set({ "n" }, "-", require("oil").open, { desc = "Open parent directory" })
@@ -119,8 +119,16 @@ return require("packer").startup(function()
   use({ "tpope/vim-surround" })
   use({ "tpope/vim-obsession" })
   use({ "godlygeek/tabular" })
-  use({ "ellisonleao/glow.nvim" })
   use({ "benmills/vimux" })
+
+  use({
+    "ellisonleao/glow.nvim",
+    config = function()
+      require("glow").setup({
+        style = "light"
+      })
+    end
+  })
 
   use({
     "ThePrimeagen/harpoon",
