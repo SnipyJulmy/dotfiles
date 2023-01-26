@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 vim.api.nvim_create_autocmd({ "FileType" }, { group = telescope, pattern = "TelescopePrompt", command = "inoremap <buffer> <silent> <C-r> <C-r>" })
 
 -- vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, { group = base_group, pattern = "*.conf", command = "set filetype=hocon" })
-vim.api.nvim_create_autocmd({ "BufWritePost" }, { group = base_group, pattern = "~/.local/share/chezmoi/*", command = "! chezmoi apply --source-path %" })
+-- vim.api.nvim_create_autocmd({ "BufWritePost" }, { group = base_group, pattern = "~/.local/share/chezmoi/*", command = "! chezmoi apply --source-path %" })
 
 -- yaml
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufReadPost" }, { group = base_group, pattern = { "*.yaml, *.yml" }, command = "setlocal filetype=yaml" })
