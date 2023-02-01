@@ -70,6 +70,6 @@ vim.keymap.set({ "n" }, "<Space>np", "<cmd>cprev<CR>")
 vim.keymap.set({ "n" }, "<F7>", "<cmd>cprev<CR>")
 vim.keymap.set({ "n" }, "<Space>nf", "<cmd>cfirst<CR>")
 vim.keymap.set({ "n" }, "<Space>nl", "<cmd>clast<CR>")
-for i = 1, 10, 1 do
+for i = 1, 9, 1 do
   vim.keymap.set({ "n" }, "<Space>n" .. i, "<cmd>:cc" .. i .. "<CR>")
 end

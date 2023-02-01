@@ -50,6 +50,7 @@ vim.opt.spelllang = "en_gb"
 vim.opt.encoding = "utf-8"
 vim.opt.history = 1000
 vim.opt.undofile = true
+vim.opt.swapfile = false
 vim.opt.hidden = true
 vim.opt.backup = false
 vim.opt.writebackup = false

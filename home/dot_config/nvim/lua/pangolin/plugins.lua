@@ -199,25 +199,6 @@ return require("packer").startup(function()
   -- snippet
   use({ "L3MON4D3/LuaSnip" })
 
-  -- formatting
-  -- use({ "mhartington/formatter.nvim" })
-  -- use({
-  --   "$HOME/projects/oss/formatter.nvim",
-  --   config = function()
-  --     require("formatter").setup({
-  --       logging = true,
-  --       log_level = vim.log.levels.WARN,
-  --       filetype = {
-  --         lua = { require("formatter.filetypes.lua").stylua },
-  --         go = { require("formatter.filetypes.go").goimports },
-  --         bzl = { require("formatter.filetypes.bzl").buildifier },
-  --         scala = { require("formatter.filetypes.scala").scalafmt },
-  --         rust = { require("formatter.filetypes.rust").rustfmt },
-  --       },
-  --     })
-  --   end,
-  -- })
-
   -- lsp + completion and dap
   use({ "neovim/nvim-lspconfig" })
   use({ "onsails/lspkind-nvim" })

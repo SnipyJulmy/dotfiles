@@ -323,7 +323,18 @@ require("lspconfig").rnix.setup({
 require("lspconfig").kotlin_language_server.setup({
   cmd = { "kotlin-language-server" },
   filetypes = { "kotlin" },
-  root_dir = lspUtil.root_pattern("settings.gradle", "settings.gradle.kts", "build.xml", "pom.xml", "build.gradle", "build.gradle.kts"),
+  root_dir = lspUtil.root_pattern("settings.gradle", "settings.gradle.kts", "build.xml", "pom.xml", "build.gradle",
+    "build.gradle.kts"),
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+-- Markdown
+require("lspconfig").marksman.setup({
+  cmd = { "marksman", "server" },
+  filetypes = { "markdown" },
+  root_dir = lspUtil.root_pattern(".git"),
+  single_file_support = true,
   capabilities = capabilities,
   on_attach = on_attach,
 })
