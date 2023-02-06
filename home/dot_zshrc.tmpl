@@ -65,6 +65,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
+
 ### User configuration
 
 eval "$(direnv hook zsh)"
