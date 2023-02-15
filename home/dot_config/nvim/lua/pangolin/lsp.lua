@@ -243,6 +243,17 @@ require("lspconfig").pyright.setup({
 })
 
 require("lspconfig").html.setup({
+  cmd = { "vscode-html-language-server", "--stdio" },
+  filetypes = { "html" },
+  init_options = {
+    configurationSection = { "html", "css", "javascript" },
+    embeddedLanguages = {
+      css = true,
+      javascript = true,
+    },
+    provideFormatter = true
+  },
+  single_file_support = true,
   capabilities = capabilities,
   on_attach = on_attach,
 })
@@ -334,6 +345,13 @@ require("lspconfig").marksman.setup({
   cmd = { "marksman", "server" },
   filetypes = { "markdown" },
   root_dir = lspUtil.root_pattern(".git"),
+  single_file_support = true,
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+-- Emmet
+require("lspconfig").emmet_ls.setup({
   single_file_support = true,
   capabilities = capabilities,
   on_attach = on_attach,
