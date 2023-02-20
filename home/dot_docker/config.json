@@ -1,0 +1,8 @@
+{
+	"auths": {
+		"sqooba-docker-dev.repo.king.zoo": {},
+		"sqooba-docker-prod.repo.king.zoo": {}
+	},
+	"credsStore": "desktop",
+	"currentContext": "desktop-linux"
+}
