@@ -61,7 +61,7 @@ local shared_diagnostic_settings = vim.lsp.with(vim.lsp.diagnostic.on_publish_di
   update_in_insert = true,
 })
 
-capabilities.textDocument.completion.completionItem.snippetSupport = false
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.resolveSupport = {
   properties = {
     "documentation",
