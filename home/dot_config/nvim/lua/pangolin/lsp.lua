@@ -138,7 +138,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 require("mason").setup()
 require("mason-lspconfig").setup({
   ensure_installed = {
-    "sumneko_lua",
+    "lua_ls",
     "rust_analyzer",
     "rnix",
     "yamlls",
@@ -156,7 +156,7 @@ require("mason-lspconfig").setup({
 })
 
 -- lua
-require("lspconfig").sumneko_lua.setup({
+require("lspconfig").lua_ls.setup({
   -- cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
   settings = {
     Lua = {

@@ -31,16 +31,15 @@ COMPLETION_WAITING_DOTS="true"
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+# Disable auto update (managed by chezmoi)
+DISABLE_AUTO_UPDATE="true"
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  {{- if eq .chezmoi.os "darwin" }}
-  macos
-  brew
-  {{- end}}
   fnm
   git
   docker
@@ -84,23 +83,18 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .class'
 
 export LC_CTYPE=UTF-8
 
-{{ if eq .chezmoi.os "darwin" }}
-export BROWSER="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
-# MacOS have a shit location by default...
-# Application\ Support, srly, with a fu**ing space
-export COURSIER_BIN_DIR=$HOME/.local/share/coursier/bin
-{{ else }}
+
 export PATH="$PATH:/home/snipy/.local/share/coursier/bin"
-{{ end }}
+
 
 
 export CONFIG_DIR="$HOME/.config/lazygit"
 
-{{ if eq .chezmoi.os "linux" }}
+
 export LANGUAGE=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 export LC_ALL=en_GB.UTF-8
-{{ end }}
+
 
 
 # add the given directory to PATH if it exists
@@ -202,14 +196,9 @@ function GoUpdate() {
     echo "Done"
   fi
 }
-
-{{- if eq .chezmoi.os "darwin" }}
-export GOPATH="$HOME/projects/go"
-export GOBIN="$GOPATH/bin"
-{{ else if eq .chezmoi.os "linux" }}
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
-{{ end }}
+
 
 
 updatePath "${GOBIN}"
@@ -282,3 +271,7 @@ chpwd_functions=( eval_ondir $chpwd_functions )
 # fnm
 eval "`fnm env`"
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+# fnm
+export PATH="/home/snipy/.local/share/fnm:$PATH"
+eval "`fnm env`"
