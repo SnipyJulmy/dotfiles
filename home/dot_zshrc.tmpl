@@ -267,11 +267,7 @@ eval_ondir() {
 }
 chpwd_functions=( eval_ondir $chpwd_functions )
 
-
-# fnm
-eval "`fnm env`"
-fpath+=${ZDOTDIR:-~}/.zsh_functions
-
 # fnm
 export PATH="/home/snipy/.local/share/fnm:$PATH"
 eval "`fnm env`"
+fpath+=${ZDOTDIR:-~}/.zsh_functions
