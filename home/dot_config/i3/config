@@ -43,6 +43,12 @@ bindsym $mod+f exec firefox
 # kill focused window
 bindsym $mod+q kill
 
+bindsym $meh+q exec --no-startup-id i3lock
+bindsym $meh+s exec --no-startup-id i3lock && systemctl suspend
+# bindsym $meh+w exec --no-startup-id i3lock && systemctl hibernate
+# bindsym $meh+r exec --no-startup-id systemctl reboot
+# bindsym $meh+s exec --no-startup-id systemctl shutdown
+
 bindsym $mod+space exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"

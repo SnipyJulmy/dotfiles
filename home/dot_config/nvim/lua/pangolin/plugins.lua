@@ -118,6 +118,7 @@ return require("packer").startup(function()
   -- utils
   use({ "tpope/vim-surround" })
   use({ "tpope/vim-obsession" })
+  use({ "chrisbra/unicode.vim" })
   use({ "godlygeek/tabular" })
   use({ "benmills/vimux" })
 
