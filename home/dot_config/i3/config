@@ -19,8 +19,10 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # start bluetooth applet
-exec --no-startup-id blueman-applet &
+exec --no-startup-id blueman-applet
 
+# start audio applet
+exec --no-startup-id pasystray
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -39,12 +41,13 @@ tiling_drag modifier titlebar
 # start a terminal
 bindsym $mod+Return exec alacritty
 bindsym $mod+f exec firefox
+bindsym $mod+c exec google-chrome
 
 # kill focused window
 bindsym $mod+q kill
 
 bindsym $meh+q exec --no-startup-id i3lock
-bindsym $meh+s exec --no-startup-id i3lock && systemctl suspend
+# bindsym $meh+s exec --no-startup-id i3lock && systemctl suspend
 # bindsym $meh+w exec --no-startup-id i3lock && systemctl hibernate
 # bindsym $meh+r exec --no-startup-id systemctl reboot
 # bindsym $meh+s exec --no-startup-id systemctl shutdown
@@ -57,14 +60,14 @@ bindsym $mod+space exec --no-startup-id dmenu_run
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus up
-bindsym $mod+k focus down
+bindsym $mod+j focus down
+bindsym $mod+k focus up
 bindsym $mod+l focus right
 bindsym $mod+h focus left
 
 # move focused window
-bindsym $meh+j move up
-bindsym $meh+k move down
+bindsym $meh+j move down
+bindsym $meh+k move up
 bindsym $meh+l move right
 bindsym $meh+h move left
 
@@ -149,6 +152,7 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
+bindsym $mod+r mode "resize"
 
 bindsym $mod+r mode "resize"
 
