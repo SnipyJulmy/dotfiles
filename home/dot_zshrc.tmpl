@@ -206,7 +206,9 @@ updatePath "${GOBIN}"
 export NEOVIM_HOME="$HOME/projects/neovim"
 
 function NeovimUpdate() {
+  set -eou pipefail
   pushd $NEOVIM_HOME
+  git pull --rebase
   make CMAKE_BUILD_TYPE=Release
   sudo make install
   popd
