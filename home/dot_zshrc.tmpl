@@ -206,7 +206,6 @@ updatePath "${GOBIN}"
 export NEOVIM_HOME="$HOME/dev/neovim"
 
 function NeovimUpdate() {
-  set -eou pipefail
   pushd $NEOVIM_HOME
   git pull --rebase
   make CMAKE_BUILD_TYPE=Release
