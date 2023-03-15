@@ -22,7 +22,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 
 # start audio applet
-exec --no-startup-id pasystray
+exec --no-startup-id pasystray &
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status

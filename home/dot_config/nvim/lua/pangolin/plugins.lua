@@ -350,6 +350,16 @@ return require("packer").startup(function()
   use({ "airblade/vim-gitgutter" })
   use({ "tpope/vim-fugitive" })
   use({ "kdheepak/lazygit.nvim" })
+  use({
+    "ldelossa/gh.nvim",
+    requires = {
+      "ldelossa/litee.nvim"
+    },
+    config = function()
+      require("litee.lib").setup()
+      require("litee.gh").setup()
+    end
+  })
 
   -- quickfix
   use({ "itchyny/vim-qfedit" })
