@@ -1,0 +1,5 @@
+hotKey:
+  P:
+    shortCut: P
+    description: Viewving pods
+    command: pods
