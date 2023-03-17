@@ -198,6 +198,8 @@ export GOBIN="$GOPATH/bin"
 
 updatePath "${GOBIN}"
 
+updatePath "$HOME/.local/share/JetBrains/Toolbox/scripts"
+
 # kubectl completion if available
 [ -e /usr/local/bin/kubectl ] && source <(kubectl completion zsh)
 
