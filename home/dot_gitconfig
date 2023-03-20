@@ -2,7 +2,7 @@
 	email = sylvain.julmy@gmail.com
 	name = Sylvain (Snipy) Julmy
 [core]
-	excludesfile = /Users/sij/.gitignore
+	excludesfile = /home/snipy/.gitignore
 [merge]
 	conflictstyle = diff3
 [init]
@@ -29,3 +29,5 @@
 	tool = nvimdiff
 [difftool "nvimdiff"]
         cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[commit]
+	gpgsign = true
