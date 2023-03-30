@@ -1,6 +1,12 @@
 [user]
+{{- if eq .chezmoi.hostname "tuxsju" }}
+	email = sylvain.julmy@imtf.com
+	name = Sylvain Julmy (IMTF)
+	signingkey = sylvain.julmy@imtf.com
+{{- else }}
 	email = sylvain.julmy@gmail.com
 	name = Sylvain (Snipy) Julmy
+{{- end }}
 [core]
 	excludesfile = /home/snipy/.gitignore
 [merge]
