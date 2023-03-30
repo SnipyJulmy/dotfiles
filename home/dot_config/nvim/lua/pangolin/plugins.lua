@@ -116,7 +116,14 @@ return require("packer").startup(function()
   use({ "solarnz/thrift.vim" })
 
   -- utils
-  use({ "tpope/vim-surround" })
+
+  use({
+    "kylechui/nvim-surround",
+    config = function()
+      require("nvim-surround").setup({})
+    end
+  })
+
   use({ "tpope/vim-obsession" })
   use({ "chrisbra/unicode.vim" })
   use({ "godlygeek/tabular" })
@@ -345,6 +352,7 @@ return require("packer").startup(function()
   -- syntax
   use({ "Glench/Vim-Jinja2-Syntax" })
   use({ "jvirtanen/vim-hocon" })
+  use({ "towolf/vim-helm" })
 
   -- git
   use({ "airblade/vim-gitgutter" })
@@ -366,12 +374,4 @@ return require("packer").startup(function()
 
   -- other
   use({ "dstein64/vim-startuptime" })
-  use({
-    "phaazon/mind.nvim",
-    branch = "v2.2",
-    requires = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("mind").setup()
-    end,
-  })
 end)
