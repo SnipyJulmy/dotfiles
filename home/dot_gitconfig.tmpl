@@ -35,5 +35,8 @@
 	tool = nvimdiff
 [difftool "nvimdiff"]
         cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+
+{{- if eq .chezmoi.hostname "tuxsju" }}
 [commit]
 	gpgsign = true
+{{- end }}
