@@ -92,6 +92,12 @@ export PATH="$PATH:/home/snipy/.local/share/coursier/bin"
 
 export CONFIG_DIR="$HOME/.config/lazygit"
 
+# export LANGUAGE=en_GB.UTF-8
+# export LANG=en_GB.UTF-8
+# export LC_ALL=en_GB.UTF-8
+
+
+
 # add the given directory to PATH if it exists
 function updatePath() {
   [ -d $1 ] && export PATH="$PATH:$1"
@@ -205,6 +211,7 @@ updatePath "$HOME/.local/share/JetBrains/Toolbox/scripts"
 
 # neovim
 
+# TODO check neovim repo
 export NEOVIM_HOME="$HOME/dev/neovim"
 
 function NeovimUpdate() {
