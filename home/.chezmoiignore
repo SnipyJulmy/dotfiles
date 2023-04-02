@@ -1,5 +1,0 @@
-.oh-my-zsh/cache/**
-
-*.md
-*/**/nvim/plugin/packer_compiled.lua
-*/**/nvim/spell/*
