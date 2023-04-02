@@ -211,8 +211,11 @@ updatePath "$HOME/.local/share/JetBrains/Toolbox/scripts"
 
 # neovim
 
-# TODO check neovim repo
+{{- if (joinPath .chezmoi.homeDir "/dev/neovim" | lstat) }}
 export NEOVIM_HOME="$HOME/dev/neovim"
+{{- else if (joinPath .chezmoi.homeDir "/projects/neovim" | lstat) }}
+export NEOVIM_HOME="$HOME/projects/neovim"
+{{- end }}
 
 function NeovimUpdate() {
   pushd $NEOVIM_HOME
