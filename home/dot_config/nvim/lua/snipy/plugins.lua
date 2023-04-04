@@ -349,6 +349,9 @@ return require("packer").startup(function()
     },
   })
 
+  -- java
+  use({"mfussenegger/nvim-jdtls"})
+
   -- syntax
   use({ "Glench/Vim-Jinja2-Syntax" })
   use({ "jvirtanen/vim-hocon" })

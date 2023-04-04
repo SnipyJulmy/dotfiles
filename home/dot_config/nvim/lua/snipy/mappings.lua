@@ -2,11 +2,18 @@
 vim.keymap.set({ "n" }, "J", "", {})
 vim.keymap.set({ "n" }, "O", "", {})
 
+-- diagnostics
+local opts = { noremap = true, silent = true }
+vim.keymap.set({ "n" }, "<Space>de", vim.diagnostic.open_float, opts)
+vim.keymap.set({ "n" }, "<Space>dq", vim.diagnostic.setloclist, opts)
+vim.keymap.set({ "n" }, "]d", vim.diagnostic.goto_next, opts)
+vim.keymap.set({ "n" }, "[d", vim.diagnostic.goto_prev, opts)
+
 -- telescope
 vim.keymap.set({ "n" }, "<space>ff", [[<cmd>Telescope find_files<CR>]])
 vim.keymap.set({ "n" }, "<space>fF", [[<cmd>Telescope find_files hidden=true<CR>]])
 vim.keymap.set({ "n" }, "<space>fg", [[<cmd>Telescope live_grep<CR>]])
-vim.keymap.set({ "n" }, "<space>fl", [[<cmd> lua require'telescope.builtin'.grep_string({search = vim.fn.expand("<cword>")})<CR>]])
+-- vim.keymap.set({ "n" }, "<space>fl", [[<cmd> lua require'telescope.builtin'.grep_string({search = vim.fn.expand("<cword>")})<CR>]])
 vim.keymap.set({ "n" }, "<space>fb", [[<cmd>Telescope buffers<CR>]])
 vim.keymap.set({ "n" }, "<space>fh", [[<cmd>Telescope help_tags<CR>]])
 vim.keymap.set({ "n" }, "<space>fs", [[<cmd>Telescope lsp_document_symbols<CR>]])
