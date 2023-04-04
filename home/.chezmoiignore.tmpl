@@ -2,13 +2,15 @@
 .oh-my-zsh/custom/themes/**
 .oh-my-zsh/custom/plugins/**
 
-{{ if ne .chezmoi.os "darwin" }}
-{{ end }}
+{{- if ne .chezmoi.os "darwin" }}
+{{- end }}
 
-{{ if ne .chezmoi.os "linux" }}
+{{- if ne .chezmoi.os "linux" }}
 .local/share/fonts
-{{ end }}
+{{- end }}
 
 *.md
-~/.config/nvim/plugin/packer_compiled.lua
-~/.config/nvim/spell/**
+
+# nvim specifics
+{{ .chezmoi.homeDir }}/.config/nvim/plugin/packer_compiled.lua
+{{ .chezmoi.homeDir }}/.config/nvim/spell/**/*
