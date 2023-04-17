@@ -99,11 +99,11 @@ bindsym $meh+i move workspace to output up
 bindsym $meh+o move workspace to output right
 bindsym $meh+z move workspace to output left
 
-bindsym $mod+z
-bindsym $mod+u
-bindsym $mod+i
-bindsym $mod+o
-bindsym $mod+p
+# bindsym $mod+z
+# bindsym $mod+u
+# bindsym $mod+i
+# bindsym $mod+o
+# bindsym $mod+p
 
 # toggle tiling / floating
 # bindsym $mod+Shift+space floating toggle
