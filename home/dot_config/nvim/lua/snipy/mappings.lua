@@ -26,10 +26,6 @@ vim.keymap.set({ "n" }, "[h", [[<cmd>GitGutterPrevHunk<CR>]])
 vim.keymap.set({ "n" }, "]h", [[<cmd>GitGutterNextHunk<CR>]])
 vim.keymap.set({ "n" }, "<leader>gp", [[<cmd>GitGutterPreviewHunk<CR>]])
 vim.keymap.set({ "n" }, "<leader>gt", [[<cmd>GitGutterToggle<CR>]])
-vim.keymap.set({ "n" }, "<space>gg", [[<cmd>Git<CR>]])
-vim.keymap.set({ "n" }, "<space>gpp", [[<cmd>Git push<CR>]])
-vim.keymap.set({ "n" }, "<space>gpf", [[<cmd>Git push --force-with-lease<CR>]])
-vim.keymap.set({ "n" }, "<space>gb", [[<cmd>Git blame<CR>]])
 
 -- formatting
 vim.keymap.set({ "n" }, "<space>F", [[<cmd>Format<CR>]])

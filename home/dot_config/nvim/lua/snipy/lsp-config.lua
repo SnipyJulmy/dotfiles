@@ -158,7 +158,7 @@ require("lspconfig").rust_analyzer.setup({
 
 -- docker
 require("lspconfig").dockerls.setup({
-  cmd = { "/usr/local/bin/docker-langserver", "--stdio" },
+  cmd = { "docker-langserver", "--stdio" },
   filetypes = { "Dockerfile", "dockerfile" },
   root_dir = vim.loop.cwd,
   capabilities = lsp.capabilities,

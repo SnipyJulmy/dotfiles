@@ -106,10 +106,10 @@ return require("packer").startup(function()
       require("oil").setup({
         vim_options = {
           show_hidden = true,
-        }
+        },
       })
       vim.keymap.set({ "n" }, "-", require("oil").open, { desc = "Open parent directory" })
-    end
+    end,
   })
 
   -- language support
@@ -121,7 +121,7 @@ return require("packer").startup(function()
     "kylechui/nvim-surround",
     config = function()
       require("nvim-surround").setup({})
-    end
+    end,
   })
 
   use({ "tpope/vim-obsession" })
@@ -133,9 +133,9 @@ return require("packer").startup(function()
     "ellisonleao/glow.nvim",
     config = function()
       require("glow").setup({
-        style = "light"
+        style = "light",
       })
-    end
+    end,
   })
 
   use({
@@ -350,7 +350,7 @@ return require("packer").startup(function()
   })
 
   -- java
-  use({"mfussenegger/nvim-jdtls"})
+  use({ "mfussenegger/nvim-jdtls" })
 
   -- syntax
   use({ "Glench/Vim-Jinja2-Syntax" })
@@ -359,18 +359,17 @@ return require("packer").startup(function()
 
   -- git
   use({ "airblade/vim-gitgutter" })
-  use({ "tpope/vim-fugitive" })
-  use({ "kdheepak/lazygit.nvim" })
   use({
     "ldelossa/gh.nvim",
     requires = {
-      "ldelossa/litee.nvim"
+      "ldelossa/litee.nvim",
     },
     config = function()
       require("litee.lib").setup()
       require("litee.gh").setup()
-    end
+    end,
   })
+  use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
 
   -- quickfix
   use({ "itchyny/vim-qfedit" })
