@@ -1,0 +1,37 @@
+local lua_group = vim.api.nvim_create_augroup("Lua", { clear = true })
+local newline = "\n"
+
+local function format_file()
+  local error_file = vim.fn.tempname()
+  local flags = "--search-parent-directories"
+  local command = string.format("stylua %s - 2> %s", flags, error_file)
+  local bufnr = vim.fn.bufnr("%")
+  local input = table.concat(vim.api.nvim_buf_get_lines(bufnr, 0, -1, true))
+  if vim.api.nvim_buf_get_option(bufnr, "eol") then
+    input = input .. newline
+  end
+  local output = vim.fn.system(command, input)
+  if vim.fn.empty(output) ~= 0 then
+    if output ~= input then
+      vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, vim.fn.split(output, newline))
+    end
+  end
+  vim.fn.delete(error_file)
+end
+
+local function format_range()
+  -- TODO
+end
+
+local function check_file()
+  -- TODO
+end
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  group = lua_group,
+  pattern = { "*.lua" },
+  callback = function()
+    format_file()
+  end,
+})
+
