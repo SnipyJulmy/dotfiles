@@ -1,3 +1,5 @@
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
 require("nvim-treesitter.configs").setup({
   ensure_installed = "all",
   ignore_install = { "wgsl", "wgsl_bevy" },
@@ -46,3 +48,15 @@ require("nvim-treesitter.configs").setup({
     },
   },
 })
+
+-- local prolog parser
+parser_config.prolog = {
+  install_info = {
+    url = "~/projects/oss/tree-sitter-prolog",
+    files = { "src/parser.c" },
+    branch = "main",
+    generate_requires_npm = false,
+    requires_generate_from_grammar = false,
+  },
+  filetype = "prolog",
+}
