@@ -167,6 +167,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 mode "screenshot" {
+        bindsym $mod+s exec --no-startup-id maim --select "$HOME/Pictures/$(date)"
+
         bindsym $hyper+s mode "default"
         bindsym Escape   mode "default"
 }
