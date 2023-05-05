@@ -42,12 +42,7 @@ return require("packer").startup(function()
     "glepnir/zephyr-nvim",
     requires = { "nvim-treesitter/nvim-treesitter", opt = true },
   })
-  use({
-    "cpea2506/one_monokai.nvim",
-    config = function()
-      require("one_monokai").setup({})
-    end,
-  })
+  use({ "cpea2506/one_monokai.nvim" })
 
   -- neovim lua development
   use({
