@@ -1,1 +1,2 @@
-setlocal textwidth=120
+setlocal textwidth=0
+setlocal wrap

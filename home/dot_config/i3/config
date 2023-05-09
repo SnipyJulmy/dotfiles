@@ -2,7 +2,7 @@ set $mod Mod4
 set $hyper Mod4+Control+Shift+Mod1
 set $meh Control+Shift+Mod1
 
-font pango:SauceCodePro Nerd Font Mono 11
+font pango:SauceCodePro Nerd Font Mono 13
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -22,7 +22,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 
 # start audio applet
-exec --no-startup-id pasystray
+# exec --no-startup-id pasystray
 
 exec_always --no-startup-id autorandr --change
 

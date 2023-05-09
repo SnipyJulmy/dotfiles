@@ -7,13 +7,6 @@ success_symbol = "[λ](bold green)"
 error_symbol   = "[λ](bold red)"
 vicmd_symbol   = "[λ](bold blue)"
 
-[custom.bazel]
-command = "bazel --version | awk '{print $NF}'"
-detect_files = ["WORKSPACE"]
-style = '119'
-symbol = 'b '
-format = '\[[$symbol($output)]($style)\]'
-
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
 
