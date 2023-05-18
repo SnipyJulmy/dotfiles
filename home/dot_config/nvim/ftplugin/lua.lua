@@ -40,8 +40,10 @@ local function create_error_window(errors)
   })
 end
 
+-- format current buffer with stylua
 local function format_file()
   local error_file = vim.fn.tempname()
+  local extra_flags = table
   local flags = "--search-parent-directories"
   local command = string.format("stylua %s - 2> %s", flags, error_file)
   local bufnr = vim.fn.bufnr("%")
