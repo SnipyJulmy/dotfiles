@@ -86,7 +86,7 @@ require("mason-lspconfig").setup({
     "texlab",
     "html",
     "cssls",
-    "jdtls"
+    "jdtls",
   },
 })
 
@@ -141,9 +141,9 @@ require("lspconfig").yamlls.setup({
     },
     redhat = {
       telemetry = {
-        enabled = false
-      }
-    }
+        enabled = false,
+      },
+    },
   },
   single_file_support = true,
   capabilities = lsp.capabilities,
@@ -192,7 +192,7 @@ require("lspconfig").html.setup({
       css = true,
       javascript = true,
     },
-    provideFormatter = true
+    provideFormatter = true,
   },
   single_file_support = true,
   capabilities = lsp.capabilities,
@@ -287,3 +287,12 @@ require("lspconfig").emmet_ls.setup({
   capabilities = lsp.capabilities,
   on_attach = lsp.on_attach,
 })
+
+-- Cucumber
+-- require("lspconfig").cucumber_language_server.setup({
+-- cmd = { "cucumber-language-server", "--stdio" },
+-- filetypes = { "cucumber" },
+-- root_dir = lspUtil.find_git_ancestor,
+-- capabilities = lsp.capabilities,
+-- on_attach = lsp.on_attach,
+-- })
