@@ -174,13 +174,15 @@ alias luamake=/home/snipy/.cache/nvim/lspconfig/lua-language-server/3rd/luamake/
 alias gfix="git commit -a --amend --no-edit"
 alias "gc-"="git checkout -"
 alias gwl="git worktree list"
-alias gsp="git stash push"
-alias gsP="git stash pop"
 
-function gitFeatureBranch() { git checkout -b feature/$1 ;}
-function gitFixBranch() { git checkout -b fix/$1 ;}
-function gitRemoveMergedBranch() { git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D ;}
-function gitCreateEmptyCommit() { git commit --allow-empty ;}
+function gitFixCommit() {
+  COMMIT=$1
+  BRANCH=$(echo $1 | sed -e 's/://g' -e 's/ /_/g' -e 's/DET-\(.*\)/DET-\L\1/')
+  git switch -c ${BRANCH}
+  git commit -a -m "${COMMIT}"
+}
+
+# .gitignore
 function gi() { curl -sLw n https://www.gitignore.io/api/$@ ;}
 
 # golang
