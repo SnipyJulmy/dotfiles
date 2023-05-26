@@ -85,6 +85,17 @@ bindsym $meh+8 move container to workspace number $ws8
 bindsym $meh+9 move container to workspace number $ws9
 bindsym $meh+0 move container to workspace number $ws10
 
+bindsym $hyper+1 move container to workspace number $ws1
+bindsym $hyper+2 move container to workspace number $ws2
+bindsym $hyper+3 move container to workspace number $ws3
+bindsym $hyper+4 move container to workspace number $ws4
+bindsym $hyper+5 move container to workspace number $ws5
+bindsym $hyper+6 move container to workspace number $ws6
+bindsym $hyper+7 move container to workspace number $ws7
+bindsym $hyper+8 move container to workspace number $ws8
+bindsym $hyper+9 move container to workspace number $ws9
+bindsym $hyper+0 move container to workspace number $ws10
+
 bindsym $mod+x split h
 bindsym $mod+v split v
 bindsym $hyper+f fullscreen toggle

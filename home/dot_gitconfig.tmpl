@@ -1,44 +1,37 @@
 [user]
-{{- if eq .chezmoi.hostname "tuxsju" }}
-	email = sylvain.julmy@imtf.com
-	name = Sylvain Julmy (IMTF)
-	signingkey = sylvain.julmy@imtf.com
-{{- else }}
-	email = sylvain.julmy@gmail.com
-	name = Sylvain (Snipy) Julmy
-{{- end }}
+    email = sylvain.julmy@imtf.com
+    name = Sylvain Julmy (IMTF)
+    signingkey = sylvain.julmy@imtf.com
 [core]
-	excludesfile = $HOME/.gitignore
+    excludesfile = $HOME/.gitignore
 [merge]
-	conflictstyle = diff3
+    conflictstyle = diff3
 [init]
-	defaultBranch = master
+    defaultBranch = master
 [fetch]
-	prune = true
+    prune = true
 [pull]
-	rebase = true
-	ff = only
+    rebase = true
+    ff = only
 [push]
-	followTags = true
-	autoSetupRemote = true
-	default = current
+    followTags = true
+    autoSetupRemote = true
+    default = current
 [alias]
-	wip = commit -a -m "WIP"
-	oops = reset HEAD~1
-	sub = submodule update --init --recursive
-	fix = commit --ammend --no-edit
+    wip = commit -a -m "WIP"
+    oops = reset HEAD~1
+    sub = submodule update --init --recursive
+    fix = commit --ammend --no-edit
+    fix-branch = "!f() { gitFixBranch $@ }; f"
 [url "git@github.com:"]
         insteadOf = https://github.com/
 [difftool]
-        prompt = true
+    prompt = true
 [diff]
-	tool = nvimdiff
+    tool = nvimdiff
 [difftool "nvimdiff"]
-        cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 [advice]
-        skippedCherryPicks = false
-
-{{- if eq .chezmoi.hostname "tuxsju" }}
+    skippedCherryPicks = false
 [commit]
-	gpgsign = true
-{{- end }}
+    gpgsign = true
