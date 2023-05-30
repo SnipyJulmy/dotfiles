@@ -21,8 +21,6 @@
     wip = commit -a -m "WIP"
     oops = reset HEAD~1
     sub = submodule update --init --recursive
-    fix = commit --ammend --no-edit
-    fix-branch = "!f() { gitFixBranch $@ }; f"
 [url "git@github.com:"]
     insteadOf = https://github.com/
 [difftool]

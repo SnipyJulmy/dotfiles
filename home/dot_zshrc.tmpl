@@ -175,12 +175,12 @@ alias gfix="git commit -a --amend --no-edit"
 alias "gc-"="git checkout -"
 alias gwl="git worktree list"
 
-function gitFixCommit() {
-  COMMIT=$1
-  BRANCH=$(echo $1 | sed -e 's/://g' -e 's/ /_/g' -e 's/DET-\(.*\)/DET-\L\1/')
-  git switch -c ${BRANCH}
-  git commit -a -m "${COMMIT}"
-}
+# function gitFixCommit() {
+#   COMMIT=$1
+#   BRANCH=$(echo $1 | sed -e 's/[:!?]//g' -e 's/ /_/g' -e 's/DET-\(.*\)/DET-\L\1/')
+#   echo "git switch -c ${BRANCH}"
+#   echo "git commit -a -m ${COMMIT}"
+# }
 
 # .gitignore
 function gi() { curl -sLw n https://www.gitignore.io/api/$@ ;}
