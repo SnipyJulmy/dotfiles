@@ -288,6 +288,20 @@ require("lspconfig").emmet_ls.setup({
   on_attach = lsp.on_attach,
 })
 
+-- Gradle
+require("lspconfig").gradle_ls.setup({
+  cmd = { "gradle-language-server" },
+  filetypes = { "groovy", "kotlin" },
+  init_options = {
+    settings = {
+      gradleWrapperEnabled = true,
+    },
+  },
+  root_dir = lspUtil.root_pattern("settings.gradles", "settings.gradle.kts"),
+  capabilities = lsp.capabilities,
+  on_attach = lsp.on_attach,
+})
+
 -- Cucumber
 -- require("lspconfig").cucumber_language_server.setup({
 -- cmd = { "cucumber-language-server", "--stdio" },
