@@ -40,6 +40,8 @@ local on_attach = function(lsp_client, bufnr)
   vim.keymap.set({ "n" }, "gpi", require("goto-preview").goto_preview_implementation, bufopts)
   vim.keymap.set({ "n" }, "gpr", require("goto-preview").goto_preview_references, bufopts)
   vim.keymap.set({ "n" }, "gpp", require("goto-preview").close_all_win, bufopts)
+
+  -- notify("Client " .. lsp_client.name .. " started")
 end
 
 local shared_diagnostic_settings = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
