@@ -297,6 +297,7 @@ return require("packer").startup(function()
 
   use({
     "j-hui/fidget.nvim",
+    tag = "legacy",
     config = function()
       require("fidget").setup({})
     end,
@@ -363,7 +364,6 @@ return require("packer").startup(function()
   use({ "towolf/vim-helm" })
 
   -- git
-  use({ "airblade/vim-gitgutter" })
   use({
     "ldelossa/gh.nvim",
     requires = {
@@ -375,6 +375,17 @@ return require("packer").startup(function()
     end,
   })
   use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
+  use({ "lewis6991/gitsigns.nvim" })
+
+  use({
+    "rhysd/git-messenger.vim",
+    setup = function()
+      vim.g.git_messenger_no_default_mappings = true
+    end,
+  })
+
+  use({ "rhysd/committia.vim" })
+  use({ "sindrets/diffview.nvim" })
 
   -- quickfix
   use({ "itchyny/vim-qfedit" })

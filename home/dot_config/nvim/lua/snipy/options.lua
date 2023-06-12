@@ -58,6 +58,7 @@ vim.opt.updatetime = 50
 vim.opt.signcolumn = "yes"
 vim.opt.shortmess:append({ c = true })
 vim.opt.shortmess:remove({ "F" })
+vim.bo.fixendofline = false
 
 -- folding
 -- vim.opt.foldmethod = "expr"
