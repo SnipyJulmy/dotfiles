@@ -38,7 +38,7 @@ diffview.setup({
     listing_style = "list",
     win_config = {
       position = "left",
-      width = 45,
+      width = 50,
       win_opts = {},
     },
   },
