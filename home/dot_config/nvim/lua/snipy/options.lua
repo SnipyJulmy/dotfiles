@@ -61,5 +61,6 @@ vim.opt.shortmess:remove({ "F" })
 vim.bo.fixendofline = false
 
 -- folding
+vim.wo.foldenable = false -- disable folding
 -- vim.opt.foldmethod = "expr"
 -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
