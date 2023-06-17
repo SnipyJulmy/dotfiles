@@ -44,7 +44,7 @@ vim.keymap.set({ "t" }, "<C-w>l", [[<C-\><C-n><C-W>l]])
 
 -- windows movements
 vim.keymap.set({ "n" }, "<C-w><C-w>", "<C-w><C-p>")
-vim.keymap.set({ "n" }, "<leader>wp", function()
+vim.keymap.set({ "n" }, "<C-w><C-p>", function()
   local window_id = require("window-picker").pick_window() or vim.api.nvim_get_current_win()
   vim.api.nvim_set_current_win(window_id)
 end)

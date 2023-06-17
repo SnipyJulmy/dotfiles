@@ -18,9 +18,10 @@
     autoSetupRemote = true
     default = current
 [alias]
-    wip = commit -a -m "WIP"
-    oops = reset HEAD~1
-    sub = submodule update --init --recursive
+	wip = commit -a -m "WIP"
+	oops = reset HEAD~1
+	sub = submodule update --init --recursive
+	fix = commit --ammend --no-edit
 [url "git@github.com:"]
     insteadOf = https://github.com/
 [difftool]
