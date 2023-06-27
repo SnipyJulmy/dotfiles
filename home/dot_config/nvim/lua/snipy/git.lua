@@ -45,6 +45,7 @@ diffview.setup({
 })
 
 vim.keymap.set({ "n" }, "<Space>gg", neogit.open)
+vim.keymap.set({ "n" }, "<Space>gb", "<cmd>Git blame<CR>")
 vim.keymap.set({ "n" }, "M", "<cmd>GitMessenger<CR>")
 vim.keymap.set({ "n" }, "B", "<cmd>Gitsigns blame_line<CR>")
 vim.keymap.set({ "n" }, "<Space>dvo", "<cmd>DiffviewOpen<CR>")

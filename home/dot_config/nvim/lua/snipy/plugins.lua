@@ -375,6 +375,7 @@ return require("packer").startup(function()
       require("litee.gh").setup()
     end,
   })
+  use({ "tpope/vim-fugitive" })
   use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
   use({ "lewis6991/gitsigns.nvim" })
 
