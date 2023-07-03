@@ -178,6 +178,7 @@ alias "gc-"="git checkout -"
 alias gwl="git worktree list"
 alias gsp="git stash push"
 alias gsP="git stash pop"
+alias gclean="git branch -vv | grep ': gone' | grep -v '(\+\|\*)' | awk '{print $1}' | xargs -r git branch -D"
 
 # function gitFixCommit() {
 #   COMMIT=$1
