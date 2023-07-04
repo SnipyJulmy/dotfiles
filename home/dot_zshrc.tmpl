@@ -214,8 +214,14 @@ updatePath "${GOBIN}"
 
 updatePath "$HOME/.local/share/JetBrains/Toolbox/scripts"
 
+# k8s
+
 # kubectl completion if available
 [ -e /usr/local/bin/kubectl ] && source <(kubectl completion zsh)
+
+function klogs() {
+  kubectl -n imatch get pods -l app=$1 --no-headers | awk '{print $1}' | xargs kubectl -n imatch logs
+}
 
 # neovim
 
