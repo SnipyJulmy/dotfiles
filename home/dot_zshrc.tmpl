@@ -223,6 +223,11 @@ updatePath "$HOME/.local/share/JetBrains/Toolbox/scripts"
 #   kubectl -n imatch get pods -l app=$1 --no-headers | awk '{print $1}' | xargs kubectl -n imatch logs
 # }
 
+# tmux
+function runLocal() {
+  echo $PWD
+}
+
 # neovim
 
 {{- if (joinPath .chezmoi.homeDir "/dev/neovim" | lstat) }}
