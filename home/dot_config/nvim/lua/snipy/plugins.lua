@@ -167,6 +167,22 @@ return require("packer").startup(function()
 
   use({ "folke/which-key.nvim" })
 
+  -- formatting
+  use({
+    "mhartington/formatter.nvim",
+    config = function()
+      require("formatter").setup({
+        logging = true,
+        log_level = vim.log.levels.WARN,
+        filetype = {
+          python = {
+            require("formatter.filetypes.python").black,
+          },
+        },
+      })
+    end,
+  })
+
   -- comment
   use({
     "numToStr/Comment.nvim",
@@ -338,12 +354,41 @@ return require("packer").startup(function()
     end,
   })
 
+  -- diagnostics
+  use({
+    "folke/trouble.nvim",
+    requires = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("trouble").setup({
+        position = "right",
+      })
+    end,
+  })
+
+  -- edit utils
+
+  use({
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup({
+        disable_filetype = { "TelescopePrompt", "text" },
+        map_cr = true,
+        map_complete = true,
+      })
+    end,
+  })
+
   use({
     "mfussenegger/nvim-dap-python",
     requires = "mfussenegger/nvim-dap",
     config = function()
       require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
     end,
+  })
+
+  -- kotlin
+  use({
+    "udalov/kotlin-vim",
   })
 
   -- scala
@@ -388,6 +433,19 @@ return require("packer").startup(function()
 
   use({ "rhysd/committia.vim" })
   use({ "sindrets/diffview.nvim" })
+
+  -- github
+  use({
+    "pwntester/octo.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+      "kyazdani42/nvim-web-devicons",
+    },
+    config = function()
+      require("octo").setup()
+    end,
+  })
 
   -- quickfix
   use({ "itchyny/vim-qfedit" })

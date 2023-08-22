@@ -67,6 +67,7 @@ vim.keymap.set({ "n" }, "<leader>dg", "<cmd>%diffget1<CR>")
 -- quickfix list
 vim.keymap.set({ "n" }, "<Space>no", "<cmd>copen<CR>")
 vim.keymap.set({ "n" }, "<Space>nq", "<cmd>cclose<CR>")
+vim.keymap.set({ "n" }, "<F9>", "<cmd>cclose<CR>")
 vim.keymap.set({ "n" }, "<Space>nn", "<cmd>cnext<CR>")
 vim.keymap.set({ "n" }, "<F8>", "<cmd>cnext<CR>")
 vim.keymap.set({ "n" }, "<Space>np", "<cmd>cprev<CR>")

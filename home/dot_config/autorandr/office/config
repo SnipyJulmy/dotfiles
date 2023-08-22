@@ -10,14 +10,38 @@ output DP-3
 off
 output DP-4
 off
+output DP-3-1
+off
+output DP-3-2
+off
+output DP-3-3
+off
+output DP-1-8
+off
+output DP-1-1
+off
+output DP-3-8
+off
 output DVI-I-1-1
 crtc 0
 mode 2560x1440
-pos 0x0
+pos 1920x0
 primary
 rate 59.95
+x-prop-non_desktop 0
 output DVI-I-2-2
 crtc 5
 mode 2560x1440
-pos 2560x0
+pos 4480x0
 rate 59.95
+x-prop-non_desktop 0
+output eDP-1
+crtc 1
+mode 1920x1200
+pos 0x240
+rate 60.00
+x-prop-broadcast_rgb Automatic
+x-prop-colorspace Default
+x-prop-max_bpc 12
+x-prop-non_desktop 0
+x-prop-scaling_mode Full aspect

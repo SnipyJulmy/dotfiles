@@ -87,6 +87,7 @@ require("mason-lspconfig").setup({
     "html",
     "cssls",
     "jdtls",
+    "bashls",
   },
 })
 
@@ -175,6 +176,7 @@ require("lspconfig").pyright.setup({
         autoSearchPaths = true,
         diagnosticMode = "workspace",
         useLibraryCodeForTypes = true,
+        typeCheckingMode = "off",
       },
     },
   },
@@ -283,6 +285,20 @@ require("lspconfig").marksman.setup({
 
 -- Emmet
 require("lspconfig").emmet_ls.setup({
+  single_file_support = true,
+  capabilities = lsp.capabilities,
+  on_attach = lsp.on_attach,
+})
+
+-- Bash
+require("lspconfig").bashls.setup({
+  cmd = { "bash-language-server", "start" },
+  filetypes = { "sh", "zsh" },
+  settings = {
+    bashIde = {
+      globPattern = "*@(.sh|.inc|.bash|.command)",
+    },
+  },
   single_file_support = true,
   capabilities = lsp.capabilities,
   on_attach = lsp.on_attach,
