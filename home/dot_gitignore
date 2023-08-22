@@ -69,3 +69,7 @@ tsconfig.json
 
 ### mind.nvim
 .mind
+
+###
+*/**/scs-docker/
+
