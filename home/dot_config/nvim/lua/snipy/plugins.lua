@@ -43,6 +43,7 @@ return require("packer").startup(function()
     requires = { "nvim-treesitter/nvim-treesitter", opt = true },
   })
   use({ "cpea2506/one_monokai.nvim" })
+  use({ "judaew/ronny.nvim" })
 
   -- neovim lua development
   use({
