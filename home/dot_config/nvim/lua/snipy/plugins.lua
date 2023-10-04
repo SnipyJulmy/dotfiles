@@ -170,15 +170,19 @@ return require("packer").startup(function()
 
   -- formatting
   use({
-    "mhartington/formatter.nvim",
+    "stevearc/conform.nvim",
     config = function()
-      require("formatter").setup({
-        logging = true,
-        log_level = vim.log.levels.WARN,
-        filetype = {
-          python = {
-            require("formatter.filetypes.python").black,
-          },
+      require("conform").setup({
+        formatters_by_ft = {
+          lua = { "stylua" },
+          python = { "black" },
+        },
+        format_on_save = {
+          lsp_fallback = true,
+          timeout_ms = 500,
+        },
+        format_after_save = {
+          lsp_fallback = true,
         },
       })
     end,
