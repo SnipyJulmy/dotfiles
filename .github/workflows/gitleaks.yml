@@ -1,0 +1,17 @@
+name: gitleaks
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  gitleaks:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: gitleaks-action
+        uses: zricethezav/gitleaks-action@master
