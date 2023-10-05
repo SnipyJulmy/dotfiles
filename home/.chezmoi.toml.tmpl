@@ -3,12 +3,12 @@ command = "nvim"
 
 [diff]
 command = "nvim"
-args = ["-d", "{{ .Destination }}", "{{ .Target }}"]
+args = ["-d", "{{`{{ .Destination }}`}}", "{{`{{ .Target }}`}}"]
 exclude = ["scripts"]
 
 [merge]
 command = "nvim"
-args = ["-d", "{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
+args = ["-d", "{{`{{ .Destination }}`}}", "{{`{{ .Source }}`}}", "{{`{{ .Target }}`}}"]
 
 encryption = "age"
 [age]
