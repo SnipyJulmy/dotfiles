@@ -11,3 +11,7 @@ sh -c "$(curl -fsLS https://chezmoi.io/get)" -- init --apply --verbose SnipyJulm
 ```bash
 sh -c "$(curl -fsLS https://chezmoi.io/get)" -- init --one-shot --verbose SnipyJulmy
 ```
+
+# Warnings
+
+For now this requires `age` + `keybase` for the identity and recipient of encrypted files...
