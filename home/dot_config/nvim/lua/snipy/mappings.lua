@@ -77,3 +77,6 @@ vim.keymap.set({ "n" }, "<Space>nl", "<cmd>clast<CR>")
 for i = 1, 9, 1 do
   vim.keymap.set({ "n" }, "<Space>n" .. i, "<cmd>:cc" .. i .. "<CR>")
 end
+
+-- tabs
+vim.keymap.set({ "n" }, "<leader>tt", "<cmd>tabnew<CR>")
