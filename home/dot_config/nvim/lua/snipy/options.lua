@@ -56,11 +56,9 @@ vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.updatetime = 50
 vim.opt.signcolumn = "yes"
-vim.opt.shortmess:append({ c = true })
+vim.opt.shortmess:append({ c = true, I = true })
 vim.opt.shortmess:remove({ "F" })
 vim.bo.fixendofline = false
 
 -- folding
 vim.wo.foldenable = false -- disable folding
--- vim.opt.foldmethod = "expr"
--- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
