@@ -1,18 +1,27 @@
-local fn = vim.fn
-local execute = vim.api.nvim_command
-
 -- set leader key to ',', this should happend before any plugin requirement
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
--- auto install packer
-local packer_install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(packer_install_path)) > 0 then
-  execute("!git clone https://github.com/wbthomason/packer.nvim " .. packer_install_path)
+-- bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=main",
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup("snipy.plugins", {
+  dev = { path = "~/plugins", fallback = false },
+  change_detection = { enabled = false, notify = false },
+})
 
 require("snipy.global")
-require("snipy.plugins")
 require("snipy.options")
 require("snipy.theme")
 require("snipy.autocommands")

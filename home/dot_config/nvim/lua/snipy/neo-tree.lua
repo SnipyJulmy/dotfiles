@@ -101,7 +101,10 @@ require("neo-tree").setup({
         "thumbs.db",
       },
     },
-    follow_current_file = true,
+    follow_current_file = {
+      enabled = true,
+      leave_dirs_open = false,
+    },
     group_empty_dirs = false,
     hijack_netrw_behavior = "disabled",
     use_libuv_file_watcher = false,
@@ -121,7 +124,10 @@ require("neo-tree").setup({
   },
   buffers = {
     bind_to_cwd = true,
-    follow_current_file = true,
+    follow_current_file = {
+      enabled = true,
+      leave_dirs_open = false,
+    },
     group_empty_dirs = false,
     show_unloaded = true,
     window = {

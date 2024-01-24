@@ -1,5 +1,7 @@
 # Neovim config
 
+* Use `lazy.nvim` for plugins management
+
 ## Layouts
 
 * **nvim/autoload**        automatically loaded scripts
@@ -14,5 +16,4 @@
 
 ## Todo
 
-* since `packer.nvim` is not maintained anymore, migrate to `folke/lazy.nvim`
 * move lsp config per language/filetype into either nvim/ftplugin files or nvim/after/ftplugin (check which one is better)
