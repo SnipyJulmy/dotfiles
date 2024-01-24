@@ -2,8 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 fpath=(
-  $HOME/.zfunc
-  $fpath
+    $HOME/.zfunc
+    $fpath
 )
 
 # Path to your oh-my-zsh installation.
@@ -42,26 +42,26 @@ DISABLE_AUTO_UPDATE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  fnm
-  git
-  docker
-  docker-compose
-  mvn
-  kubectl
-  rust
-  sbt
-  scala
-  sdk
-  tmux
-  tmux-cssh
-  bazel
-  npm
-  nvm
-  vi-mode
-  golang
-  helm
-  ripgrep
-  gradle
+    fnm
+    git
+    docker
+    docker-compose
+    mvn
+    kubectl
+    rust
+    sbt
+    scala
+    sdk
+    tmux
+    tmux-cssh
+    bazel
+    npm
+    nvm
+    vi-mode
+    golang
+    helm
+    ripgrep
+    gradle
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -103,12 +103,12 @@ export CONFIG_DIR="$HOME/.config/lazygit"
 
 # add the given directory to PATH if it exists
 function updatePath() {
-  [ -d $1 ] && export PATH="$PATH:$1"
+    [ -d $1 ] && export PATH="$PATH:$1"
 }
 
 # source the given file if it exists
 function sourceIfExists() {
-  [ -f $1 ] && source $1
+    [ -f $1 ] && source $1
 }
 
 updatePath "$HOME/.cargo/bin"
@@ -136,7 +136,7 @@ alias code="nvim"
 alias vs="nvim"
 
 function vg() {
-  nvim -o $(git status --porcelain | awk '{print $2}')
+    nvim -o $(git status --porcelain | awk '{print $2}')
 }
 
 alias f=fzf
@@ -193,17 +193,17 @@ function gi() { curl -sLw n https://www.gitignore.io/api/$@ ;}
 # golang
 
 function GoUpdate() {
-  if read -q "CONTINUE?Update go with $1... press enter to stop or any key to continue"
-  then
-    echo $CONTINUE
-    echo "Update installation with $1"
-    echo "Remove /usr/local/go"
-    sudo rm -rf /usr/local/go
-    sudo tar -C /usr/local -xzf $1
-    echo "Installed version"
-    go version
-    echo "Done"
-  fi
+    if read -q "CONTINUE?Update go with $1... press enter to stop or any key to continue"
+    then
+        echo $CONTINUE
+        echo "Update installation with $1"
+        echo "Remove /usr/local/go"
+        sudo rm -rf /usr/local/go
+        sudo tar -C /usr/local -xzf $1
+        echo "Installed version"
+        go version
+        echo "Done"
+    fi
 }
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
@@ -225,7 +225,7 @@ updatePath "$HOME/.local/share/JetBrains/Toolbox/scripts"
 
 # tmux
 function runLocal() {
-  echo $PWD
+    echo $PWD
 }
 
 # neovim
@@ -237,11 +237,11 @@ export NEOVIM_HOME="$HOME/projects/neovim"
 {{- end }}
 
 function NeovimUpdate() {
-  pushd $NEOVIM_HOME
-  git pull --rebase
-  make CMAKE_BUILD_TYPE=Release
-  sudo make install
-  popd
+    pushd $NEOVIM_HOME
+    git pull --rebase
+    make CMAKE_BUILD_TYPE=Release
+    sudo make install
+    popd
 }
 
 # github cli
@@ -252,46 +252,46 @@ compctl -K _gh gh
 # - rust
 # - scala3
 function aoc() {
-  DAY=$1
-  LANG=$2
+    DAY=$1
+    LANG=$2
 
-  case "${LANG}" in
-    rust)
-      if [[ -d "rust/${DAY}" ]] ; then echo "${DAY} already exists..." && return 1 ; fi
-      mkdir -p "rust/${DAY}"
-      pushd "rust/${DAY}"
-      cargo init --name "${DAY}" --bin --vcs=none --color=always
-      popd
-      ;;
-    scala3)
-      if [[ -d "scala3/${DAY}" ]] ; then echo "${DAY} already exists..." && return 1 ; fi
-      mkdir -p "scala3/${DAY}"
-      pushd "scala3"
-      g8 scala/scala3.g8 -o "${DAY}" --name="${DAY}"
-      popd
-      ;;
-    *)
-      echo "Usage : aoc \$day\$ (rust|scala3)"
-      return 1
-  esac
+    case "${LANG}" in
+        rust)
+            if [[ -d "rust/${DAY}" ]] ; then echo "${DAY} already exists..." && return 1 ; fi
+            mkdir -p "rust/${DAY}"
+            pushd "rust/${DAY}"
+            cargo init --name "${DAY}" --bin --vcs=none --color=always
+            popd
+            ;;
+        scala3)
+            if [[ -d "scala3/${DAY}" ]] ; then echo "${DAY} already exists..." && return 1 ; fi
+            mkdir -p "scala3/${DAY}"
+            pushd "scala3"
+            g8 scala/scala3.g8 -o "${DAY}" --name="${DAY}"
+            popd
+            ;;
+        *)
+            echo "Usage : aoc \$day\$ (rust|scala3)"
+            return 1
+    esac
 }
 
 ### Pyenv (for neovim)
 if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
+    eval "$(pyenv init -)"
 fi
 
 # some secret sourcing
-sourceIfExists "$HOME/.ghcup/env" 
+sourceIfExists "$HOME/.ghcup/env"
 sourceIfExists "$HOME/.fzf.zsh"
 sourceIfExists "$HOME/.sdkman/bin/sdkman-init.sh"
 sourceIfExists "$HOME/.cargo/env"
 
-sourceIfExists "/usr/share/doc/fzf/examples/key-bindings.zsh" 
+sourceIfExists "/usr/share/doc/fzf/examples/key-bindings.zsh"
 
 # ondir start
 eval_ondir() {
-  eval "`ondir \"$OLDPWD\" \"$PWD\"`"
+    eval "`ondir \"$OLDPWD\" \"$PWD\"`"
 }
 chpwd_functions=( eval_ondir $chpwd_functions )
 
