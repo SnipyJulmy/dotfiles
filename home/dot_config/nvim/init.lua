@@ -17,8 +17,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("snipy.plugins", {
-  dev = { path = "~/plugins", fallback = false },
-  change_detection = { enabled = false, notify = false },
+  dev = {
+    path = "~/plugins",
+    fallback = false,
+  },
+  change_detection = {
+    enabled = true,
+    notify = true,
+  },
 })
 
 require("snipy.global")
