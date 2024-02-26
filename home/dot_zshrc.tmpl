@@ -290,6 +290,10 @@ eval_ondir() {
 }
 chpwd_functions=( eval_ondir $chpwd_functions )
 
+# java native-image executables
+export PATH="/home/snipy/dev/ktfmt-exec/bin:$PATH"
+export PATH="/home/snipy/dev/diktat-exec/bin:$PATH"
+
 # fnm
 export PATH="/home/snipy/.local/share/fnm:$PATH"
 eval "`fnm env`"
