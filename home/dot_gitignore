@@ -73,3 +73,5 @@ tsconfig.json
 ###
 */**/scs-docker/
 
+###
+V19__test_case.sql

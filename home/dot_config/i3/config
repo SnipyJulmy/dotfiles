@@ -176,7 +176,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 mode "screenshot" {
-        bindsym $mod+s exec --no-startup-id maim --select "$HOME/Pictures/$(date)"
+        bindsym $mod+s exec --no-startup-id maim --select "$HOME/Pictures/$(date '+%Y_%m_%d_%s').png"
+        bindsym $mod+c exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
         bindsym $hyper+s mode "default"
         bindsym Escape   mode "default"
@@ -186,6 +187,23 @@ bindsym $hyper+s mode "screenshot"
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 bar {
-        status_command i3status
+        # status_command i3status
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
         tray_output primary
+        position bottom
+        #
+        # colors {
+        #   background #282A36
+        #   statusline #F8F8F2
+        #   separator  #44475A
+        #
+        #   focused_workspace  #44475A #44475A #F8F8F2
+        #   active_workspace   #282A36 #44475A #F8F8F2
+        #   inactive_workspace #282A36 #282A36 #BFBFBF
+        #   urgent_workspace   #FF5555 #FF5555 #F8F8F2
+        #   binding_mode       #FF5555 #FF5555 #F8F8F2
+        # }
 }
+
+# gaps inner 6
+# gaps outer 3
