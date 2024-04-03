@@ -10,7 +10,7 @@ return {
     end,
   },
   "tpope/vim-fugitive",
-  { "NeogitOrg/neogit", dependencies = "nvim-lua/plenary.nvim" },
+  { "NeogitOrg/neogit", branch = "nightly", dependencies = { "nvim-lua/plenary.nvim" }, config = true },
   "lewis6991/gitsigns.nvim",
   {
     "rhysd/git-messenger.vim",
