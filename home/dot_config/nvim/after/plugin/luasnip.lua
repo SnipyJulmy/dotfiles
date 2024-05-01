@@ -8,6 +8,8 @@ local c = ls.choice_node
 local t = ls.text_node
 local r = ls.restore_node
 local sn = ls.snippet_node
+local f = ls.function_node
+local postfix = ls.postfix
 local rep = require("luasnip.extras").rep
 
 -- clean all snippets so we don't have duplicates when reloading the file
@@ -28,20 +30,6 @@ ls.config.set_config({
 
 -- require("luasnip.loaders.from_vscode").lazy_load()
 -- require("luasnip.loaders.from_snipmate").load()
-
-ls.add_snippets("all", {})
-
-ls.add_snippets("bzl", {
-  s(
-    "mod",
-    fmt(
-      [[
-    
-  ]],
-      {}
-    )
-  ),
-})
 
 ls.add_snippets("lua", {
   s("todo", fmt([[-- {} {}]], { c(1, { t("TODO"), t("FIXME") }), i(2) })),
@@ -126,20 +114,6 @@ ls.add_snippets("go", {
   ),
 })
 
-ls.add_snippets("scala", {
-  s(
-    "main",
-    fmt(
-      [[
-      def main(args : Array[String]) = {{
-        {}
-      }}
-    ]],
-      { i(1) }
-    )
-  ),
-})
-
 ls.add_snippets("xml", {
   s(
     "logback",
@@ -179,6 +153,17 @@ ls.add_snippets("xml", {
   ),
 })
 -- stylua: ignore end
+
+ls.add_snippets("markdown", {
+  s(
+    { trig = "det([0-9]+)", regTrig = true },
+    f(function(_, snip)
+      return "[DET-" .. snip.captures[1] .. "](https://imtf.atlassian.net/browse/DET-" .. snip.captures[1] .. ")"
+    end, {})
+  ),
+})
+
+ls.add_snippets("markdown", {})
 
 vim.keymap.set({ "i", "s" }, "<c-k>", function()
   if ls.expand_or_locally_jumpable() then
