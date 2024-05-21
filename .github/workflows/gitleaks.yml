@@ -13,7 +13,11 @@ on:
 
 jobs:
   gitleaks:
-    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ubuntu-latest, ubuntu-22.04]
+    runs-on: ${{matrix.os}}
     steps:
       - uses: actions/checkout@v3
         with:
