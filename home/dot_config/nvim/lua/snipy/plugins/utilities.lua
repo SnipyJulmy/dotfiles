@@ -41,12 +41,14 @@ return {
   {
     "stevearc/oil.nvim",
     config = function()
-      require("oil").setup({
+      local oil = require("oil")
+      oil.setup({
+        columns = { "icon" },
         vim_options = {
           show_hidden = true,
         },
       })
-      vim.keymap.set({ "n" }, "-", require("oil").open, { desc = "Open parent directory" })
+      vim.keymap.set({ "n" }, "-", oil.open, { desc = "Open parent directory" })
     end,
   },
   {
@@ -58,7 +60,7 @@ return {
   "tpope/vim-obsession",
   "chrisbra/unicode.vim",
   "godlygeek/tabular",
-  "benmills/vimux",
+  -- "benmills/vimux",
   {
     "ellisonleao/glow.nvim",
     config = function()

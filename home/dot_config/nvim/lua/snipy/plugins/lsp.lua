@@ -2,12 +2,6 @@ return {
   "neovim/nvim-lspconfig",
   "onsails/lspkind-nvim",
   {
-    "simrat39/symbols-outline.nvim",
-    config = function()
-      require("symbols-outline").setup()
-    end,
-  },
-  {
     "nvimtools/none-ls.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",

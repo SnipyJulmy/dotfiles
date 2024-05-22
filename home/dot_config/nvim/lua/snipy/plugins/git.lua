@@ -38,12 +38,5 @@ return {
     end,
     vim.keymap.set({ "n" }, "B", "<cmd>Gitsigns blame_line<CR>"),
   },
-  {
-    "rhysd/git-messenger.vim",
-    config = function()
-      vim.g.git_messenger_no_default_mappings = true
-      vim.keymap.set({ "n" }, "M", "<cmd>GitMessenger<CR>")
-    end,
-  },
   "rhysd/committia.vim",
 }
