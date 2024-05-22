@@ -12,33 +12,6 @@ return {
     end,
   },
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-      -- "3rd/image.nvim",
-      {
-        "s1n7ax/nvim-window-picker",
-        version = "2.*",
-        config = function()
-          require("window-picker").setup({
-            autoselect_one = true,
-            include_current = false,
-            filter_rules = {
-              bo = {
-                filetype = { "neo-tree", "neo-tree-popup", "notify", "quickfix" },
-                buftype = { "terminal" },
-              },
-            },
-            other_win_hl_color = "#f4293f",
-          })
-        end,
-      },
-    },
-  },
-  {
     "stevearc/oil.nvim",
     config = function()
       local oil = require("oil")

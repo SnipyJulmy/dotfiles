@@ -1,4 +1,5 @@
 -- set leader key to ',', this should happend before any plugin requirement
+--
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
@@ -36,6 +37,5 @@ require("snipy.lsp-config")
 require("snipy.nvim-cmp")
 require("snipy.treesitter")
 require("snipy.dap")
-require("snipy.neo-tree")
 require("snipy.mappings")
 require("snipy.which-key")
