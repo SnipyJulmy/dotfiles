@@ -30,11 +30,6 @@ vim.keymap.set({ "n" }, "<leader>gt", [[<cmd>GitGutterToggle<CR>]])
 -- formatting
 vim.keymap.set({ "n" }, "<space>F", [[<cmd>Format<CR>]])
 
--- neo-tree
-vim.keymap.set({ "n" }, "<C-n>", [[<cmd>Neotree filesystem reveal left toggle<CR>]])
-vim.keymap.set({ "n" }, "<leader>bb", [[<cmd>Neotree buffers float toggle=true<CR>]])
-vim.keymap.set({ "n" }, "<leader>gg", [[<cmd>Neotree git_status float toggle=true<CR>]])
-
 -- terminal mappings
 vim.keymap.set({ "t" }, "<ESC>", [[<C-\><C-n>]])
 vim.keymap.set({ "t" }, "<C-w>h", [[<C-\><C-n><C-W>h]])
