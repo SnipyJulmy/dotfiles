@@ -19,8 +19,10 @@ jobs:
       GITHUB_CI: true
     timeout-minutes: 10
     steps:
+      - name: setup age
+        uses: AnimMouse/setup-age@v1
       - name: setup age key
-        run: echo '${{ secrets.AGE1FJ55JSQ3G8PCK8FHEVXGLZZYMQNZDQM6SLUVADMK6ES48CAYY33SMMWCZ4 }}' > /opt/agekey.txt
+        run:  echo '${{ secrets.AGE1FJ55JSQ3G8PCK8FHEVXGLZZYMQNZDQM6SLUVADMK6ES48CAYY33SMMWCZ4 }}' > /opt/agekey.txt
       - uses: actions/checkout@v3
       - name: chezmoi init
-        run: sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply -S .
+        run:  sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply -S .
