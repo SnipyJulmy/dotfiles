@@ -1,10 +1,12 @@
-{{- $ci := false -}}
+{{- $ci        := false -}}
+{{- $headless  := false -}}
+{{- $ephemeral := false -}}
 {{- "" -}}
 
 {{- if (env "GITHUB_CI") -}}
-{{-   $ci        := true -}}
-{{-   $headless  := true -}}
-{{-   $ephemeral := true -}}
+{{-   $ci        = true -}}
+{{-   $headless  = true -}}
+{{-   $ephemeral = true -}}
 {{- end -}}
 
 useBuiltinAge = true
@@ -25,7 +27,7 @@ args = ["-d", "{{ "{{ .Destination }}" }}", "{{ "{{ .Source }}" }}","{{ "{{ .Tar
 encryption = "age"
 [age]
 {{ if $ci -}}
-identity = "~/.agekey.txt"
+identity = "/opt/agekey.txt"
 {{ else -}}
 identity = "~/.keybase/secret/agekey.txt"
 {{ end -}}
