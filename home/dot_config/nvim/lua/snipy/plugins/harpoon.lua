@@ -16,7 +16,7 @@ return {
       vim.keymap.set({ "n" }, "m,", require("harpoon.ui").nav_next)
       vim.keymap.set({ "n" }, "mk", require("harpoon.ui").nav_prev)
 
-      for i = 1, 4 do
+      for i = 1, 5 do
         vim.keymap.set({ "n" }, "m" .. i, function()
           require("harpoon.ui").nav_file(i)
         end)
