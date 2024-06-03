@@ -9,7 +9,6 @@ return {
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-nvim-lsp-signature-help",
-      "hrsh7th/cmp-nvim-lsp-document-symbol",
       "lukas-reineke/cmp-rg",
       "rcarriga/cmp-dap",
       "max397574/cmp-greek",
