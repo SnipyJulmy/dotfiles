@@ -1,5 +1,4 @@
 name: gitleaks
-
 on:
   pull_request:
     branches:
@@ -10,20 +9,16 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 4 * * *" # every day at 4am
-
 jobs:
-  gitleaks:
-    strategy:
-      fail-fast: true
-      matrix:
-        os: [ubuntu-latest, ubuntu-22.04]
-    runs-on: ${{matrix.os}}
+  scan:
+    name: gitleaks
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        name: checkout-${{ matrix.os }}
+        name: checkout
         with:
           fetch-depth: 0
       - uses: gitleaks/gitleaks-action@v2
-        name: gitleaks-${{ matrix.os }}
+        name: gitleaks
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
