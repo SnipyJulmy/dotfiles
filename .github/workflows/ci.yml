@@ -19,10 +19,10 @@ jobs:
       GITHUB_CI: true
     timeout-minutes: 10
     steps:
-      - name: setup age
+      - name: setup age ${{ matrix.os }}
         uses: AnimMouse/setup-age@v1
-      - name: setup age private key from secrets
+      - name: setup age private key from secrets ${{ matrix.os }}
         run:  echo '${{ secrets.AGE1FJ55JSQ3G8PCK8FHEVXGLZZYMQNZDQM6SLUVADMK6ES48CAYY33SMMWCZ4 }}' > /opt/agekey.txt
       - uses: actions/checkout@v4
-      - name: chezmoi init
+      - name: chezmoi init ${{ matrix.os }}
         run:  sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply -S .
