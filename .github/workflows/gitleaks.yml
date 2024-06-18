@@ -20,11 +20,10 @@ jobs:
     runs-on: ${{matrix.os}}
     steps:
       - uses: actions/checkout@v4
+        name: checkout-${{ matrix.os }}
         with:
-          name: checkout-${{ matrix.os }}
           fetch-depth: 0
       - uses: gitleaks/gitleaks-action@v2
-        with:
-          name: gitleaks-${{ matrix.os }}
+        name: gitleaks-${{ matrix.os }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
