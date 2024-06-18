@@ -23,6 +23,6 @@ jobs:
         uses: AnimMouse/setup-age@v1
       - name: setup age private key from secrets
         run:  echo '${{ secrets.AGE1FJ55JSQ3G8PCK8FHEVXGLZZYMQNZDQM6SLUVADMK6ES48CAYY33SMMWCZ4 }}' > /opt/agekey.txt
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: chezmoi init
         run:  sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply -S .
