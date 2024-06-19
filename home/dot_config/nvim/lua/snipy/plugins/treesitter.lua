@@ -1,5 +1,10 @@
 return {
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   "nvim-treesitter/playground",
-  "p00f/nvim-ts-rainbow",
+  {
+    "HiPhish/rainbow-delimiters.nvim",
+    config = function()
+      require("rainbow-delimiters.setup").setup({})
+    end,
+  },
 }
