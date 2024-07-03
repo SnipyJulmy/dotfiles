@@ -8,6 +8,11 @@ return {
           args = { "--google-style", "$FILENAME" },
           stdin = false,
         },
+        diktat = {
+          command = [[diktat]],
+          args = {},
+          stdin = false,
+        },
       },
       formatters_by_ft = {
         lua = { "stylua" },
