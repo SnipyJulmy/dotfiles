@@ -79,6 +79,13 @@ end
 
 -- stylua: ignore start
 ls.add_snippets("go", {
+  s("main", fmt(
+    [[
+    func main() {{
+      {}
+    }}
+    ]], { i(0) }
+  )),
   s("log", go_log(1)),
   s("pr",
     c(1, {
