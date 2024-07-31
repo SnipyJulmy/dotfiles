@@ -1,10 +1,15 @@
 git:
-  pull:
-    mode: 'rebase'
   disableForcePushing: false
 disableStartupPopups: true
 gui:
   showFileTree: false
+  nerdFontsVersion: ""
+  showFileIcons: false
+  commitAuthorShortLength: 2
+  commitAuthorLongLength: 17
+  commitHashLength: 8
+  showBranchCommitHash: false
 os:
   editCommand: 'nvim'
   editCommandTemplate: '{{editor}} +{{line}} -- {{filename}}'
+

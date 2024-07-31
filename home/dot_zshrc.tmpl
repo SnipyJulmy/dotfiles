@@ -40,7 +40,7 @@ DISABLE_AUTO_UPDATE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    fnm
+    # fnm
     git
     docker
     docker-compose
@@ -292,9 +292,9 @@ export PATH="/home/snipy/dev/ktfmt-exec/bin:$PATH"
 export PATH="/home/snipy/dev/diktat-exec/bin:$PATH"
 
 # fnm
-export PATH="/home/snipy/.local/share/fnm:$PATH"
-eval "`fnm env`"
-fpath+=${ZDOTDIR:-~}/.zsh_functions
+# export PATH="/home/snipy/.local/share/fnm:$PATH"
+# eval "`fnm env`"
+# fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
