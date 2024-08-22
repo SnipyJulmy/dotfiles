@@ -33,7 +33,7 @@ ls.config.set_config({
 
 ls.add_snippets("lua", {
   s("todo", fmt([[-- {} {}]], { c(1, { t("TODO"), t("FIXME") }), i(2) })),
-  s("req", fmt([[local {} = require("{}")]], { i(1, "default"), rep(1) })),
+  s("req", fmt([[require("{}")]], { i(1, "default") })),
   s("f", fmt([[function() {} end]], { i(1) })),
   s("setup", fmt([[require("{}"){}{}]], { i(1), i(2, ".setup({})"), i(0) })),
   s("use", {

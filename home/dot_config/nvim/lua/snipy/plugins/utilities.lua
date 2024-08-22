@@ -55,5 +55,4 @@ return {
       vim.keymap.set({ "n" }, "mb", require("buffer_manager.ui").toggle_quick_menu)
     end,
   },
-  "folke/which-key.nvim",
 }

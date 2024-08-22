@@ -37,6 +37,11 @@ return {
       })
     end,
     vim.keymap.set({ "n" }, "B", "<cmd>Gitsigns blame_line<CR>"),
+    vim.keymap.set({ "n" }, "]g", "<cmd>Gitsigns next_hunk<CR>"),
+    vim.keymap.set({ "n" }, "[g", "<cmd>Gitsigns prev_hunk<CR>"),
+    vim.keymap.set({ "n" }, "<Space>gs", "<cmd>Gitsigns show<CR>"),
+    vim.keymap.set({ "n" }, "<Space>gh", "<cmd>Gitsigns preview_hunk<CR>"),
+    vim.keymap.set({ "n" }, "<Space>gr", "<cmd>Gitsigns reset_hunk<CR>"),
   },
   "rhysd/committia.vim",
 }

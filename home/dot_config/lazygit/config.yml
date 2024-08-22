@@ -10,6 +10,6 @@ gui:
   commitHashLength: 8
   showBranchCommitHash: false
 os:
-  editCommand: 'nvim'
-  editCommandTemplate: '{{editor}} +{{line}} -- {{filename}}'
+  edit: 'nvim {{filename}}'
+  editAtLine: 'nvim +{{line}} {{filename}}'
 
