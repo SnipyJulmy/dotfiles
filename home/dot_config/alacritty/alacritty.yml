@@ -10,7 +10,8 @@ window:
   padding:
     x: 0
     y: 0
-  dynamic_padding: false
+  dynamic_padding: true
+  decorations: full
   opacity: 1.0
   startup_mode: Windowed
   title: Alacritty
@@ -31,7 +32,6 @@ font:
     style: Bold Italic
   size: 12.0
   builtin_box_drawing: true
-  draw_bold_text_with_bright_colors: false
 
 colors:
   primary:
@@ -112,7 +112,7 @@ colors:
   # Whether or not `window.opacity` applies to all cell backgrounds or only to
   # the default background. When set to `true` all cells will be transparent
   # regardless of their background color.
-  #transparent_background_colors: false
+transparent_background_colors: true
 
 live_config_reload: true
 shell:
