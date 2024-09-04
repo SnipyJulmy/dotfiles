@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-# polybar-msg cmd quit
+polybar-msg cmd quit >/dev/null 2>&1
 killall -q polybar
 
 echo "---" | tee -a /tmp/polybar1.log
