@@ -34,7 +34,7 @@ return {
           "stylua",
           "rust_analyzer",
           "texlab",
-          "tsserver",
+          "ts_ls",
           "vimls",
           "yamlls",
           "yamllint",
