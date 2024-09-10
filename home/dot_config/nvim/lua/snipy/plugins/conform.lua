@@ -23,11 +23,11 @@ return {
         -- kotlin = { "ktfmt" },
       },
       format_on_save = {
-        lsp_fallback = false,
+        lsp_fallback = true,
         timeout_ms = 500,
       },
       format_after_save = {
-        lsp_fallback = false,
+        lsp_fallback = true,
       },
       log_level = vim.log.levels.DEBUG,
     })

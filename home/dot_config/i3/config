@@ -4,7 +4,7 @@ set $meh Control+Shift+Mod1
 
 for_window [class="^.*"] border pixel 0;
 
-gaps inner 10
+gaps inner 8
 gaps outer 0
 
 font pango:SauceCodePro Nerd Font Mono 13
@@ -35,8 +35,6 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@   -5%    && $refresh_i3status
 bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   @DEFAULT_SINK@   toggle && $refresh_i3status
 bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # should make this a script that detect screens setup (work, home, zurick office, ...)
 # and setup the the screend AND the wallpaper
@@ -166,6 +164,7 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
+
 # move current workspace
 bindsym $mod+m move workspace to output right
 bindsym $mod+n move workspace to output left
@@ -173,6 +172,15 @@ bindsym $mod+n move workspace to output left
 bindsym $hyper+c reload
 bindsym $hyper+r restart
 bindsym $hyper+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# bar {
+#         status_command i3status
+#         tray_output primary
+#         position bottom
+# }
+
 
 mode "resize" {
         bindsym j resize grow   height 3 px or 3 ppt
