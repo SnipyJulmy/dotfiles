@@ -1,0 +1,19 @@
+configuration {
+  show-icons          : true;
+  display-drun        : " ";
+  drun-display-format : "{icon} {name}";
+  disable-history     : false;
+  click-to-exit       : true;
+  location            : 0;
+}
+
+@import "font.rasi"
+@import "gruvbox-dark"
+
+window {
+  transparency     : "real";
+  background-color : @background;
+  text-color       : @foreground;
+  width            : 40%;
+  height           : 70%;
+}
