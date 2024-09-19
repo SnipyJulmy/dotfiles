@@ -65,14 +65,7 @@ bindsym $meh+q exec --no-startup-id i3lock
 # bindsym $meh+s exec --no-startup-id systemctl shutdown
 
 
-# bindsym $mod+space exec --no-startup-id "rofi -show run -config ~/.config/rofi/config.rasi"
-bindsym $mod+space exec --no-startup-id ~/.config/rofi/bin/launcher.sh
-
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+bindsym --release $mod+space exec  --no-startup-id ~/.config/rofi/bin/launcher.sh
 
 # change focus
 bindsym $mod+j focus down

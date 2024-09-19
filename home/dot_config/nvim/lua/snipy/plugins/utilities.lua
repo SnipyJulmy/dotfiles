@@ -39,15 +39,6 @@ return {
   "tpope/vim-obsession",
   "chrisbra/unicode.vim",
   "godlygeek/tabular",
-  -- "benmills/vimux",
-  {
-    "ellisonleao/glow.nvim",
-    config = function()
-      require("glow").setup({
-        style = "light",
-      })
-    end,
-  },
   {
     "j-morano/buffer_manager.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -55,4 +46,5 @@ return {
       vim.keymap.set({ "n" }, "mb", require("buffer_manager.ui").toggle_quick_menu)
     end,
   },
+  "folke/which-key.nvim",
 }

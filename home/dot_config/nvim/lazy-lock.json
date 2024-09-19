@@ -271,6 +271,10 @@
 		"branch": "master",
 		"commit": "5f73b24aeb94f5274c218955573153c69ce4d1ee"
 	},
+	"render-markdown.nvim": {
+		"branch": "main",
+		"commit": "5ff191f0c7457ede2fd30ecf76ab16c65118b4ee"
+	},
 	"ronny.nvim": {
 		"branch": "main",
 		"commit": "8ffb31e22703bcdbfb25f25342bd65983063797a"
