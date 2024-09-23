@@ -21,11 +21,11 @@ return {
         zsh = { "beautysh" },
         js = { "prettier" },
         json = { "fixjson" },
-        yaml = { "yamlfix" },
         terraform = { "terraform_fmt" },
         markdown = { "mdformat", "cbfmt" },
         rust = { "rustfmt" },
         go = { "gofmt" },
+        yaml = { "yamlfmt", "yamlfix" },
         -- kotlin = { "ktfmt" },
       },
       format_on_save = {
