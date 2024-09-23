@@ -235,6 +235,27 @@ function NeovimUpdate() {
     popd
 }
 
+# heia-fr
+function ssh-etu-ipmi() {
+    USER="etu${1}"
+    HOST="ipmi-remosinst${1}.isc.heia-fr.ch"
+    ssh ${USER}@${HOST} -o KexAlgorithms=diffie-hellman-group1-sha1 -o HostKeyAlgorithms=ssh-rsa
+}
+
+function ssh-remosinst-ipmi() {
+    USER="sjulmy"
+    HOST="ipmi-remosinst${1}.isc.heia-fr.ch"
+    ssh ${USER}@${HOST} -o KexAlgorithms=diffie-hellman-group1-sha1 -o HostKeyAlgorithms=ssh-rsa
+}
+
+function ssh-remosinst() {
+    USER="sjulmy"
+    HOST="remosinst${1}.isc.heia-fr.ch"
+    ssh ${USER}@${HOST} # -o KexAlgorithms=diffie-hellman-group1-sha1 -o HostKeyAlgorithms=ssh-rsa
+}
+
+
+
 # github cli
 compctl -K _gh gh
 
