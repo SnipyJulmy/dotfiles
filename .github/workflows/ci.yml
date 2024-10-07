@@ -1,5 +1,4 @@
 name: ci
-
 on:
   pull_request:
     branches:
@@ -7,7 +6,6 @@ on:
   push:
     branches:
       - master
-
 jobs:
   test:
     strategy:
