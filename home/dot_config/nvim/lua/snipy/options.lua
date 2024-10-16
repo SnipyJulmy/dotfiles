@@ -13,7 +13,7 @@ vim.o.completeopt = "menuone,noselect"
 -- vim.g.python_host_prog = os.getenv("HOME") .. "/.pyenv/versions/neovim2/bin/python"
 -- vim.g.python_host_prog = os.getenv("HOME") .. "/.pyenv/versions/neovim3/bin/python"
 
-vim.opt.mouse = "a" -- enable mouse
+vim.opt.mouse = "" -- disable mouse
 
 vim.opt.expandtab = true -- tabs are spaces
 vim.opt.smarttab = false

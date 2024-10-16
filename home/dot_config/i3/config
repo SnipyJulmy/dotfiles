@@ -68,6 +68,7 @@ bindsym $meh+q exec --no-startup-id i3lock
 
 
 bindsym --release $mod+space exec  --no-startup-id ~/.config/rofi/bin/launcher.sh
+bindsym --release $hyper+d exec --no-startup-id ~/.config/rofi/bin/system.sh
 
 # change focus
 bindsym $mod+j focus down

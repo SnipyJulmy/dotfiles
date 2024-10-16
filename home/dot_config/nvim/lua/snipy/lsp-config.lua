@@ -88,6 +88,7 @@ require("mason-lspconfig").setup({
     "cssls",
     "jdtls",
     "bashls",
+    "taplo",
   },
 })
 
@@ -151,13 +152,32 @@ require("lspconfig").yamlls.setup({
   on_attach = lsp.on_attach,
 })
 
--- rust
 require("lspconfig").rust_analyzer.setup({
   capabilities = lsp.capabilities,
-  on_attach = lsp.on_attach,
+  on_attach = function(client, bufnr)
+    lsp.on_attach(client, bufnr)
+    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+  end,
+  settings = {
+    ["rust-analyzer"] = {
+      imports = {
+        granularity = {
+          group = "module",
+        },
+        prefix = "self",
+      },
+      cargo = {
+        buildScripts = {
+          enable = true,
+        },
+      },
+      procMacro = {
+        enable = true,
+      },
+    },
+  },
 })
 
--- docker
 require("lspconfig").dockerls.setup({
   cmd = { "docker-langserver", "--stdio" },
   filetypes = { "Dockerfile", "dockerfile" },
@@ -166,7 +186,6 @@ require("lspconfig").dockerls.setup({
   on_attach = lsp.on_attach,
 })
 
--- python
 require("lspconfig").pyright.setup({
   cmd = { "pyright-langserver", "--stdio" },
   filetypes = { "python" },

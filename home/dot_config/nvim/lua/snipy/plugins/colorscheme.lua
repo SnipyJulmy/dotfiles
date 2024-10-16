@@ -23,4 +23,8 @@ return {
   },
   "cpea2506/one_monokai.nvim",
   "judaew/ronny.nvim",
+  {
+    "diegoulloao/neofusion.nvim",
+    config = true,
+  },
 }
