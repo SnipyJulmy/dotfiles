@@ -1,0 +1,12 @@
+matches:
+  - trigger: ":ee:"
+    replace: "\u00e8"
+  - trigger: ":er:"
+    replace: "\u00e9"
+  - trigger: ":et:"
+    replace: "\u00ea"
+  - trigger: ":aa:"
+    replace: "\u00e0"
+  - trigger: ":Aa:"
+    replace: "\u00c0"
+# to check for other characters with accent : https://www.compart.com/fr/unicode/search?q=accent#characters
