@@ -1,0 +1,12 @@
+# For a list of all the available options, visit the official docs at: https://espanso.org/docs/
+
+search_trigger: :search
+search_shortcut: ALT+SHIFT+SPACE
+
+auto_restart: true
+undo_backspace: false
+
+toggle_key: ALT
+
+show_icon: false
+show_notifications: true
