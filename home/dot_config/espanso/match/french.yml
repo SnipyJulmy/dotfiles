@@ -5,6 +5,8 @@ matches:
     replace: "\u00c8"
   - trigger: ":er:"
     replace: "\u00e9"
+  - trigger: ":eR:"
+    replace: "\u00c9"
   - trigger: ":et:"
     replace: "\u00ea"
   - trigger: ":eT:"
