@@ -116,8 +116,10 @@ require("lspconfig").jsonls.setup({
 require("lspconfig").yamlls.setup({
   settings = {
     yaml = {
+      validate = true,
       schemas = {
         ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+        ["https://raw.githubusercontent.com/GoogleContainerTools/skaffold/main/docs-v2/content/en/schemas/v4beta11.json"] = "skaffold.yaml",
       },
     },
     redhat = {
