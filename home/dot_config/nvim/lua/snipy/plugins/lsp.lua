@@ -1,5 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
+  "onsails/lspkind-nvim",
   {
     "nvimtools/none-ls.nvim",
     dependencies = {
