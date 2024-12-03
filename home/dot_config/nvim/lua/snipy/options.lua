@@ -6,6 +6,9 @@
 -- vim.bo --> buffer local option
 -- vim.wo --> windows local option
 
+-- Prepend mise shims to PATH
+vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH
+
 -- enable compe
 vim.o.completeopt = "menuone,noselect"
 
