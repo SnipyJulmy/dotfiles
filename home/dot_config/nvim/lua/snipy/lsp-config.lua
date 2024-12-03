@@ -20,7 +20,7 @@ metals_config.settings = {
     "akka.stream.javadsl",
     "akka.http.javadsl",
   },
-  fallbackScalaVersion = "2.13.8",
+  fallbackScalaVersion = "2.13.15",
   serverVersion = "latest.release",
 }
 
@@ -156,7 +156,7 @@ require("lspconfig").rust_analyzer.setup({
   capabilities = lsp.capabilities,
   on_attach = function(client, bufnr)
     lsp.on_attach(client, bufnr)
-    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+    vim.lsp.inlay_hint.enable(false, { bufnr = bufnr })
   end,
   settings = {
     ["rust-analyzer"] = {
@@ -293,14 +293,14 @@ require("lspconfig").rnix.setup({
 })
 
 -- Markdownlsp
-require("lspconfig").marksman.setup({
-  cmd = { "marksman", "server" },
-  filetypes = { "markdown" },
-  root_dir = lspUtil.root_pattern(".git"),
-  single_file_support = true,
-  capabilities = lsp.capabilities,
-  on_attach = lsp.on_attach,
-})
+-- require("lspconfig").marksman.setup({
+--   cmd = { "marksman", "server" },
+--   filetypes = { "markdown" },
+--   root_dir = lspUtil.root_pattern(".git"),
+--   single_file_support = true,
+--   capabilities = lsp.capabilities,
+--   on_attach = lsp.on_attach,
+-- })
 
 -- Emmet
 require("lspconfig").emmet_ls.setup({

@@ -20,7 +20,7 @@ metals_config.settings = {
     "akka.stream.javadsl",
     "akka.http.javadsl",
   },
-  fallbackScalaVersion = "2.13.8",
+  fallbackScalaVersion = "2.13.15",
   serverVersion = "latest.release",
 }
 

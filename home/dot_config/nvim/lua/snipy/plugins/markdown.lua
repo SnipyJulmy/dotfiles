@@ -14,7 +14,7 @@ return {
     config = function()
       require("render-markdown").setup({
         file_types = { "markdown", "vimwiki" },
-        enabled = true,
+        enabled = false,
         latex = {
           enabled = false,
         },
