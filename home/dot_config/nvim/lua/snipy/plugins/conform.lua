@@ -17,8 +17,8 @@ return {
       formatters_by_ft = {
         lua = { "stylua" },
         python = { "black" },
-        sh = { "beautysh" },
-        zsh = { "beautysh" },
+        -- sh = { "beautysh" },
+        -- zsh = { "beautysh" },
         js = { "prettier" },
         json = { "fixjson" },
         yaml = { "yamlfmt" },

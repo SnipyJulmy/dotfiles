@@ -28,10 +28,10 @@ require("lazy").setup("snipy.plugins", {
   },
 })
 
+require("snipy.autocommands")
+require("snipy.dap")
 require("snipy.global")
+require("snipy.lsp-config")
+require("snipy.mappings")
 require("snipy.options")
 require("snipy.theme")
-require("snipy.autocommands")
-require("snipy.lsp-config")
-require("snipy.dap")
-require("snipy.mappings")
