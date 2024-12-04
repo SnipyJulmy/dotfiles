@@ -2,8 +2,11 @@
 
 search_trigger: :search
 search_shortcut: ALT+SHIFT+SPACE
+
 auto_restart: true
 undo_backspace: false
+
 toggle_key: ALT
+
 show_icon: true
 show_notifications: false
