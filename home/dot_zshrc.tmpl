@@ -203,12 +203,11 @@ function gitRebaseMain() {
 function gi() { curl -sLw n https://www.gitignore.io/api/$@ ;}
 
 # golang
-export PATH="$HOME/.gobrew/current/bin:$HOME/.gobrew/bin:$PATH"
-export GOROOT="$HOME/.gobrew/current/go"
-export GOPATH="$HOME/go"
-export GOBIN="$GOPATH/bin"
-
-updatePath "${GOBIN}"
+# export PATH="$HOME/.gobrew/current/bin:$HOME/.gobrew/bin:$PATH"
+# export GOROOT="$HOME/.gobrew/current/go"
+# export GOPATH="$HOME/go"
+# export GOBIN="$GOPATH/bin"
+# updatePath "${GOBIN}"
 
 # jetbrains scripts
 updatePath "$HOME/.local/share/JetBrains/Toolbox/scripts"
