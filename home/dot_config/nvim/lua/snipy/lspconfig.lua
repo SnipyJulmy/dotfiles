@@ -69,6 +69,8 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
+-- lsp setup and install
+
 -- lua
 require("lspconfig").lua_ls.setup({
   -- cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
@@ -114,10 +116,8 @@ require("lspconfig").jsonls.setup({
 require("lspconfig").yamlls.setup({
   settings = {
     yaml = {
-      validate = true,
       schemas = {
         ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-        ["https://raw.githubusercontent.com/GoogleContainerTools/skaffold/main/docs-v2/content/en/schemas/v4beta11.json"] = "skaffold.yaml",
       },
     },
     redhat = {
@@ -131,32 +131,13 @@ require("lspconfig").yamlls.setup({
   on_attach = lsp.on_attach,
 })
 
+-- rust
 require("lspconfig").rust_analyzer.setup({
   capabilities = lsp.capabilities,
-  on_attach = function(client, bufnr)
-    lsp.on_attach(client, bufnr)
-    vim.lsp.inlay_hint.enable(false, { bufnr = bufnr })
-  end,
-  settings = {
-    ["rust-analyzer"] = {
-      imports = {
-        granularity = {
-          group = "module",
-        },
-        prefix = "self",
-      },
-      cargo = {
-        buildScripts = {
-          enable = true,
-        },
-      },
-      procMacro = {
-        enable = true,
-      },
-    },
-  },
+  on_attach = lsp.on_attach,
 })
 
+-- docker
 require("lspconfig").dockerls.setup({
   cmd = { "docker-langserver", "--stdio" },
   filetypes = { "Dockerfile", "dockerfile" },
@@ -165,6 +146,7 @@ require("lspconfig").dockerls.setup({
   on_attach = lsp.on_attach,
 })
 
+-- python
 require("lspconfig").pyright.setup({
   cmd = { "pyright-langserver", "--stdio" },
   filetypes = { "python" },
@@ -272,14 +254,14 @@ require("lspconfig").rnix.setup({
 })
 
 -- Markdownlsp
--- require("lspconfig").marksman.setup({
---   cmd = { "marksman", "server" },
---   filetypes = { "markdown" },
---   root_dir = lspUtil.root_pattern(".git"),
---   single_file_support = true,
---   capabilities = lsp.capabilities,
---   on_attach = lsp.on_attach,
--- })
+require("lspconfig").marksman.setup({
+  cmd = { "marksman", "server" },
+  filetypes = { "markdown" },
+  root_dir = lspUtil.root_pattern(".git"),
+  single_file_support = true,
+  capabilities = lsp.capabilities,
+  on_attach = lsp.on_attach,
+})
 
 -- Emmet
 require("lspconfig").emmet_ls.setup({
@@ -300,6 +282,14 @@ require("lspconfig").bashls.setup({
   single_file_support = true,
   capabilities = lsp.capabilities,
   on_attach = lsp.on_attach,
+})
+
+require("lspconfig").helm_ls.setup({
+  cmd = { "helm_ls", "serve" },
+  filetypes = { "helm" },
+  root_dir = function(filename)
+    return lspUtil.root_pattern("Chart.yaml")(filename)
+  end,
 })
 
 -- Gradle

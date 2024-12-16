@@ -1,11 +1,9 @@
 return {
   {
     "ellisonleao/glow.nvim",
-    config = function()
-      require("glow").setup({
-        style = "light",
-      })
-    end,
+    opts = {
+      style = "light",
+    },
   },
   {
     "MeanderingProgrammer/render-markdown.nvim",
@@ -25,6 +23,16 @@ return {
       vim.keymap.set({ "n" }, "<leader>md", require("render-markdown").disable)
       vim.keymap.set({ "n" }, "<leader>mj", require("render-markdown").expand)
       vim.keymap.set({ "n" }, "<leader>mk", require("render-markdown").contract)
+    end,
+  },
+  {
+    "toppair/peek.nvim",
+    event = { "VeryLazy" },
+    build = "deno task --quiet build:fast",
+    config = function()
+      require("peek").setup()
+      vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+      vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
     end,
   },
 }
