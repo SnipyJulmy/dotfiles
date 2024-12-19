@@ -79,23 +79,13 @@ export BROWSER=google-chrome
 export MYVIMRC="$XDG_CONFIG_HOME/nvim/init.lua"
 export MYZSHRC="$HOME/.zshrc"
 export MYTMUXCONF="$HOME/.tmux.conf"
-
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .class'
-
 export LC_CTYPE=UTF-8
 export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-
 export PATH="$PATH:/home/snipy/.local/share/coursier/bin"
-
 export CONFIG_DIR="$HOME/.config/lazygit"
-
-# export LANGUAGE=en_GB.UTF-8
-# export LANG=en_GB.UTF-8
-# export LC_ALL=en_GB.UTF-8
-
-
 
 # add the given directory to PATH if it exists
 function updatePath() {
@@ -122,6 +112,7 @@ bindkey -M vicmd v edit-command-line
 
 #### Aliases
 alias v="nvim"
+alias nvmi="nvim"
 alias nvi="nvim"
 alias vim="nvim"
 alias vi="nvim"
@@ -130,21 +121,16 @@ alias emacs="nvim"
 alias vscode="nvim"
 alias code="nvim"
 alias vs="nvim"
-
-function vg() {
-    nvim -o $(git status --porcelain | awk '{print $2}')
-}
-
 alias f=fzf
 alias rr="source $HOME/.zshrc"
 alias lg="lazygit"
 alias cl="clear"
 
-
-# ls aliases, exa is cool
-alias l="exa --long --icons"
-alias ls="exa --long --icons"
-alias la="exa -a --long --icons"
+# ls aliases, eza is cool
+alias l="eza --long --icons"
+alias ls="eza --long --icons"
+alias la="eza -a --long --icons"
+alias lt="eza -a --long --icons --git --header"
 
 alias b="bazel"
 alias bb="bazel build"
@@ -219,7 +205,6 @@ updatePath "$HOME/.local/share/JetBrains/Toolbox/scripts"
 #   kubectl -n imatch get pods -l app=$1 --no-headers | awk '{print $1}' | xargs kubectl -n imatch logs
 # }
 
-
 function k9() {
     tmux new-window -c ${PWD} -n "k9s-${$1}"
 }
@@ -253,39 +238,8 @@ function ssh-remosinst() {
     ssh ${USER}@${HOST} # -o KexAlgorithms=diffie-hellman-group1-sha1 -o HostKeyAlgorithms=ssh-rsa
 }
 
-
-
 # github cli
-compctl -K _gh gh
-
-# Example use : aoc day02 scala3
-# Available lang :
-# - rust
-# - scala3
-function aoc() {
-    DAY=$1
-    LANG=$2
-
-    case "${LANG}" in
-        rust)
-            if [[ -d "rust/${DAY}" ]] ; then echo "${DAY} already exists..." && return 1 ; fi
-            mkdir -p "rust/${DAY}"
-            pushd "rust/${DAY}"
-            cargo init --name "${DAY}" --bin --vcs=none --color=always
-            popd
-            ;;
-        scala3)
-            if [[ -d "scala3/${DAY}" ]] ; then echo "${DAY} already exists..." && return 1 ; fi
-            mkdir -p "scala3/${DAY}"
-            pushd "scala3"
-            g8 scala/scala3.g8 -o "${DAY}" --name="${DAY}"
-            popd
-            ;;
-        *)
-            echo "Usage : aoc \$day\$ (rust|scala3)"
-            return 1
-    esac
-}
+# compctl -K _gh gh
 
 ### Pyenv (for neovim)
 if command -v pyenv 1>/dev/null 2>&1; then
@@ -316,3 +270,4 @@ export PATH="$HOME/.jbang/bin:$PATH"
 
 # activate mise
 eval "$(~/.local/bin/mise activate zsh)"
+alias m=mise
