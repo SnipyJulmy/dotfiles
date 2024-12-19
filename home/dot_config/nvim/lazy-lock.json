@@ -263,6 +263,10 @@
     "branch": "main",
     "commit": "18da45f4b0fdfa8ff2c354ac748e03cb910725e6"
   },
+  "peek.nvim": {
+    "branch": "master",
+    "commit": "5820d937d5414baea5f586dc2a3d912a74636e5b"
+  },
   "playground": {
     "branch": "master",
     "commit": "ba48c6a62a280eefb7c85725b0915e021a1a0749"
@@ -326,6 +330,10 @@
   "trouble.nvim": {
     "branch": "main",
     "commit": "46cf952fc115f4c2b98d4e208ed1e2dce08c9bf6"
+  },
+  "typst-preview.nvim": {
+    "branch": "master",
+    "commit": "23db1bd5a32ff0b346817ed72e615c6419b11f48"
   },
   "unicode.vim": {
     "branch": "master",
