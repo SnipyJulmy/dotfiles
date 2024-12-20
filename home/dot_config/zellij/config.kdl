@@ -41,14 +41,13 @@ plugins {
 
 keybinds {
   normal { 
-    // TODO : bugged
-    // bind "Alt s" {
-    //   LaunchOrFocusPlugin "session-manager" {
-    //     floating true
-    //     move_to_focused_tab true
-    //   };
-    //   SwitchToMode "Normal";
-    // }
+    bind "Alt s" {
+      LaunchOrFocusPlugin "session-manager" {
+        floating true
+        move_to_focused_tab true
+      };
+      SwitchToMode "Normal";
+    }
     bind "Alt u" { GoToPreviousTab; }
     bind "Alt i" { GoToNextTab; }
     bind "Alt l" { MoveFocus "Right"; }
@@ -57,13 +56,27 @@ keybinds {
     bind "Alt k" { MoveFocus "Up"; }
     bind "Alt a" { }
     bind "Alt d" { }
-    bind "Alt x" { }
-    bind "Alt v" { }
+    bind "Alt x" { NewPane "Down"; }
+    bind "Alt v" { NewPane "Right"; }
+    bind "Alt t" { NewTab; }
+    bind "Alt Left" { Resize "Increase Left"; }
+    bind "Alt Right" { Resize "Increase Right"; }
+    bind "Alt Down" { Resize "Increase Down"; }
+    bind "Alt Up" { Resize "Increase Up"; }
+    bind "Alt r" { SwitchToMode "Resize"; }
   }
   locked {
     bind "Ctrl o" { SwitchToMode "Normal"; }
   }
-  resize { }
+  resize { 
+    bind "Esc" {
+      SwitchToMode "Normal";
+    }
+    bind "j" { Resize "Increase Down"; }
+    bind "k" { Resize "Increase Up"; }
+    bind "l" { Resize "Increase Right"; }
+    bind "h" { Resize "Increase Left"; }
+  }
   pane { }
   move { }
   tab { }
