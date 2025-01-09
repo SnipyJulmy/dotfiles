@@ -2,7 +2,7 @@
 live_config_reload = true
 ipc_socket = true
 
-import = ["./themes/gruvbox_material_hard_dark.toml"]
+import = ["./themes/gruvbox_dark.toml"]
 
 [window]
 title = "Alacritty"
