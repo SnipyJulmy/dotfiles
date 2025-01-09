@@ -1,21 +1,66 @@
+[general]
+live_config_reload = true
+ipc_socket = true
+
+[window]
+title = "Alacritty"
+decorations = "full"
+dynamic_padding = true
+dynamic_title = true
+opacity = 1.0
+startup_mode = "Windowed"
+
+dimensions = { columns = 0, lines = 0 }
+padding = { x = 0, y = 0 }
+position = { x = 0, y = 0 }
+
+[terminal]
+shell.program = "/usr/bin/zsh"
+
+[font]
+size = 12.0
+builtin_box_drawing = true
+normal = { family = "SauceCodeProNerdFontMono", style = "Regular" }
+bold = { family = "SauceCodeProNerdFontMono", style = "Bold" }
+italic = { family = "SauceCodeProNerdFontMono", style = "Italic" }
+bold_italic = { family = "SauceCodeProNerdFontMono", style = "BoldItalic" }
+
+[scrolling]
+history = 10000
+multiplier = 4
+
 [bell]
 animation = "EaseOutExpo"
 color = "#ffffff"
 duration = 0
 
-[colors.bright]
-black = "#928373"
-blue = "#83a597"
-cyan = "#8ec07b"
-green = "#b8ba25"
-magenta = "#d3859a"
-red = "#fb4833"
-white = "#ebdbb2"
-yellow = "#fabc2e"
+[colors]
+cursor = { cursor = "CellForeground", text = "CellBackground" }
 
-[colors.cursor]
-cursor = "CellForeground"
-text = "CellBackground"
+primary = { background = "#282828", foreground = "#ebdbb2" }
+
+# Normal colors
+[colors.normal]
+black = '#282828'
+red = '#cc241d'
+green = '#98971a'
+yellow = '#d79921'
+blue = '#458588'
+magenta = '#b16286'
+cyan = '#689d6a'
+white = '#a89984'
+
+# Bright colors
+[colors.bright]
+black = '#928374'
+red = '#fb4934'
+green = '#b8bb26'
+yellow = '#fabd2f'
+blue = '#83a598'
+magenta = '#d3869b'
+cyan = '#8ec07c'
+white = '#ebdbb2'
+
 
 [colors.footer_bar]
 background = "#c5c8c6"
@@ -33,20 +78,6 @@ foreground = "#1d1f21"
 background = "None"
 foreground = "None"
 
-[colors.normal]
-black = "#272727"
-blue = "#448488"
-cyan = "#689d69"
-green = "#989719"
-magenta = "#b17185"
-red = "#cc231c"
-white = "#a89983"
-yellow = "#d79920"
-
-[colors.primary]
-background = "#272727"
-foreground = "#ebdbb2"
-
 [colors.search.focused_match]
 background = "#000000"
 foreground = "#ffffff"
@@ -62,44 +93,3 @@ text = "CellBackground"
 [colors.vi_mode_cursor]
 cursor = "CellForeground"
 text = "CellBackground"
-
-[font]
-builtin_box_drawing = true
-size = 12.0
-
-[font.bold]
-family = "SauceCodePro Nerd Font Mono"
-style = "Bold"
-
-[font.bold_italic]
-family = "SauceCodePro Nerd Font Mono"
-style = "Bold Italic"
-
-[font.italic]
-family = "SauceCodePro Nerd Font Mono"
-style = "Italic"
-
-[font.normal]
-family = "SauceCodePro Nerd Font Mono"
-style = "Regular"
-
-[terminal.shell]
-program = "/usr/bin/zsh"
-
-[window]
-title = "Alacritty"
-decorations = "full"
-dynamic_padding = true
-dynamic_title = true
-opacity = 1.0
-startup_mode = "Windowed"
-dimensions.columns = 0
-dimensions.lines = 0
-padding.x = 0
-padding.y = 0
-position.x = 0
-position.y = 0
-
-[general]
-live_config_reload = true
-ipc_socket = true
