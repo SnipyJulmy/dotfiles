@@ -1,13 +1,23 @@
-{{- $ci        := false -}}
-{{- $headless  := false -}}
-{{- $ephemeral := false -}}
-{{- "" -}}
+{{-/*  boolean feature flag */-}}
+{{- $ci        := false -}}{{/* true if running in the ci */}}
+{{- $headless  := false -}}{{/* true if this machine does not have a screen and keyboard */}}
+{{- $agekey    := false -}}{{/* true if this machine has any age key to decrypt secret */}}
+{{- $ephemeral := false -}}{{/* true if this machine is ephemeral, e.g. a cloud or VM instance */}}
+{{- $work      := false -}}{{/* true if this is a work machine */}}
+
+
+
+{{- $name  := "Sylvain Julmy" -}}
+{{- $email := "sylvain.julmy@gmail.com" -}}
 
 {{- if (env "GITHUB_CI") -}}
 {{-   $ci        = true -}}
 {{-   $headless  = true -}}
+{{-   $agekey    = true -}}
 {{-   $ephemeral = true -}}
 {{- end -}}
+
+encryption = "age"
 
 [edit]
 command = "nvim"
@@ -21,7 +31,6 @@ exclude = ["scripts"]
 command = "nvim"
 args = ["-d", "{{ "{{ .Destination }}" }}", "{{ "{{ .Source }}" }}","{{ "{{ .Target }}" }}"]
 
-encryption = "age"
 [age]
 {{ if $ci -}}
 identity = "/opt/agekey.txt"
