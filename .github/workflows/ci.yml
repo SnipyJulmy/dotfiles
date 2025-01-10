@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        os: [ubuntu-22.04, ubuntu-latest]
+        os: [ubuntu-20.04, ubuntu-22.04, ubuntu-24.04, ubuntu-latest]
     runs-on: ${{matrix.os}}
     env:
       GITHUB_CI: true
@@ -20,7 +20,7 @@ jobs:
       - name: setup age ${{ matrix.os }}
         uses: AnimMouse/setup-age@main
       - name: setup age private key from secrets ${{ matrix.os }}
-        run:  echo '${{ secrets.AGE1FJ55JSQ3G8PCK8FHEVXGLZZYMQNZDQM6SLUVADMK6ES48CAYY33SMMWCZ4 }}' > /opt/agekey.txt
+        run: echo '${{ secrets.AGE1FJ55JSQ3G8PCK8FHEVXGLZZYMQNZDQM6SLUVADMK6ES48CAYY33SMMWCZ4 }}' > /opt/agekey.txt
       - uses: actions/checkout@v4
       - name: chezmoi init ${{ matrix.os }}
-        run:  sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply -S .
+        run: sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply -S .
