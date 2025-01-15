@@ -70,3 +70,5 @@ text = "CellBackground"
 [colors.vi_mode_cursor]
 cursor = "CellForeground"
 text = "CellBackground"
+
+[keyboard]
