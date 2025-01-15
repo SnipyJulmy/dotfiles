@@ -35,6 +35,30 @@ ls.add_snippets("lua", {
   s("todo", fmt([[-- {} {}]], { c(1, { t("TODO"), t("FIXME") }), i(2) })),
   s("req", fmt([[require("{}")]], { i(1, "default") })),
   s("f", fmt([[function() {} end]], { i(1) })),
+  -- s(
+  --   "localdo",
+  --   fmt(
+  --     [[
+  --   local {}
+  --   do
+  --     {} = {{{}}}
+  --   end
+  -- ]],
+  --     { i(1), i(0) }
+  --   )
+  -- ),
+  s(
+    "self",
+    fmt(
+      [[
+    function(self)
+      {}
+    end
+    ]],
+      { i(1) }
+    )
+  ),
+  s("not", fmt([[require("notify")("{}"){}]], { i(1), i(0) })),
   s("setup", fmt([[require("{}"){}{}]], { i(1), i(2, ".setup({})"), i(0) })),
   s("use", {
     t([[use({"]]),

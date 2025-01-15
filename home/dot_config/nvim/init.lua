@@ -1,3 +1,7 @@
+-- enables the experimental Lua module loader
+-- see :h vim.loader.enable()
+vim.loader.enable()
+
 -- set leader key to ',', this should happend before any plugin requirement
 --
 vim.g.mapleader = ","
@@ -27,6 +31,10 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+require("snipy.autocommands")
+require("snipy.options")
+require("snipy.diagnostic")
+
 require("lazy").setup("snipy.plugins", {
   dev = {
     path = "~/plugins",
@@ -38,10 +46,8 @@ require("lazy").setup("snipy.plugins", {
   },
 })
 
-require("snipy.autocommands")
+require("snipy.theme")
 require("snipy.dap")
 require("snipy.global")
 require("snipy.lsp-config")
 require("snipy.mappings")
-require("snipy.options")
-require("snipy.theme")

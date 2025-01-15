@@ -21,7 +21,7 @@ return {
         -- zsh = { "beautysh" },
         js = { "prettier" },
         json = { "fixjson" },
-        -- yaml = { "yamlfmt" },
+        yaml = { "yamllint" },
         terraform = { "terraform_fmt" },
         rust = { "rustfmt" },
         go = { "gofmt" },

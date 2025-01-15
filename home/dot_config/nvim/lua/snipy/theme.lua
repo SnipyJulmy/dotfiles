@@ -1,5 +1,5 @@
 vim.g.catppuccin_flavour = "macchiato"
-require("catppuccin").setup()
+-- require("catppuccin").setup()
 
 vim.opt.termguicolors = true -- true color support
 vim.opt.background = "dark"
