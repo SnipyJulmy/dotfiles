@@ -40,4 +40,4 @@ vim.api.nvim_create_user_command("For", function(args)
   end)
 end, { nargs = 1 })
 
-vim.api.nvim_create_user_command("Char2Unicode", function() end, { nargs = 0 })
+-- vim.api.nvim_create_user_command("Char2Unicode", function() end, { nargs = 0 })
