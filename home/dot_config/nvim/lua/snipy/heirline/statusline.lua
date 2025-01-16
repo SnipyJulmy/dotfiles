@@ -32,7 +32,7 @@ do
     command = { name = "command", color = colors.green, bold = true },
     terminal = { name = "terminal", color = colors.aqua, bold = true },
     op = { name = "op", color = colors.purple, bold = true },
-    none = { name = "", color = colors.grey0, bold = colors.grey0, false },
+    none = { name = "", color = colors.bg, bold = true },
   }, {
     __call = function(self, raw_mode)
       return self[raw_mode] or self.none

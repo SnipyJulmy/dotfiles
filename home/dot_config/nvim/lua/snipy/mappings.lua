@@ -9,6 +9,8 @@ vim.keymap.set({ "n" }, "<Space>dq", vim.diagnostic.setloclist, opts)
 vim.keymap.set({ "n" }, "]d", vim.diagnostic.goto_next, opts)
 vim.keymap.set({ "n" }, "[d", vim.diagnostic.goto_prev, opts)
 
+local a = 1
+
 -- telescope
 vim.keymap.set({ "n" }, "<space>ff", [[<cmd>Telescope find_files<CR>]])
 vim.keymap.set({ "n" }, "<space>fF", [[<cmd>Telescope find_files hidden=true<CR>]])
