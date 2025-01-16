@@ -1,0 +1,13 @@
+{
+    "diagnostics.disable": [
+        "lowercase-global"
+    ],
+    "diagnostics.globals": [
+        "vim",
+        "it",
+        "describe",
+        "before_each",
+        "use",
+        "xplr"
+    ]
+}
