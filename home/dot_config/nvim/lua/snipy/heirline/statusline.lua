@@ -278,16 +278,15 @@ end
 
 local diagnostic
 do
-  local icons = vim.diagnostic.config(nil).signs.text
   diagnostic = {
     condition = function()
       return #vim.diagnostic.get(0) > 0
     end,
     static = {
-      error_icon = icons[vim.diagnostic.severity.ERROR],
-      warn_icon = icons[vim.diagnostic.severity.WARN],
-      info_icon = icons[vim.diagnostic.severity.INFO],
-      hint_icon = icons[vim.diagnostic.severity.HINT],
+      error_icon = "",
+      warn_icon = "",
+      info_icon = "󰌵",
+      hint_icon = "󰋽",
     },
     init = function(self)
       self.errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })

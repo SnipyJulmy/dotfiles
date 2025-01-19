@@ -41,13 +41,6 @@ return {
           ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
           ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
           ["<CR>"] = cmp.mapping.confirm({ select = false }),
-          ["<C-i"] = cmp.mapping.complete({
-            config = {
-              sources = {
-                { name = "cody" },
-              },
-            },
-          }),
 
           ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
@@ -72,7 +65,6 @@ return {
         end,
         sources = cmp.config.sources({
           { name = "nvim_lua" },
-          { name = "cody" },
           { name = "nvim_lsp" },
           { name = "nvim_lsp_document_symbol" },
           { name = "path" },
