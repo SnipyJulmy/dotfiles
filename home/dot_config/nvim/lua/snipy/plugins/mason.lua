@@ -14,7 +14,6 @@ return {
           "emmet_ls",
           "cssls",
           "dockerls",
-          "gopls",
           "helm_ls",
           "html",
           "jdtls",
