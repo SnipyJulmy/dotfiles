@@ -18,6 +18,8 @@ vim.o.completeopt = "menuone,noselect"
 
 vim.opt.mouse = "n" -- enable mouse in normal mode only
 
+vim.o.termguicolors = true
+
 vim.opt.expandtab = true -- tabs are spaces
 vim.opt.smarttab = false
 vim.opt.tabstop = 8 -- number of visual space per TAB
@@ -28,10 +30,10 @@ vim.opt.shiftround = true -- round indentation to a multiple of shiftwidth
 
 -- visual
 vim.opt.number = true -- show number
-vim.opt.relativenumber = true -- disable relative number and keep line number
+vim.opt.relativenumber = true
 vim.opt.scrolloff = 4 -- minimal amount of line before and after the cursor when scrolling
 vim.opt.sidescrolloff = 8 -- minimal amount of column to keep on the left and the right of the cursor
-vim.opt.wrap = false -- disable line wrap
+vim.opt.wrap = false
 vim.opt.hls = false -- remove highlight search
 
 -- windows

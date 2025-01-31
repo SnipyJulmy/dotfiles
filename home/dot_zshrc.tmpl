@@ -119,6 +119,8 @@ alias emacs="nvim"
 alias vscode="nvim"
 alias code="nvim"
 alias vs="nvim"
+alias vmi="nvim"
+
 alias f=fzf
 alias rr="source $HOME/.zshrc"
 alias lg="lazygit"
@@ -270,3 +272,6 @@ export PATH="$HOME/.jbang/bin:$PATH"
 # activate mise
 eval "$(~/.local/bin/mise activate zsh)"
 alias m=mise
+
+# source home-manager
+sourceIfExists "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"

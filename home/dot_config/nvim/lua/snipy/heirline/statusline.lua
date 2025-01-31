@@ -25,14 +25,14 @@ do
     normal = { name = "normal", color = colors.orange, bold = true },
     insert = { name = "insert", color = colors.blue, bold = true },
     visual = { name = "visual", color = colors.yellow, bold = true },
-    visual_lines = { name = "visual", colors = colors.yellow, bold = true },
-    visual_block = { name = "visual", colors = colors.yellow, bold = true },
+    visual_lines = { name = "visual", color = colors.yellow, bold = true },
+    visual_block = { name = "visual", color = colors.yellow, bold = true },
     select = { name = "select", color = colors.blue, bold = true },
     replace = { name = "replace", color = colors.red, bold = true },
     command = { name = "command", color = colors.green, bold = true },
     terminal = { name = "terminal", color = colors.aqua, bold = true },
     op = { name = "op", color = colors.purple, bold = true },
-    none = { name = "", color = colors.bg, bold = true },
+    none = { name = "none", color = colors.purple, bold = true },
   }, {
     __call = function(self, raw_mode)
       return self[raw_mode] or self.none
@@ -153,7 +153,6 @@ do
       return self.workdir
     end,
     hl = { bg = colors.bg, fg = colors.grey0 },
-    null,
   }
 
   local filepath = {
@@ -161,7 +160,6 @@ do
       return self.filepath
     end,
     hl = { bg = colors.bg, fg = colors.green },
-    null,
   }
 
   local filename = {
@@ -169,7 +167,6 @@ do
       return self.filename
     end,
     hl = { bg = colors.bg, fg = colors.yellow },
-    null,
   }
 
   local help_filename = {
@@ -183,7 +180,11 @@ do
   }
 
   filepath_block = {
-    { file_icon, space, workdir, filepath, filename },
+    file_icon,
+    space,
+    workdir,
+    filepath,
+    filename,
     fill,
   }
 end

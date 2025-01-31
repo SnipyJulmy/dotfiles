@@ -9,6 +9,7 @@ gui:
   commitAuthorLongLength: 17
   commitHashLength: 8
   showBranchCommitHash: false
+  skipDiscardChangeWarning: true
 os:
   edit: 'nvim {{filename}}'
   editAtLine: 'nvim +{{line}} {{filename}}'

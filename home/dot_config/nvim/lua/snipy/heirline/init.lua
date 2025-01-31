@@ -2,8 +2,6 @@ if not pcall(require, "heirline") then
   return
 end
 
-vim.o.showmode = false
-
 local statusline = require("snipy.heirline.statusline")
 
 local winbar = nil
