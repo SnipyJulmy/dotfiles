@@ -61,14 +61,12 @@ plugins=(
     nix-zsh-completions
 )
 
-source $ZSH/oh-my-zsh.sh
-
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
-### Helm install
+source $ZSH/oh-my-zsh.sh
+
 export HELM_EXPERIMENTAL_OCI=1
 
-### XDG
 export XDG_CONFIG_HOME=$HOME/.config
 
 ### Exports
