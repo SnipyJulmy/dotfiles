@@ -35,4 +35,18 @@ return {
       vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
     end,
   },
+  {
+    "Kicamon/markdown-table-mode.nvim",
+    config = function()
+      require("markdown-table-mode").setup({
+        filetype = { "*.md" },
+        options = {
+          insert = true,
+          insert_leave = true,
+          pad_separator_line = false,
+          alig_style = "default", -- left/center/right/default
+        },
+      })
+    end,
+  },
 }

@@ -31,6 +31,6 @@ matches:
     replace: "Ô"
   - trigger: ":Ot:"
     replace: "Ô"
-  - trigger: ":cc"
+  - trigger: ":cc:"
     replace: "\u00e7"
 # to check for other characters with accent : https://www.compart.com/fr/unicode/search?q=accent#characters

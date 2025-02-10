@@ -1,8 +1,5 @@
-local neogit = require("neogit")
-local gitsigns = require("gitsigns")
 local diffview = require("diffview")
-
-neogit.setup({})
+local gitsigns = require("gitsigns")
 
 gitsigns.setup({
   signs = {
@@ -44,7 +41,6 @@ diffview.setup({
   },
 })
 
-vim.keymap.set({ "n" }, "<Space>gg", neogit.open)
 vim.keymap.set({ "n" }, "<Space>gb", "<cmd>Git blame<CR>")
 vim.keymap.set({ "n" }, "M", "<cmd>GitMessenger<CR>")
 vim.keymap.set({ "n" }, "B", "<cmd>Gitsigns blame_line<CR>")
