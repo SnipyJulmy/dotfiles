@@ -20,7 +20,7 @@ return {
         -- sh = { "beautysh" },
         -- zsh = { "beautysh" },
         js = { "prettier" },
-        json = { "fixjson" },
+        -- json = { "fixjson" },
         -- yaml = { "yamllint" },
         terraform = { "terraform_fmt" },
         rust = { "rustfmt" },
