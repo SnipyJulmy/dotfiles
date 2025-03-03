@@ -241,7 +241,9 @@ do
     },
     init = function(self)
       self.status = vim.b.gitsigns_status_dict
-      self.changes = self.status.added ~= 0 or self.status.removed ~= 0 or self.status.changed ~= 0
+      self.changes = (self.status.added and self.status.added ~= 0)
+        or (self.status.removed and self.status.removed ~= 0)
+        or (self.status.changed and self.status.changed ~= 0)
     end,
     -- hl = { bg = colors.bg, fg = colors.orange },
     {
@@ -253,7 +255,7 @@ do
         elseif head == "dev" or head == "develop" then
           return colors.blue
         else
-          return colors.bg_yellow
+          return colors.purple
         end
       end, {
         hl = { fg = colors.bg3 },

@@ -5,9 +5,9 @@ end
 function _G.close_buffer()
   local nob = number_open_buffer()
   if nob > 1 then
-    vim.api.nvim_exec("bn|bd#", false)
+    vim.api.nvim_exec("bn|bd!#", false)
   else
-    vim.api.nvim_exec("bd", false)
+    vim.api.nvim_exec("bd!", false)
   end
 end
 

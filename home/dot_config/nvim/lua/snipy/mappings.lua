@@ -1,7 +1,3 @@
--- clear some mapping
-vim.keymap.set({ "n" }, "J", "", {})
-vim.keymap.set({ "n" }, "O", "", {})
-
 -- diagnostics
 local opts = { noremap = true, silent = true }
 vim.keymap.set({ "n" }, "<Space>de", vim.diagnostic.open_float, opts)

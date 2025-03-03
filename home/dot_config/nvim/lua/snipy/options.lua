@@ -1,10 +1,13 @@
----------------
--- Variables --
----------------
+-- clear some mapping before anything else
+vim.keymap.set({ "n" }, "J", "", {})
+vim.keymap.set({ "n" }, "O", "", {})
+vim.keymap.set({ "n" }, "<C-o>", "", {})
+vim.keymap.set({ "n" }, "<C-i>", "", {})
 
--- vim.o --> editor option
--- vim.bo --> buffer local option
--- vim.wo --> windows local option
+-- vim.o --> Editor option
+-- vim.bo --> Buffer local option
+-- vim.wo --> Windows local option
+-- vim.env --> Environment variables defined in the editor session.
 
 -- Prepend mise shims to PATH
 vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH

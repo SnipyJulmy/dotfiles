@@ -316,11 +316,10 @@ require("lspconfig").bashls.setup({
 --   on_attach = lsp.on_attach,
 -- })
 
--- Cucumber
 -- require("lspconfig").cucumber_language_server.setup({
--- cmd = { "cucumber-language-server", "--stdio" },
--- filetypes = { "cucumber" },
--- root_dir = lspUtil.find_git_ancestor,
--- capabilities = lsp.capabilities,
--- on_attach = lsp.on_attach,
+--   cmd = { "cucumber-language-server", "--stdio" },
+--   filetypes = { "cucumber" },
+--   root_dir = lspUtil.find_git_ancestor,
+--   capabilities = lsp.capabilities,
+--   on_attach = lsp.on_attach,
 -- })
