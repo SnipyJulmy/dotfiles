@@ -50,8 +50,10 @@ metals.sbt
 # BAZEL
 bazel-*
 
-### Neovim config
-.config/nvim/after
+### mise stuff
+mise.toml
+.mise-tasks/
+pitchfork.toml
 
 ### Python venv
 .venv
