@@ -1,11 +1,11 @@
 [user]
 {{- if eq .chezmoi.hostname "tuxsju" }}
-  email = sylvain.julmy@imtf.com
-  name = Sylvain Julmy (IMTF)
-  signingkey = sylvain.julmy@imtf.com
+    email = sylvain.julmy@imtf.com
+    name = Sylvain Julmy (IMTF)
+    signingkey = sylvain.julmy@imtf.com
 {{- else }}
-  email = sylvain.julmy@gmail.com
-  name = Sylvain (Snipy) Julmy
+    email = sylvain.julmy@gmail.com
+    name = Sylvain (Snipy) Julmy
 {{- end }}
 [core]
     excludesfile = ~/.gitignore
@@ -39,5 +39,5 @@
     skippedCherryPicks = false
 {{- if eq .chezmoi.hostname "tuxsju" }}
 [commit]
-  gpgsign = true
+    gpgsign = true
 {{- end }}
