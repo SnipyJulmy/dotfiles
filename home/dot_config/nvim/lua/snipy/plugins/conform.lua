@@ -23,8 +23,9 @@ return {
         -- json = { "fixjson" },
         -- yaml = { "yamllint" },
         terraform = { "terraform_fmt" },
-        rust = { "rustfmt" },
+        rust = { "rustfmt", lsp_format = "fallback" },
         go = { "gofmt" },
+        -- kotlin = { "ktfmt" },
         toml = { "taplo" },
       },
       format_on_save = {
