@@ -1,1 +1,0 @@
--- vim.keymap.set({ "n" }, "<S-CR>", "<cmd>cclose<CR>")
