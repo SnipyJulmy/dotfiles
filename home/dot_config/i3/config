@@ -164,8 +164,8 @@ bindsym $mod+0 workspace number $ws10
 
 
 # move current workspace
-bindsym $mod+m move workspace to output right
-bindsym $mod+n move workspace to output left
+# bindsym $mod+m move workspace to output right
+# bindsym $mod+n move workspace to output left
 
 bindsym $hyper+c reload
 bindsym $hyper+r restart

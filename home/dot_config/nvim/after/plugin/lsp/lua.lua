@@ -12,6 +12,7 @@ vim.lsp.config.lua_ls = {
     "selene.yml",
     "stylua.toml",
   },
+  workspace_required = false,
   settings = {
     Lua = {
       runtime = {
@@ -24,7 +25,6 @@ vim.lsp.config.lua_ls = {
       workspace = {
         library = {
           vim.env.VIMRUNTIME,
-          -- vim.api.nvim_get_runtime_file("", true),
         },
       },
       telemetry = {
@@ -38,4 +38,20 @@ vim.lsp.config.lua_ls = {
   },
 }
 
-vim.lsp.enable("lua_ls")
+vim.lsp.config.emmylua_ls = {
+  cmd = { "emmylua_ls" },
+  filetypes = { "lua" },
+  root_markers = {
+    ".git",
+    ".luacheckrc",
+    ".luarc.json",
+    ".luarc.jsonc",
+    ".stylua.toml",
+    "selene.toml",
+    "selene.yml",
+    "stylua.toml",
+  },
+  workspace_required = false,
+}
+
+vim.lsp.enable({ "lua_ls" })

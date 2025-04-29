@@ -29,15 +29,14 @@ set -g default-command /usr/bin/zsh
 {{ end }}
 
 # session options
+set-option -g default-terminal "tmux-256color"
+set-option -sg terminal-overrides ",*:RGB"
 set-option -g base-index 1 # 0 is too far
 set-option -g status-keys vi
 set-option -g history-limit 10000
 set-option -g set-titles on
-set-option -g default-terminal screen-256color
 
-# server options
 set-option -s escape-time 0 # fix timeout hell
-set-option -sa terminal-overrides ',xterm-256color:RGB' # note : -a is to append to the options
 set-option -s set-clipboard off
 
 # window options
