@@ -82,10 +82,8 @@ bind-key -n M-x split-window -c "#{pane_current_path}"
 
 bind-key g command-prompt -p "Command: "  "display-popup -E '%1'"
 
-# PLUGINS
-
 # List of plugins
-set -g @plugin 'tmux-plugins/tpm'             # plugin manager
+set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'   
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'

@@ -29,7 +29,7 @@ end
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
   group = vim.api.nvim_create_augroup("metals", { clear = true }),
-  pattern = { "scala", "sbt", "java" },
+  pattern = { "scala", "sbt" },
   callback = function()
     require("metals").initialize_or_attach(metals_config)
   end,

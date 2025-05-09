@@ -22,6 +22,7 @@ return {
         js = { "prettier" },
         -- json = { "fixjson" },
         -- yaml = { "yamllint" },
+        typst = { "typstyle" },
         terraform = { "terraform_fmt" },
         rust = { "rustfmt", lsp_format = "fallback" },
         go = { "gofmt" },
