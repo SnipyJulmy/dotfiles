@@ -11,8 +11,14 @@ vim.keymap.set({ "n" }, "<C-c>", "<ESC>", opts)
 
 vim.keymap.set({ "n" }, "<Space>de", vim.diagnostic.open_float, opts)
 vim.keymap.set({ "n" }, "<Space>dq", vim.diagnostic.setloclist, opts)
-vim.keymap.set({ "n" }, "]d", vim.diagnostic.goto_next, opts)
-vim.keymap.set({ "n" }, "[d", vim.diagnostic.goto_prev, opts)
+
+vim.keymap.set({ "n" }, "]d", function()
+  vim.diagnostic.jump({ count = 1 })
+end, opts)
+
+vim.keymap.set({ "n" }, "[d", function()
+  vim.diagnostic.jump({ count = -1 })
+end, opts)
 
 vim.keymap.set({ "n" }, "<F10>", "<cmd>wqa<CR>", opts)
 
@@ -23,12 +29,6 @@ vim.keymap.set({ "t" }, "<C-w>k", [[<C-\><C-n><C-W>k]], opts)
 vim.keymap.set({ "t" }, "<C-w>l", [[<C-\><C-n><C-W>l]], opts)
 
 vim.keymap.set({ "n" }, "<C-w><C-w>", "<C-w><C-p>", opts)
-vim.keymap.set({ "n" }, "<C-w><C-p>", function()
-  if pcall(require, "window-picker") then
-    local window_id = require("window-picker").pick_window() or vim.api.nvim_get_current_win()
-    vim.api.nvim_set_current_win(window_id, opts)
-  end
-end, opts)
 
 vim.keymap.set({ "n" }, "<C-M-j>", "<cmd>resize -2<CR>")
 vim.keymap.set({ "n" }, "<C-M-k>", "<cmd>resize +2<CR>")
