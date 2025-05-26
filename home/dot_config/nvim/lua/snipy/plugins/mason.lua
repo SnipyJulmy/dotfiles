@@ -50,6 +50,7 @@ return {
           "yaml-language-server",
           "yamlfix",
           "yamllint",
+          "harper-ls",
         },
         auto_update = false,
         run_on_start = true,

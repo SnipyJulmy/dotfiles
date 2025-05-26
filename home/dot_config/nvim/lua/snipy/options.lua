@@ -1,7 +1,7 @@
--- vim.o --> Editor option
--- vim.bo --> Buffer local option
--- vim.wo --> Windows local option
--- vim.env --> Environment variables defined in the editor session.
+-- vim.o -> Editor option
+-- vim.bo -> Buffer local option
+-- vim.wo -> Windows local option
+-- vim.env -> Environment variables defined in the editor session.
 
 -- Prepend mise shims to PATH
 vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH
@@ -15,18 +15,19 @@ vim.g.loaded_python3_provider = 0
 -- vim.g.python_host_prog = os.getenv("HOME") .. "/.pyenv/versions/neovim2/bin/python"
 -- vim.g.python_host_prog = os.getenv("HOME") .. "/.pyenv/versions/neovim3/bin/python"
 
-vim.opt.mouse = "n" -- enable mouse in normal mode only
+vim.opt.mouse = "n"
 
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 
-vim.opt.expandtab = true -- tabs are spaces
+vim.opt.expandtab = true
 vim.opt.smarttab = false
-vim.opt.tabstop = 8 -- number of visual space per TAB
-vim.opt.shiftwidth = 2 -- number of space to use for autoindent
-vim.opt.softtabstop = 2 -- number of space per TAB when editing
-vim.opt.autoindent = true -- keep indent on <CR>
-vim.opt.shiftround = true -- round indentation to a multiple of shiftwidth
+vim.opt.tabstop = 8
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.autoindent = true
+vim.opt.shiftround = true
 
 -- visual
 vim.opt.number = true -- show number
@@ -60,4 +61,4 @@ vim.opt.shortmess:remove({ "F" })
 vim.bo.fixendofline = false
 
 -- folding
-vim.wo.foldenable = false -- disable folding
+vim.wo.foldenable = false

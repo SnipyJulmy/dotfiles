@@ -5,7 +5,7 @@ vim.loader.enable()
 ---@diagnostic disable-next-line: duplicate-set-field
 vim.deprecate = function() end -- disable deprecate messages
 
--- set leader key to ',', this should happend before any plugin requirement
+-- set leader key to ',', this should happen before any plugin requirement
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
