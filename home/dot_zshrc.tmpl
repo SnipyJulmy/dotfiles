@@ -191,7 +191,7 @@ function gitRebaseMain() {
 }
 
 # .gitignore
-function gi() { curl -sLw https://www.gitignore.io/api/$@ ;}
+function gi() { curl -sLw "\n" "https://www.toptal.com/developers/gitignore/api/$@" | sed -e '/^#/d' -e '/^$/d' ;}
 
 # golang
 # export PATH="$HOME/.gobrew/current/bin:$HOME/.gobrew/bin:$PATH"
