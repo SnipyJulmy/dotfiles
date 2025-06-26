@@ -20,4 +20,4 @@ vim.lsp.config.kotlin_lsp = {
   settings = {},
 }
 
-vim.lsp.enable("kotlin_lsp")
+-- vim.lsp.enable("kotlin_lsp")

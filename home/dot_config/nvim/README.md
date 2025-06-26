@@ -16,4 +16,4 @@
 
 ## Todo
 
-* move lsp config per language/filetype into either nvim/ftplugin files or nvim/after/ftplugin
+* move lsp configs to lua/snipy/lsp/(init.lua|*.lua) instead of ftplugin

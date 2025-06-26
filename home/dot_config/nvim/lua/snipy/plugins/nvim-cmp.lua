@@ -34,29 +34,13 @@ return {
         },
         mapping = {
           ["<C-Space>"] = cmp.mapping.complete(),
-          ["<CR>"] = cmp.mapping({
-            i = function(fallback)
-              if cmp.visible() and cmp.get_active_entry() then
-                cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-              else
-                fallback()
-              end
-            end,
-            s = function(fallback)
-              if cmp.visible() and cmp.get_active_entry() then
-                cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-              else
-                fallback()
-              end
-            end,
-            c = function(fallback)
-              if cmp.visible() and cmp.get_active_entry() then
-                cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-              else
-                fallback()
-              end
-            end,
-          }),
+          ["<CR>"] = cmp.mapping(function(fallback)
+            if cmp.visible() and cmp.get_active_entry() then
+              cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
+            else
+              fallback()
+            end
+          end, { "i", "n", "s" }),
           ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()

@@ -1,10 +1,28 @@
-vim.keymap.set({ "n" }, "<space>ff", [[<cmd>Telescope find_files<CR>]])
-vim.keymap.set({ "n" }, "<space>fF", [[<cmd>Telescope find_files hidden=true<CR>]])
-vim.keymap.set({ "n" }, "<space>fg", [[<cmd>Telescope live_grep<CR>]])
-vim.keymap.set({ "n" }, "<space>fl", [[<cmd> lua require'telescope.builtin'.grep_string({search = vim.fn.expand("<cword>")})<CR>]])
-vim.keymap.set({ "n" }, "<space>fb", [[<cmd>Telescope buffers<CR>]])
-vim.keymap.set({ "n" }, "<space>fh", [[<cmd>Telescope help_tags<CR>]])
-vim.keymap.set({ "n" }, "<space>fs", [[<cmd>Telescope lsp_document_symbols<CR>]])
-vim.keymap.set({ "n" }, "<space>fm", [[<cmd>Telescope harpoon marks<CR>]])
-vim.keymap.set({ "n" }, "<space>fa", [[<cmd>Telescope man_pages<CR>]])
-vim.keymap.set({ "n" }, "<space>fcc", [[<cmd>Telescope git_commits<CR>]])
+addWhichKey({
+  { "<space>f", group = "Telescope", mode = "n" },
+  { "<space>ff", desc = "Find files", mode = "n" },
+  { "<space>fg", desc = "Live grep", mode = "n" },
+  { "<space>fh", desc = "Find help tag", mode = "n" },
+  { "<space>fq", desc = "Find quickfix", mode = "n" },
+})
+
+local builtin = require("telescope.builtin")
+
+vim.keymap.set({ "n" }, "<Space>ff", function()
+  builtin.find_files({
+    no_ignore = false,
+    hidden = true,
+  })
+end)
+
+vim.keymap.set({ "n" }, "<Space>fg", function()
+  builtin.live_grep({})
+end)
+
+vim.keymap.set({ "n" }, "<Space>fh", function()
+  builtin.help_tags({})
+end)
+
+vim.keymap.set({ "n" }, "<Space>fq", function()
+  builtin.quickfix({})
+end)

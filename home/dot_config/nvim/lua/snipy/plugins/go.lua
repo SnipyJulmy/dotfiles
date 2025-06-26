@@ -12,8 +12,11 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
     },
-    config = function()
-      require("go").setup()
+    opts = {
+      lsp_keymaps = false,
+    },
+    config = function(opts)
+      require("go").setup(opts)
     end,
     event = { "CmdlineEnter" },
     ft = { "go", "gomod", "gowork", "gotmpl" },

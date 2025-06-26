@@ -1,6 +1,9 @@
 -- enables the experimental Lua module loader
--- see :h vim.loader.enable()
-vim.loader.enable()
+if vim.loader then
+  vim.loader.enable()
+end
+
+require("snipy.global")
 
 ---@diagnostic disable-next-line: duplicate-set-field
 vim.deprecate = function() end -- disable deprecate messages
@@ -51,7 +54,6 @@ require("lazy").setup("snipy.plugins", {
   },
 })
 
-require("snipy.global")
 require("snipy.ui")
 
 -- require("snipy.dap")

@@ -13,6 +13,12 @@ return {
           args = {},
           stdin = false,
         },
+        yamlfix = {
+          env = {
+            YAMLFIX_LINE_LENGTH = "280",
+            YAMLFIX_SEQUENCE_STYLE = "block_style",
+          },
+        },
       },
       formatters_by_ft = {
         lua = { "stylua" },
@@ -22,7 +28,7 @@ return {
         zsh = { "beautysh" },
         js = { "prettier" },
         -- json = { "fixjson" },
-        -- yaml = { "yamllint" },
+        yaml = { "yamlfix" },
         typst = { "typstyle" },
         terraform = function(_)
           if vim.fn.executable("terraform") == 1 then

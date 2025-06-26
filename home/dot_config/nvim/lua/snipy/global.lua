@@ -31,16 +31,24 @@ function _G.fmap(f, tbl)
   return res
 end
 
----@param t1 table
----@param t2 table
----@return table t1 and t2 merge together with t2 having an higher priority
-function _G.merge(t1, t2)
+---@param lhs table
+---@param rhs table
+---@return table return the union of lhs and rhs with the right table overwriting the left one
+function _G.merge(lhs, rhs)
   local t3 = {}
-  for i, v in ipairs(t1) do
+  for i, v in ipairs(lhs) do
     t3[i] = v
   end
-  for i, v in ipairs(t2) do
+  for i, v in ipairs(rhs) do
     t3[i] = v
   end
   return t3
+end
+
+---@param table table the which key table containing the mapping to add to the which-key plugin
+function _G.addWhichKey(table)
+  if pcall(require, "which-key") then
+    local wk = require("which-key")
+    wk.add(table)
+  end
 end
