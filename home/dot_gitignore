@@ -51,9 +51,9 @@ metals.sbt
 bazel-*
 
 ### mise stuff
-mise.toml
-.mise-tasks/
-pitchfork.toml
+mise.local.toml
+.local.mise-tasks/
+.local.pitchfork.toml
 
 ### Python venv
 .venv
