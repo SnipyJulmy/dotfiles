@@ -1,11 +1,11 @@
 add_newline = false
 scan_timeout = 10
-command_timeout	= 500
+command_timeout = 500
 
 [character]
 success_symbol = "[λ](bold green)"
-error_symbol   = "[λ](bold red)"
-vicmd_symbol   = "[λ](bold blue)"
+error_symbol = "[λ](bold red)"
+vicmd_symbol = "[λ](bold blue)"
 
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
@@ -159,4 +159,3 @@ format = '\[[$symbol($version)]($style)\]'
 
 [zig]
 format = '\[[$symbol($version)]($style)\]'
-
