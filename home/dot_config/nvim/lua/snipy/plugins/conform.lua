@@ -31,6 +31,7 @@ return {
         yaml = { "yamlfix" },
         typst = { "typstyle" },
         bzl = { "buildifier" },
+        java = { "google-java-format" },
         terraform = function(_)
           if vim.fn.executable("terraform") == 1 then
             return { "terraform_fmt" }
